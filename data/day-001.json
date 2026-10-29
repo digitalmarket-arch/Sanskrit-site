@@ -1,0 +1,92 @@
+{
+  "day": 1,
+  "date": "2026-10-27",
+  "title": "The 13 vowels",
+  "stage": "Stage 0 - Sounds and script",
+  "review": false,
+  "video": {
+    "title": "Master the Sanskrit sounds (Varnamala series, episode 1)",
+    "url": "https://www.youtube.com/watch?v=oQmoh-z-gGc",
+    "channel": "Tattvam",
+    "language": "English",
+    "minutes": 10,
+    "focus": "How each vowel is made in the mouth, and the difference between the short and long pairs (इ/ई, उ/ऊ). Notice that the teacher says the final अ in every word."
+  },
+  "altVideo": {
+    "title": "संस्कृत वर्णमाला के सभी वर्णों का ज्ञान",
+    "url": "https://www.youtube.com/watch?v=n24E7rXHIWQ",
+    "channel": "Success ग्रंथ",
+    "language": "Hindi",
+    "minutes": 10
+  },
+  "idea": [
+    "A **vowel** (स्वर, svara) is a sound you can sing on its own, with nothing blocking the air. Sanskrit has thirteen: अ आ इ ई उ ऊ ऋ ॠ ऌ ए ऐ ओ औ.",
+    "Hindi charts usually show अं and अः in the vowel row. In Sanskrit those two are not vowels: the dot (anusvāra) and the two dots (visarga) are extra sounds that come after a vowel. Tomorrow's lesson is about them.",
+    "## Short and long",
+    "- Short, one beat (मात्रा, mātrā = a beat of time): अ इ उ ऋ ऌ",
+    "- Long, two beats: आ ई ऊ ॠ",
+    "- Always long: ए ऐ ओ औ",
+    "Length changes meaning. दिन (dina) is a day; दीन (dīna) is poor. Hold the long ones for a full two beats, longer than you would in Hindi.",
+    "## The final a",
+    "In Hindi you say राम as \"Rām\" and drop the last vowel. Sanskrit never drops it: राम is rāma, देव is deva, धर्म is dharma. Every consonant without a mark carries a spoken अ. This is the biggest habit to change, so check it in every word you read this week.",
+    "## ऋ, ऐ and औ",
+    "- ऋ is a vowel, not र + इ. Say a short, crisp \"ri\" with the tongue curled back: ऋषि (ṛṣi), कृपा (kṛpā). South Indian speakers say \"ru\"; both are heard today.",
+    "- ऐ is two sounds in one, a + i, like \"ai\" in aisle: ऐक्य (aikya). Not the flat \"ae\" of Hindi है.",
+    "- औ is a + u, like \"ou\" in loud: औषध (auṣadha). Not the \"aw\" of Hindi और.",
+    "ॠ and ऌ are rare. Learn to recognise them (पितॄन् pitṝn, कॢप्त kḷpta) and move on."
+  ],
+  "examples": [
+    { "dev": "राम", "iast": "rāma", "meaning": "Rāma: say the final a" },
+    { "dev": "दिन / दीन", "iast": "dina / dīna", "meaning": "day / poor: short vs long इ" },
+    { "dev": "कुल / कूल", "iast": "kula / kūla", "meaning": "family / river bank: short vs long उ" },
+    { "dev": "ऋषि", "iast": "ṛṣi", "meaning": "sage: ऋ is a vowel" },
+    { "dev": "ऐक्य", "iast": "aikya", "meaning": "unity: ऐ = a + i" },
+    { "dev": "औषध", "iast": "auṣadha", "meaning": "medicine: औ = a + u" }
+  ],
+  "sayAloud": [
+    { "dev": "गुरु", "iast": "guru", "meaning": "teacher: short u, short u" },
+    { "dev": "ईश्वर", "iast": "īśvara", "meaning": "God: long ī, and the final a" },
+    { "dev": "नमस्ते। मम नाम ______।", "iast": "namaste, mama nāma ...", "meaning": "Hello. My name is ... Say it with your own name." }
+  ],
+  "words": [
+    { "dev": "नमस्ते", "iast": "namaste", "meaning": "greetings, hello" },
+    { "dev": "नाम", "iast": "nāma", "meaning": "name" },
+    { "dev": "मम", "iast": "mama", "meaning": "my" },
+    { "dev": "गुरु", "iast": "guru", "meaning": "teacher" },
+    { "dev": "देव", "iast": "deva", "meaning": "god, deity" }
+  ],
+  "quiz": [
+    {
+      "q": "How many vowels does Sanskrit have?",
+      "options": ["11", "13", "16"],
+      "answer": "b",
+      "why": "अ आ इ ई उ ऊ ऋ ॠ ऌ ए ऐ ओ औ. The dot (ं) and two dots (ः) are not vowels."
+    },
+    {
+      "q": "Which word has a long vowel in its first syllable?",
+      "options": ["दिन", "दीन", "कुल"],
+      "answer": "b",
+      "why": "दीन is dīna, with long ī: two beats. दिन and कुल have short vowels."
+    },
+    {
+      "q": "In Sanskrit, how do you say राम?",
+      "options": ["rām", "rāma", "rāmu"],
+      "answer": "b",
+      "why": "Every written अ is spoken. Dropping the final a is a Hindi habit."
+    },
+    {
+      "q": "ऐ in Sanskrit sounds like:",
+      "options": ["the \"a\" in cat", "a + i, like \"aisle\"", "the \"e\" in pen"],
+      "answer": "b",
+      "why": "ऐ is a two-part vowel, a followed by i. ऐक्य is aikya."
+    },
+    {
+      "q": "Which of these is NOT a vowel in Sanskrit?",
+      "options": ["ऋ", "अं", "ऌ"],
+      "answer": "b",
+      "why": "अं is the vowel अ plus the anusvāra dot. ऋ and ऌ are real vowels, even though ऌ is rare."
+    }
+  ],
+  "extra": "Read the vowel row aloud twice, once short-long in pairs (अ आ, इ ई, उ ऊ, ऋ ॠ) and once straight through.",
+  "audio": "audio/day-001.mp3"
+}

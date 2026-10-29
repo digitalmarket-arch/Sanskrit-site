@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sanskritam Daily</title>
+<meta name="description" content="One Sanskrit lesson a day: video, explanation, audio and quiz, from the sounds to the Gītā.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: one reading column (max 44rem) under a sticky wordmark bar. Home = today's lesson, a progress board and the course list by stage.
+   Lesson = a reading page in the same order as the chat lesson: video, idea, examples, say it aloud, words, audio, quiz. */
+:root {
+  --bg: #f1f0eb;
+  --surface: #fbfaf7;
+  --surface-2: #e9e7df;
+  --fg: #1f1c18;
+  --muted: #68625a;
+  --line: #d8d4ca;
+  --accent: #2c3b8a;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4e7f6;
+  --saffron: #c4701a;
+  --saffron-soft: #f6e5d0;
+  --ok: #2b7a4e;
+  --ok-soft: #dcefe3;
+  --bad: #ae392d;
+  --bad-soft: #f6dcd8;
+  --dev: "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", "Kohinoor Devanagari", "Mangal", serif;
+  --body: "Gentium Plus", "Gentium Book Plus", "Charis SIL", "Noto Serif", Georgia, "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", serif;
+  --ui: "Atkinson Hyperlegible", "Segoe UI", Roboto, system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14161d; --surface: #1c1f28; --surface-2: #262a36; --fg: #ebe6dc; --muted: #a39c90; --line: #2f3340;
+    --accent: #a3aeff; --accent-ink: #10132a; --accent-soft: #252a45; --saffron: #e3a04d; --saffron-soft: #3a2d1c;
+    --ok: #7bcf9d; --ok-soft: #1f3a2b; --bad: #f08c80; --bad-soft: #452523; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14161d; --surface: #1c1f28; --surface-2: #262a36; --fg: #ebe6dc; --muted: #a39c90; --line: #2f3340;
+  --accent: #a3aeff; --accent-ink: #10132a; --accent-soft: #252a45; --saffron: #e3a04d; --saffron-soft: #3a2d1c;
+  --ok: #7bcf9d; --ok-soft: #1f3a2b; --bad: #f08c80; --bad-soft: #452523; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: var(--accent); }
+h1, h2, h3 { font-weight: 400; line-height: 1.2; text-wrap: balance; margin: 0; }
+button { font: inherit; color: inherit; }
+img, iframe, video { max-width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar-in { max-width: 44rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-block: .55rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wordmark { display: flex; align-items: baseline; gap: .6rem; text-decoration: none; color: var(--fg); min-width: 0; }
+.wordmark .dev { font-size: 1.15rem; color: var(--accent); }
+.wordmark .en { font-family: var(--ui); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.chip { font-family: var(--ui); font-size: .78rem; padding: .25rem .6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+
+main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--ui); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.dev { font-family: var(--dev); }
+.iast { font-style: italic; }
+.muted { color: var(--muted); }
+.mono { font-variant-numeric: tabular-nums; }
+.small { font-family: var(--ui); font-size: .85rem; }
+
+/* home */
+.hero { padding-block: 1.25rem .5rem; }
+.hero h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); }
+.hero .sub { margin: .35rem 0 0; color: var(--muted); max-width: 32rem; }
+.today { margin-top: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.2rem; display: grid; gap: .5rem; }
+.today h2 { font-size: 1.5rem; }
+.today .meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; color: var(--muted); font-family: var(--ui); font-size: .85rem; }
+.btn { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--ui); font-size: .95rem; font-weight: 700; text-decoration: none;
+  padding: .6rem 1rem; border-radius: 10px; border: 1px solid transparent; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.btn.secondary { background: transparent; color: var(--accent); border-color: var(--line); }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: .3rem; }
+
+.board { margin-top: 1.5rem; display: grid; gap: .8rem; }
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 560px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7rem .85rem; min-width: 0; }
+.tile .v { font-family: var(--ui); font-size: 1.55rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.tile .v small { font-size: .9rem; font-weight: 400; color: var(--muted); }
+.tile .l { font-family: var(--ui); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: .2rem; }
+.bars { display: grid; gap: .5rem; }
+.bars .row { display: flex; justify-content: space-between; gap: 1rem; font-family: var(--ui); font-size: .85rem; }
+.track { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.track > i { display: block; height: 100%; background: var(--saffron); width: 0; transition: width .4s ease; }
+.note { font-family: var(--ui); font-size: .82rem; color: var(--muted); }
+
+.course { margin-top: 2rem; }
+.course h2 { font-size: 1.3rem; margin-bottom: .25rem; }
+.stage { margin-top: 1.4rem; }
+.stage-h { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
+.stage-h h3 { font-size: 1.05rem; }
+.stage-h span { font-family: var(--ui); font-size: .8rem; color: var(--muted); white-space: nowrap; }
+.days { list-style: none; margin: 0; padding: 0; }
+.day { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; align-items: center; gap: .6rem; padding: .5rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.day .n { font-family: var(--ui); font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
+.day a, .day .t { text-decoration: none; color: var(--fg); }
+.day .t { min-width: 0; }
+.day.up { color: var(--muted); }
+.day.up .t { color: var(--muted); }
+.day .st { font-family: var(--ui); font-size: .78rem; white-space: nowrap; color: var(--muted); display: flex; align-items: center; gap: .45rem; }
+.day .st.open { color: var(--accent); font-weight: 700; }
+.day .st .score { color: var(--ok); font-weight: 700; }
+.day.review .t::after { content: " review"; font-family: var(--ui); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--saffron); margin-left: .35rem; }
+.ticks { display: inline-flex; gap: .2rem; }
+.tick { width: 1.15rem; height: 1.15rem; border-radius: 50%; display: inline-grid; place-items: center; font-size: .62rem; font-family: var(--ui); background: var(--surface-2); color: var(--muted); }
+.tick.on { background: var(--ok-soft); color: var(--ok); }
+.how { margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+.how ol { padding-left: 1.2rem; margin: .4rem 0; }
+
+/* lesson */
+.crumbs { display: flex; justify-content: space-between; gap: 1rem; align-items: center; font-family: var(--ui); font-size: .85rem; }
+.crumbs a { text-decoration: none; }
+.lesson-h { margin-top: .8rem; }
+.lesson-h h1 { font-size: clamp(1.7rem, 5.5vw, 2.3rem); margin-top: .2rem; }
+.lesson-h .meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; color: var(--muted); font-family: var(--ui); font-size: .85rem; margin-top: .45rem; }
+.steps { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+.step { font-family: var(--ui); font-size: .78rem; padding: .25rem .6rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); display: inline-flex; gap: .35rem; align-items: center; }
+.step.on { background: var(--ok-soft); color: var(--ok); }
+.done-btn { font-family: var(--ui); font-size: .8rem; padding: .25rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+.done-btn.on { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
+.section { margin-top: 1.9rem; }
+.section > h2 { font-size: 1.25rem; padding-bottom: .3rem; border-bottom: 1px solid var(--line); margin-bottom: .7rem; display: flex; align-items: baseline; gap: .6rem; }
+.section > h2 .k { font-family: var(--ui); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--saffron); }
+.recap { background: var(--saffron-soft); border-radius: 10px; padding: .7rem .9rem; margin-top: 1rem; font-size: .97rem; }
+.player { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.player + .player { margin-top: .9rem; }
+.frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; }
+.frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player .cap { padding: .75rem .95rem; }
+.player .vt { font-size: 1.05rem; line-height: 1.3; }
+.player .vm { font-family: var(--ui); font-size: .82rem; color: var(--muted); margin-top: .15rem; }
+.player .focus { margin: .5rem 0 0; font-size: .97rem; }
+.player .row { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin-top: .6rem; font-family: var(--ui); font-size: .85rem; }
+.player .row a { text-decoration: none; }
+.pill { font-family: var(--ui); font-size: .8rem; padding: .25rem .65rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+.pill.on { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
+.pill.sel { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.prose p { margin: 0 0 .8rem; }
+.prose ul { margin: 0 0 .8rem; padding-left: 1.2rem; }
+.prose li { margin: .15rem 0; }
+.prose h3 { font-size: 1.05rem; margin: 1rem 0 .4rem; font-family: var(--ui); }
+.prose .dev { font-size: 1.1em; }
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.rows li { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: .3rem .9rem; align-items: baseline; padding: .45rem 0; border-bottom: 1px dashed var(--line); min-width: 0; }
+.rows .dev { font-size: 1.35rem; line-height: 1.3; }
+.rows .iast { color: var(--accent); }
+.rows .m { color: var(--muted); }
+@media (max-width: 480px) { .rows li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .rows .m { grid-column: 1 / -1; } }
+.say { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.say li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7rem .9rem; }
+.say .dev { font-size: 1.5rem; line-height: 1.35; display: block; }
+.say .sub { color: var(--muted); font-size: .95rem; }
+.audio { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; display: grid; gap: .6rem; }
+.audio audio { width: 100%; max-width: 100%; }
+.audio .ctl { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-family: var(--ui); font-size: .85rem; color: var(--muted); }
+.quiz { display: grid; gap: 1rem; }
+.q { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .85rem 1rem; }
+.q .qt { display: flex; gap: .6rem; }
+.q .qn { font-family: var(--ui); color: var(--muted); font-variant-numeric: tabular-nums; }
+.opts { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; gap: .4rem; }
+.opt { width: 100%; text-align: left; display: flex; gap: .6rem; align-items: baseline; padding: .5rem .7rem; border-radius: 9px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+.opt .l { font-family: var(--ui); font-size: .8rem; color: var(--muted); min-width: 1.1rem; }
+.opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+.opt.right { border-color: var(--ok); background: var(--ok-soft); }
+.opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
+.q input[type=text] { width: 100%; max-width: 100%; margin-top: .6rem; font: inherit; font-size: 1.05rem; padding: .5rem .7rem; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.why { margin-top: .6rem; padding: .55rem .75rem; border-radius: 9px; background: var(--surface-2); font-size: .95rem; }
+.why.right { background: var(--ok-soft); }
+.why.wrong { background: var(--bad-soft); }
+.selfmark { display: flex; gap: .5rem; margin-top: .5rem; }
+.result { font-family: var(--ui); font-size: 1rem; padding: .7rem .9rem; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
+.teacher { font-family: var(--ui); font-size: .9rem; padding: .6rem .9rem; border-radius: 10px; background: var(--ok-soft); color: var(--ok); margin-bottom: .8rem; }
+.extra { background: var(--saffron-soft); border-radius: 10px; padding: .7rem .9rem; }
+.navrow { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: var(--ui); font-size: .9rem; }
+.navrow a { text-decoration: none; }
+.empty { margin-top: 1.2rem; padding: 1.2rem; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="#home"><span class="dev">संस्कृतं प्रतिदिनम्</span><span class="en">Sanskritam Daily</span></a>
+    <span class="chip" id="chip" hidden></span>
+  </div>
+</header>
+<main id="app">
+  <section class="hero">
+    <h1>Sanskritam Daily</h1>
+    <p class="sub">One Sanskrit lesson a day: a video, a short explanation, words to say aloud, audio and a quiz. From the sounds to the Gītā.</p>
+  </section>
+  <div class="empty" id="boot">Loading the course…</div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  // ---------- course plan ----------
+  var BASE = Date.UTC(2026, 9, 29);            // Day N (N >= 2) is on 29 Oct 2026 + (N - 1) days
+  var DAY1_DATE = Date.UTC(2026, 9, 27);        // Day 1 was taught on 27 Oct 2026
+  var LESSON_TIME = "about 12:40 PM";
+  var STAGES = [
+    { name: "Stage 0 · Sounds and script", from: 1, to: 13 },
+    { name: "Stage 1 · Foundations", from: 14, to: 111 }
+  ];
+  var TOPICS = {
+    1: "The 13 vowels", 2: "Anusvāra and visarga", 3: "The 25 stop consonants and the nasals",
+    4: "Hindi trouble spots: ट vs त, ण vs न, ङ and ञ", 5: "य र ल व, श ष स ह; ज्ञ and क्ष", 6: "Review: the sounds",
+    7: "Virāma, conjuncts, reph and avagraha", 8: "IAST: the Roman letters", 9: "Syllables: light and heavy",
+    10: "A first look at sandhi", 11: "Reading: ॐ सह नाववतु", 12: "Reading: Gītā 2.47", 13: "Stage 0 gate test",
+    14: "First sentences: सः / सा + verb", 15: "अहम् / त्वम्; introducing yourself", 16: "All nine present forms of पठ्",
+    17: "What cases are: 1st and 2nd case", 18: "Neuter -a nouns: फलम्", 19: "Question words; अस्ति / नास्ति",
+    20: "Review + speaking task", 21: "3rd case: with, by", 22: "4th case: to, for", 23: "5th case: from", 24: "6th case: of",
+    25: "7th case: in, on, at; the vocative", 26: "The full राम table", 27: "Review: cases", 28: "Feminine -ā nouns: लता",
+    29: "Feminine dual and plural", 30: "The pronoun तद्: सः सा तत्", 31: "अस्मद् and युष्मद् in all cases",
+    32: "Polite भवान् / भवती", 33: "Common indeclinables", 34: "Review + a short dialogue", 35: "Imperative (लोट्)",
+    36: "Future (लृट्)", 37: "Past (लङ्)", 38: "Spoken past: -तवान् / -तवती", 39: "Verbs with special present stems",
+    40: "Numbers 1–20 and telling time", 41: "Review: your day in three tenses", 42: "Masculine -i nouns: हरि",
+    43: "Masculine -u nouns: गुरु", 44: "Feminine -ī and -i nouns: नदी, मति", 45: "Adjectives agree",
+    46: "Vowel sandhi 1: dīrgha and guṇa", 47: "Vowel sandhi 2: vṛddhi and yaṇ", 48: "Review", 49: "Having done: क्त्वा / ल्यप्",
+    50: "To do: तुमुन्", 51: "The past participle (क्त)", 52: "Guided reading: NCERT Deepakam 6", 53: "Visarga sandhi basics",
+    54: "Speaking at home and at the market", 55: "Review: mini gate quiz"
+  };
+  var BLOCKS = [
+    [56, 62, "The optative (विधिलिङ्); यदि–तर्हि; the relative यद्"],
+    [63, 69, "Consonant sandhi basics; reading Deepakam 7"],
+    [70, 76, "Full -i, -u, -ī tables; numbers 1–4 declined"],
+    [77, 83, "Ātmanepada verbs"],
+    [84, 90, "Present participles; gerundives"],
+    [91, 97, "Compounds: dvandva, tatpuruṣa, karmadhāraya, bahuvrīhi"],
+    [98, 104, "Passive voice; causative"],
+    [105, 111, "Consonant-stem nouns; one Gītā 12 verse a day"]
+  ];
+  var WORDS_PER_LESSON = 5;
+  function topicOf(n) {
+    if (TOPICS[n]) return TOPICS[n];
+    for (var i = 0; i < BLOCKS.length; i++) if (n >= BLOCKS[i][0] && n <= BLOCKS[i][1]) return (n === BLOCKS[i][1] ? "Review · " : "") + BLOCKS[i][2];
+    return "Stage 2";
+  }
+  function isReview(n) { return n % 7 === 6; }
+  function stageOf(n) { for (var i = 0; i < STAGES.length; i++) if (n >= STAGES[i].from && n <= STAGES[i].to) return STAGES[i].name; return "Stage 2"; }
+
+  // ---------- dates ----------
+  var DAYN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var DAY_MS = 86400e3;
+  function istDate(ms) { var t = new Date((ms == null ? Date.now() : ms) + 5.5 * 3600e3); return Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()); }
+  function dayDate(n) { return n === 1 ? DAY1_DATE : BASE + (n - 1) * DAY_MS; }
+  function todayDay() { return Math.floor((istDate() - BASE) / DAY_MS) + 1; }
+  function fmt(ms, withYear) { var d = new Date(ms); return DAYN[d.getUTCDay()] + " " + d.getUTCDate() + " " + MON[d.getUTCMonth()] + (withYear ? " " + d.getUTCFullYear() : ""); }
+  function parseDate(s) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ""); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null; }
+  function pad3(n) { return (n < 10 ? "00" : n < 100 ? "0" : "") + n; }
+
+  // ---------- progress ----------
+  // Two sources: (1) what you do on this device (watched, listened, self-check quiz), kept in this browser;
+  // (2) results the teacher recorded after you replied in the chat, published as data/progress.json for every device.
+  var KEY = "sanskritam-daily.progress.v2", OLD_KEY = "sanskritam-daily.progress";
+  function loadLocal() {
+    var p = null;
+    try { p = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { p = null; }
+    if (!p || typeof p !== "object") p = { days: {} };
+    if (!p.days) p.days = {};
+    try { // carry over the first version's ticks
+      var old = JSON.parse(localStorage.getItem(OLD_KEY) || "null");
+      if (old && typeof old === "object" && !p.migrated) {
+        Object.keys(old).forEach(function (k) {
+          var o = old[k] || {}, d = p.days[k] || {};
+          if (o.done && !d.done) d.done = o.at || new Date().toISOString();
+          if (o.total && !d.quiz) d.quiz = { score: o.score, total: o.total, at: o.at || new Date().toISOString() };
+          p.days[k] = d;
+        });
+        p.migrated = true; saveLocal(p);
+      }
+    } catch (e) { /* ignore */ }
+    return p;
+  }
+  function saveLocal(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) { /* storage unavailable: progress lives for this visit only */ } }
+  var local = loadLocal(), teacher = { days: {} };
+  function mark(n, patch) {
+    var d = local.days[n] || {};
+    Object.keys(patch).forEach(function (k) { if (patch[k] === null) delete d[k]; else d[k] = patch[k]; });
+    local.days[n] = d; saveLocal(local); updateChip();
+    return d;
+  }
+  function state(n) { // merged view of one lesson
+    var d = local.days[n] || {}, t = teacher.days[n] || null;
+    return { video: !!d.video, alt: !!d.alt, audio: !!d.audio, quiz: d.quiz || null, teacher: t, done: !!(d.done || (t && t.total)) };
+  }
+  function doneDays(has) { var out = []; for (var n = 1; n <= has; n++) if (state(n).done) out.push(n); return out; }
+  function activityDates() {
+    var set = {};
+    Object.keys(local.days).forEach(function (k) {
+      var d = local.days[k];
+      ["video", "alt", "audio", "done"].forEach(function (f) { if (d[f]) set[istDate(Date.parse(d[f]))] = 1; });
+      if (d.quiz && d.quiz.at) set[istDate(Date.parse(d.quiz.at))] = 1;
+    });
+    Object.keys(teacher.days).forEach(function (k) { var c = parseDate(teacher.days[k].checked); if (c) set[c] = 1; });
+    return set;
+  }
+  function streak() {
+    var set = activityDates(), today = istDate(), d = set[today] ? today : today - DAY_MS, s = 0;
+    while (set[d]) { s++; d -= DAY_MS; }
+    return s;
+  }
+  function quizAverage(has) {
+    var sum = 0, c = 0;
+    for (var n = 1; n <= has; n++) {
+      var st = state(n), q = st.teacher && st.teacher.total ? st.teacher : st.quiz;
+      if (q && q.total) { sum += q.score / q.total; c++; }
+    }
+    return c ? Math.round(sum / c * 100) : null;
+  }
+
+  // ---------- data ----------
+  var cache = {}, latest = null, latestKnown = false;
+  function fetchJSON(path) {
+    return fetch(path, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  function loadTeacher() {
+    return fetchJSON("data/progress.json").then(function (j) { if (j && j.days) teacher = j; }).catch(function () { /* none yet */ });
+  }
+  function loadLatest() {
+    if (latestKnown) return Promise.resolve(latest);
+    return fetchJSON("data/latest.json").then(function (j) { latest = +j.day || null; }).catch(function () { latest = null; })
+      .then(function () {
+        if (latest) { latestKnown = true; return latest; }
+        var max = Math.max(1, Math.min(todayDay(), 400)), tries = [];
+        for (var n = 1; n <= max; n++) tries.push(loadLesson(n).then(function (l) { return l ? l.day : 0; }, function () { return 0; }));
+        return Promise.all(tries).then(function (ds) { latest = Math.max.apply(null, ds.concat([0])) || null; latestKnown = true; return latest; });
+      });
+  }
+  function loadLesson(n) {
+    if (cache[n]) return Promise.resolve(cache[n]);
+    return fetchJSON("data/day-" + pad3(n) + ".json").then(function (j) { j.day = +j.day || n; cache[n] = j; return j; });
+  }
+
+  // ---------- rendering helpers ----------
+  var app = document.getElementById("app");
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function inline(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/[ऀ-ॿ][ऀ-ॿ‌‍\s।॥]*[ऀ-ॿ।॥]|[ऀ-ॿ]/g, function (m) { return '<span class="dev">' + m + "</span>"; }); }
+  function prose(items) {
+    if (typeof items === "string") items = [items];
+    var out = "", list = [];
+    function flush() { if (list.length) { out += "<ul>" + list.map(function (x) { return "<li>" + inline(x) + "</li>"; }).join("") + "</ul>"; list = []; } }
+    (items || []).forEach(function (s) {
+      s = String(s);
+      if (/^- /.test(s)) list.push(s.slice(2));
+      else { flush(); if (/^## /.test(s)) out += "<h3>" + inline(s.slice(3)) + "</h3>"; else out += "<p>" + inline(s) + "</p>"; }
+    });
+    flush(); return out;
+  }
+  function row(x) {
+    if (typeof x === "string") return '<li><span class="dev">' + esc(x) + "</span></li>";
+    return '<li><span class="dev">' + esc(x.dev) + '</span><span class="iast">' + esc(x.iast) + '</span><span class="m">' + esc(x.meaning) + "</span></li>";
+  }
+  function ticks(st) {
+    return '<span class="ticks" aria-label="video, audio, quiz"><span class="tick' + (st.video ? " on" : "") + '" title="Video">▶</span><span class="tick' + (st.audio ? " on" : "") + '" title="Audio">♪</span><span class="tick' + (st.quiz || (st.teacher && st.teacher.total) ? " on" : "") + '" title="Quiz">?</span></span>';
+  }
+  function updateChip() {
+    var chip = document.getElementById("chip");
+    if (!latest) { chip.hidden = true; return; }
+    chip.hidden = false; chip.textContent = doneDays(latest).length + " of " + latest + " done";
+  }
+  function ytId(url) {
+    var m = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/.exec(url || "");
+    return m ? m[1] : null;
+  }
+
+  // ---------- home ----------
+  function renderHome() {
+    document.title = "Sanskritam Daily";
+    var tn = todayDay(), has = latest || 0;
+    var html = '<section class="hero"><h1>Sanskritam Daily</h1><p class="sub">One Sanskrit lesson a day: a video, a short explanation, words to say aloud, audio and a quiz. From the sounds to the Gītā.</p></section>';
+    if (!has) {
+      html += '<div class="empty">The first lesson appears here on ' + fmt(DAY1_DATE, true) + ".</div>";
+    } else {
+      var show = Math.min(tn, has), pending = tn > has, l = cache[show], sst = state(show);
+      html += '<section class="today"><span class="eyebrow">' + (pending ? "Latest lesson" : "Today") + " · Day " + show + " · " + fmt(dayDate(show)) + "</span>";
+      html += "<h2>" + esc(l && l.title ? l.title : topicOf(show)) + "</h2>";
+      html += '<div class="meta"><span>' + esc(stageOf(show)) + "</span><span>Video · read · say aloud · quiz</span><span>30–45 min</span></div>";
+      html += '<div class="btn-row"><a class="btn" href="#day-' + show + '">' + (sst.done ? "Open again" : sst.video || sst.audio ? "Continue Day " + show : "Start Day " + show) + "</a>";
+      if (pending && tn <= 400) html += '<span class="note">Day ' + tn + " arrives " + (tn === has + 1 ? "today" : "soon") + " at " + LESSON_TIME + ".</span>";
+      html += "</div></section>";
+    }
+    var done = doneDays(has), avg = quizAverage(has), sk = streak();
+    html += '<section class="board"><div class="tiles">';
+    html += '<div class="tile"><div class="v">' + done.length + " <small>of " + has + '</small></div><div class="l">Lessons done</div></div>';
+    html += '<div class="tile"><div class="v">' + sk + " <small>day" + (sk === 1 ? "" : "s") + '</small></div><div class="l">Streak</div></div>';
+    html += '<div class="tile"><div class="v">' + (avg == null ? "–" : avg + "<small>%</small>") + '</div><div class="l">Quiz average</div></div>';
+    html += '<div class="tile"><div class="v">' + done.length * WORDS_PER_LESSON + '</div><div class="l">Words learned</div></div>';
+    html += "</div>";
+    html += '<div class="bars">';
+    STAGES.forEach(function (st) {
+      var tot = st.to - st.from + 1, dn = done.filter(function (n) { return n >= st.from && n <= st.to; }).length;
+      html += '<div><div class="row"><span>' + esc(st.name) + "</span><span class=\"muted\">" + dn + " / " + tot + '</span></div><div class="track"><i style="width:' + Math.min(100, dn / tot * 100) + '%"></i></div></div>';
+    });
+    html += "</div>";
+    var tcount = Object.keys(teacher.days).length;
+    html += '<p class="note">Ticks and self-check scores are saved in this browser. ' + (tcount ? tcount + " quiz result" + (tcount === 1 ? "" : "s") + " checked by your teacher in the chat show on every device." : "Quiz results you send in the chat are recorded by your teacher and show on every device.") + "</p>";
+    html += "</section>";
+    html += '<section class="course"><h2>The course</h2>';
+    STAGES.forEach(function (st) {
+      html += '<div class="stage"><div class="stage-h"><h3>' + esc(st.name) + "</h3><span>Days " + st.from + "–" + st.to + '</span></div><ul class="days">';
+      for (var n = st.from; n <= st.to; n++) {
+        var avail = n <= has, rv = isReview(n), blk = null;
+        for (var bi = 0; bi < BLOCKS.length; bi++) if (n >= BLOCKS[bi][0] && n <= BLOCKS[bi][1]) blk = BLOCKS[bi];
+        if (blk && !avail) {
+          var r = n; while (r < blk[1] && r + 1 > has) r++;
+          html += '<li class="day up"><span class="n mono">' + (r > n ? n + "–" + r : n) + '</span><span class="t">' + esc(blk[2]) + (r === blk[1] ? " · review on Day " + blk[1] : "") + '</span><span class="st">' + fmt(dayDate(n)) + (r > n ? " →" : "") + "</span></li>";
+          n = r; continue;
+        }
+        var title = (cache[n] && cache[n].title) || topicOf(n), sx = state(n);
+        html += '<li class="day' + (avail ? "" : " up") + (rv ? " review" : "") + '"><span class="n mono">' + n + "</span>";
+        html += avail ? '<a class="t" href="#day-' + n + '">' + esc(title) + "</a>" : '<span class="t">' + esc(title) + "</span>";
+        if (!avail) html += '<span class="st">' + fmt(dayDate(n)) + "</span>";
+        else {
+          var q = sx.teacher && sx.teacher.total ? sx.teacher : sx.quiz, sc = q && q.total ? '<span class="score">' + q.score + "/" + q.total + "</span>" : "";
+          html += '<span class="st' + (!sx.done && !sx.video && !sx.audio ? " open" : "") + '">' + (sx.done ? "✓ " : sx.video || sx.audio ? "" : "Open ") + sc + ticks(sx) + "</span>";
+        }
+        html += "</li>";
+      }
+      html += "</ul></div>";
+    });
+    html += '<div class="stage"><div class="stage-h"><h3>Stage 2 · Reading the Gītā</h3><span>from Day 112</span></div><p class="muted" style="margin:.5rem 0 0;font-size:.95rem">Continues one idea a day: the remaining noun types, all tenses, full sandhi, compounds, and one Gītā verse a day read the anvaya way.</p></div>';
+    html += "</section>";
+    html += '<section class="how"><strong>How to use it.</strong> A new lesson appears here, and in your Sanskrit Day chat, every day at ' + LESSON_TIME + '.<ol><li>Watch the video first. It ticks itself when it ends, or press "Watched".</li><li>Read today’s idea and the examples.</li><li>Play the audio and repeat each item aloud. It is a computer voice, so copy a human reciter too (Sanskrit Sangam, NCERT).</li><li>Take the quiz here, then send your answers in the chat: the teacher’s marks are recorded on this site for every device.</li></ol>Every seventh lesson is a review. <a href="https://claude.ai/artifact/LgQ1sJxHVzT1KmxnzHJanG">Full roadmap</a>.</section>';
+    app.innerHTML = html;
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- YouTube players ----------
+  var ytReady = false, pending = [];
+  window.onYouTubeIframeAPIReady = function () { ytReady = true; pending.splice(0).forEach(attachPlayer); };
+  function loadYT() {
+    if (window.YT && window.YT.Player) { ytReady = true; return; }
+    if (document.getElementById("yt-api")) return;
+    var s = document.createElement("script"); s.id = "yt-api"; s.src = "https://www.youtube.com/iframe_api"; s.async = true; document.head.appendChild(s);
+  }
+  function attachPlayer(spec) { // spec: {id, onEnd}
+    if (!ytReady) { pending.push(spec); return; }
+    try {
+      new YT.Player(spec.id, { events: { onStateChange: function (e) { if (e.data === YT.PlayerState.ENDED) spec.onEnd(); } } });
+    } catch (e) { /* the plain iframe still plays; the viewer can press Watched */ }
+  }
+  function playerHtml(v, idx, label, lazy) {
+    var id = ytId(v.url), frameId = "yt-" + idx;
+    var html = '<div class="player">';
+    if (id) html += '<div class="frame"><iframe id="' + frameId + '" src="https://www.youtube-nocookie.com/embed/' + id + '?enablejsapi=1&rel=0&origin=' + encodeURIComponent(location.origin) + '" title="' + esc(v.title || "Video") + '" ' + (lazy ? 'loading="lazy" ' : "") + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+    html += '<div class="cap">' + (label ? '<span class="eyebrow">' + esc(label) + "</span>" : "") + '<div class="vt">' + esc(v.title) + '</div><div class="vm">' + esc([v.channel, v.language, v.minutes ? v.minutes + " min" : ""].filter(Boolean).join(" · ")) + "</div>";
+    if (v.focus) html += '<p class="focus"><strong>Watch for:</strong> ' + inline(v.focus) + "</p>";
+    html += '<div class="row"><button class="pill" type="button" data-watch="' + idx + '">Watched</button><a href="' + esc(v.url) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div></div></div>';
+    return html;
+  }
+
+  // ---------- lesson ----------
+  function renderLesson(n, l) {
+    document.title = "Day " + n + " · " + (l.title || topicOf(n)) + " · Sanskritam Daily";
+    var st = state(n), date = parseDate(l.date) || dayDate(n);
+    var html = '<nav class="crumbs"><a href="#home">‹ Course</a><span class="muted">Day ' + n + " of 111 · " + esc(stageOf(n)) + "</span></nav>";
+    html += '<header class="lesson-h"><span class="eyebrow">Sanskrit Day ' + n + (isReview(n) ? " · review" : "") + "</span><h1>" + esc(l.title || topicOf(n)) + "</h1>";
+    html += '<div class="meta"><span>' + fmt(date, true) + '</span><button class="done-btn' + (st.done ? " on" : "") + '" id="doneBtn" type="button">' + (st.done ? "✓ Done" : "Mark done") + "</button></div>";
+    html += '<div class="steps" id="steps"></div></header>';
+    if (l.recap) html += '<div class="recap"><strong>From last time.</strong> ' + inline(l.recap) + "</div>";
+
+    var v = l.video, a = l.altVideo, idx = 0;
+    if (v && v.url) {
+      html += '<section class="section"><h2><span class="k">1</span>Video of the day</h2>' + playerHtml(v, 0, null, false);
+      if (a && a.url) html += playerHtml(a, 1, (a.language || "Alternative") + " version", true);
+      html += "</section>";
+    }
+    if (l.idea) html += '<section class="section"><h2><span class="k">2</span>Today’s idea</h2><div class="prose">' + prose(l.idea) + "</div></section>";
+    if (l.examples && l.examples.length) html += '<section class="section"><h2><span class="k">3</span>Examples</h2><ul class="rows">' + l.examples.map(row).join("") + "</ul></section>";
+    if (l.sayAloud && l.sayAloud.length) {
+      html += '<section class="section"><h2><span class="k">4</span>Say it aloud</h2><p class="muted" style="margin:0 0 .7rem;font-size:.95rem">Three times each, slowly. Every written <span class="dev">अ</span> is spoken.</p><ul class="say">';
+      html += l.sayAloud.map(function (x) { if (typeof x === "string") x = { dev: x }; return '<li><span class="dev">' + esc(x.dev) + '</span><span class="sub">' + (x.iast ? '<span class="iast">' + esc(x.iast) + "</span>" : "") + (x.meaning ? " · " + esc(x.meaning) : "") + "</span></li>"; }).join("");
+      html += "</ul></section>";
+    }
+    if (l.words && l.words.length) html += '<section class="section"><h2><span class="k">5</span>New words</h2><ul class="rows">' + l.words.map(row).join("") + "</ul></section>";
+    if (l.audio) {
+      html += '<section class="section"><h2><span class="k">6</span>Listen and repeat</h2><div class="audio"><audio id="aud" controls preload="none" src="' + esc(l.audio) + '"></audio>';
+      html += '<div class="ctl"><span>Speed</span><button class="pill sel" type="button" data-rate="1">Normal</button><button class="pill" type="button" data-rate="0.8">Slower</button><button class="pill" type="button" id="audBtn">Listened</button><span>· Pause after each item and say it yourself.</span></div></div></section>';
+    }
+    if (l.quiz && l.quiz.length) {
+      html += '<section class="section"><h2><span class="k">7</span>Quiz</h2>';
+      if (st.teacher && st.teacher.total) html += '<div class="teacher">Checked by your teacher: ' + st.teacher.score + " of " + st.teacher.total + (st.teacher.checked ? " · " + fmt(parseDate(st.teacher.checked) || Date.now()) : "") + (st.teacher.note ? '<br><span style="color:var(--fg)">' + inline(st.teacher.note) + "</span>" : "") + "</div>";
+      html += '<div class="quiz" id="quiz">';
+      l.quiz.forEach(function (q, i) {
+        html += '<div class="q" data-i="' + i + '"><div class="qt"><span class="qn">' + (i + 1) + ".</span><span>" + inline(q.q) + "</span></div>";
+        if (q.options && q.options.length) {
+          html += '<ul class="opts">' + q.options.map(function (o, j) { return '<li><button class="opt" type="button" data-j="' + j + '"><span class="l">' + String.fromCharCode(97 + j) + ")</span><span>" + inline(o) + "</span></button></li>"; }).join("") + "</ul>";
+        } else {
+          html += '<input type="text" id="q' + n + "-" + i + '" placeholder="Type your answer" autocomplete="off" autocapitalize="off" spellcheck="false">';
+        }
+        html += '<div class="why" hidden></div></div>';
+      });
+      html += '<div class="btn-row"><button class="btn" type="button" id="checkBtn">Check my answers</button><span class="note">Then send your answers in your Sanskrit Day chat for the teacher’s marks.</span></div>';
+      html += '<div class="result" id="result"' + (st.quiz ? "" : " hidden") + ">" + (st.quiz ? "Your last self-check: " + st.quiz.score + " of " + st.quiz.total + " · " + fmt(istDate(Date.parse(st.quiz.at))) : "") + "</div></div></section>";
+    }
+    if (l.extra) html += '<section class="section"><h2><span class="k">+</span>Extra practice</h2><div class="extra">' + inline(l.extra) + "</div></section>";
+    var prev = n > 1 && n - 1 <= (latest || 0) ? n - 1 : 0, next = n + 1 <= (latest || 0) ? n + 1 : 0;
+    html += '<nav class="navrow"><span>' + (prev ? '<a href="#day-' + prev + '">‹ Day ' + prev + "</a>" : "") + "</span><span>" + (next ? '<a href="#day-' + next + '">Day ' + next + " ›</a>" : '<span class="muted">Day ' + (n + 1) + " arrives " + fmt(dayDate(n + 1)) + "</span>") + "</span></nav>";
+    app.innerHTML = html;
+    window.scrollTo(0, 0);
+    wireLesson(n, l);
+  }
+
+  function norm(s) { return String(s || "").toLowerCase().replace(/[\s।॥.,;:!?'"()\-–—]/g, "").replace(/ṁ/g, "ṃ"); }
+  function wireLesson(n, l) {
+    function renderSteps() {
+      var st = state(n), el = document.getElementById("steps");
+      var parts = [["video", "▶ Video", st.video], ["audio", "♪ Audio", st.audio || !l.audio], ["quiz", "? Quiz", !!(st.quiz || (st.teacher && st.teacher.total))]];
+      el.innerHTML = parts.map(function (p) { return '<span class="step' + (p[2] ? " on" : "") + '">' + (p[2] ? "✓ " : "") + p[1] + "</span>"; }).join("");
+      var db = document.getElementById("doneBtn"); db.className = "done-btn" + (st.done ? " on" : ""); db.textContent = st.done ? "✓ Done" : "Mark done";
+      Array.prototype.forEach.call(document.querySelectorAll("[data-watch]"), function (b) { var k = b.getAttribute("data-watch") === "0" ? "video" : "alt"; b.classList.toggle("on", !!(local.days[n] || {})[k]); b.textContent = (local.days[n] || {})[k] ? "✓ Watched" : "Watched"; });
+      var ab = document.getElementById("audBtn"); if (ab) { ab.classList.toggle("on", st.audio); ab.textContent = st.audio ? "✓ Listened" : "Listened"; }
+    }
+    renderSteps();
+    document.getElementById("doneBtn").addEventListener("click", function () { var on = !state(n).done; mark(n, { done: on ? new Date().toISOString() : null }); renderSteps(); });
+
+    // videos
+    var hasVideo = !!(l.video && ytId(l.video.url));
+    if (hasVideo) {
+      loadYT();
+      attachPlayer({ id: "yt-0", onEnd: function () { if (!(local.days[n] || {}).video) { mark(n, { video: new Date().toISOString() }); renderSteps(); } } });
+      if (l.altVideo && ytId(l.altVideo.url)) attachPlayer({ id: "yt-1", onEnd: function () { mark(n, { alt: new Date().toISOString(), video: (local.days[n] || {}).video || new Date().toISOString() }); renderSteps(); } });
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-watch]"), function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-watch") === "0" ? "video" : "alt", d = local.days[n] || {}, patch = {};
+        patch[k] = d[k] ? null : new Date().toISOString();
+        if (k === "alt" && !d[k] && !d.video) patch.video = patch[k];
+        mark(n, patch); renderSteps();
+      });
+    });
+
+    // audio
+    var audioEl = document.getElementById("aud");
+    if (audioEl) {
+      audioEl.addEventListener("ended", function () { if (!(local.days[n] || {}).audio) { mark(n, { audio: new Date().toISOString() }); renderSteps(); } });
+      Array.prototype.forEach.call(document.querySelectorAll(".pill[data-rate]"), function (b) {
+        b.addEventListener("click", function () { audioEl.playbackRate = +b.getAttribute("data-rate"); Array.prototype.forEach.call(document.querySelectorAll(".pill[data-rate]"), function (x) { x.classList.toggle("sel", x === b); }); });
+      });
+      document.getElementById("audBtn").addEventListener("click", function () { mark(n, { audio: (local.days[n] || {}).audio ? null : new Date().toISOString() }); renderSteps(); });
+    }
+
+    // quiz
+    var quiz = document.getElementById("quiz");
+    if (!quiz) return;
+    var picked = {}, self = {};
+    Array.prototype.forEach.call(quiz.querySelectorAll(".opt"), function (b) {
+      b.addEventListener("click", function () {
+        var qEl = b.closest(".q"), i = +qEl.getAttribute("data-i");
+        if (qEl.getAttribute("data-checked")) return;
+        picked[i] = +b.getAttribute("data-j");
+        Array.prototype.forEach.call(qEl.querySelectorAll(".opt"), function (x) { x.classList.toggle("sel", x === b); });
+      });
+    });
+    document.getElementById("checkBtn").addEventListener("click", function () {
+      var score = 0, total = l.quiz.length, open = 0;
+      l.quiz.forEach(function (q, i) {
+        var qEl = quiz.querySelector('.q[data-i="' + i + '"]'), why = qEl.querySelector(".why");
+        qEl.setAttribute("data-checked", "1");
+        var ansText = String(q.answer == null ? "" : q.answer);
+        if (q.options && q.options.length) {
+          var ai = /^[a-z]$/i.test(ansText.trim()) ? ansText.trim().toLowerCase().charCodeAt(0) - 97 : q.options.findIndex(function (o) { return norm(o) === norm(ansText); });
+          var ok = picked[i] === ai;
+          if (ok) score++;
+          Array.prototype.forEach.call(qEl.querySelectorAll(".opt"), function (x, j) { x.classList.remove("sel"); if (j === ai) x.classList.add("right"); else if (j === picked[i]) x.classList.add("wrong"); x.disabled = true; });
+          why.className = "why " + (ok ? "right" : "wrong");
+          why.innerHTML = (ok ? "<strong>Right.</strong> " : picked[i] == null ? "<strong>Not answered.</strong> " : "<strong>Not quite.</strong> ") + inline(q.why || "");
+          why.hidden = false;
+        } else {
+          var inp = qEl.querySelector("input"), given = inp ? inp.value : "";
+          var accepted = [ansText].concat(q.accept || []);
+          var auto = given.trim() && accepted.some(function (a) { return norm(a) === norm(given); });
+          if (inp) inp.disabled = true;
+          if (auto) { score++; why.className = "why right"; why.innerHTML = "<strong>Right.</strong> " + inline(q.why || ""); why.hidden = false; }
+          else {
+            open++;
+            why.className = "why";
+            why.innerHTML = "<strong>Answer:</strong> " + inline(ansText) + (q.why ? "<br>" + inline(q.why) : "") + '<div class="selfmark"><button class="pill" type="button" data-self="1">I had it right</button><button class="pill" type="button" data-self="0">I missed it</button></div>';
+            why.hidden = false;
+            Array.prototype.forEach.call(why.querySelectorAll("[data-self]"), function (b) {
+              b.addEventListener("click", function () {
+                self[i] = b.getAttribute("data-self") === "1";
+                Array.prototype.forEach.call(why.querySelectorAll("[data-self]"), function (x) { x.classList.toggle("sel", x === b); });
+                why.className = "why " + (self[i] ? "right" : "wrong");
+                finish();
+              });
+            });
+          }
+        }
+      });
+      this.disabled = true;
+      function finish() {
+        var s = score; for (var k in self) if (self[k]) s++;
+        var res = document.getElementById("result"), waiting = open - Object.keys(self).length;
+        res.hidden = false;
+        res.textContent = "Score: " + s + " of " + total + (waiting > 0 ? " so far. Mark the typed answers above." : s === total ? ". Excellent." : s >= total - 1 ? ". Good. Re-read the ones you missed." : ". Read today’s idea once more, then try the audio again.");
+        if (waiting <= 0) { mark(n, { quiz: { score: s, total: total, at: new Date().toISOString() }, done: (local.days[n] || {}).done || new Date().toISOString() }); renderSteps(); }
+      }
+      finish();
+    });
+  }
+
+  // ---------- router ----------
+  var teacherLoaded = loadTeacher();
+  function route() {
+    var m = /^#day-(\d{1,3})$/.exec(location.hash || "");
+    if (m) {
+      var n = +m[1];
+      app.innerHTML = '<nav class="crumbs"><a href="#home">‹ Course</a></nav><div class="empty">Loading Day ' + n + "…</div>";
+      Promise.all([teacherLoaded, loadLatest()]).then(function () { return loadLesson(n); }).then(function (l) { renderLesson(n, l); updateChip(); }).catch(function () {
+        app.innerHTML = '<nav class="crumbs"><a href="#home">‹ Course</a></nav><div class="empty">Day ' + n + " isn’t published yet. " + (n >= 2 ? "It is due on " + fmt(dayDate(n), true) + " at " + LESSON_TIME + "." : "") + "</div>";
+      });
+    } else {
+      Promise.all([teacherLoaded, loadLatest()]).then(function (r) {
+        var has = r[1], show = Math.min(todayDay(), has || 0);
+        return show >= 1 ? loadLesson(show).catch(function () { return null; }) : null;
+      }).then(function () { renderHome(); updateChip(); }).catch(function () { renderHome(); });
+    }
+  }
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>
+</body>
+</html>
