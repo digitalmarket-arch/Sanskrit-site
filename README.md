@@ -8,4 +8,4 @@ A one-page website for a daily Sanskrit course. A scheduled task posts one lesso
 - `data/progress.json` – quiz results the teacher recorded after the learner replied in the chat; shown on every device.
 - `audio/day-NNN.mp3` – listen-and-repeat audio for each day.
 
-Published with GitHub Pages from the `main` branch by `.github/workflows/pages.yml`.
+Published with GitHub Pages. The `gh-pages` branch mirrors `main`; both are updated on every post.
