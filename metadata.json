@@ -1,0 +1,7 @@
+{
+  "name": "Sanskritam Daily",
+  "description": "One Sanskrit lesson a day: video, explanation, interactive varṇamālā, audio, flashcards, and quiz — from the sounds to the Gītā.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

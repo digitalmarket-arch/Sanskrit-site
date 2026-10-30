@@ -4,202 +4,1326 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sanskritam Daily</title>
-<meta name="description" content="One Sanskrit lesson a day: video, explanation, audio and quiz, from the sounds to the Gītā.">
+<meta name="description" content="One Sanskrit lesson a day: video, explanation, interactive varṇamālā, audio, flashcards, and quiz — from the sounds to the Gītā.">
+<meta property="og:title" content="Sanskritam Daily">
+<meta property="og:description" content="One Sanskrit lesson a day: video, explanation, interactive varṇamālā, audio, flashcards, and quiz — from the sounds to the Gītā.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
-/* Layout: one reading column (max 44rem) under a sticky wordmark bar. Home = today's lesson, a progress board and the course list by stage.
-   Lesson = a reading page in the same order as the chat lesson: video, idea, examples, say it aloud, words, audio, quiz. */
+/* Archival Scholarly Theme & Asymmetric Two-Column Reading System */
 :root {
-  --bg: #f1f0eb;
+  --bg: #f4f1ea;
   --surface: #fbfaf7;
-  --surface-2: #e9e7df;
-  --fg: #1f1c18;
-  --muted: #68625a;
-  --line: #d8d4ca;
-  --accent: #2c3b8a;
+  --surface-2: #eae6dc;
+  --surface-3: #e0dbd0;
+  --fg: #1c1915;
+  --muted: #655e54;
+  --line: #d8d3c8;
+  --accent: #23347e;
   --accent-ink: #ffffff;
-  --accent-soft: #e4e7f6;
-  --saffron: #c4701a;
-  --saffron-soft: #f6e5d0;
-  --ok: #2b7a4e;
-  --ok-soft: #dcefe3;
-  --bad: #ae392d;
-  --bad-soft: #f6dcd8;
+  --accent-soft: #e3e7f7;
+  --saffron: #b86214;
+  --saffron-soft: #f5e6d3;
+  --ok: #236e42;
+  --ok-soft: #dbf0e3;
+  --bad: #a63226;
+  --bad-soft: #f7dcd8;
   --dev: "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", "Kohinoor Devanagari", "Mangal", serif;
   --body: "Gentium Plus", "Gentium Book Plus", "Charis SIL", "Noto Serif", Georgia, "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", serif;
-  --ui: "Atkinson Hyperlegible", "Segoe UI", Roboto, system-ui, sans-serif;
+  --ui: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #14161d; --surface: #1c1f28; --surface-2: #262a36; --fg: #ebe6dc; --muted: #a39c90; --line: #2f3340;
-    --accent: #a3aeff; --accent-ink: #10132a; --accent-soft: #252a45; --saffron: #e3a04d; --saffron-soft: #3a2d1c;
-    --ok: #7bcf9d; --ok-soft: #1f3a2b; --bad: #f08c80; --bad-soft: #452523; color-scheme: dark;
+    --bg: #12141a;
+    --surface: #1a1d26;
+    --surface-2: #232733;
+    --surface-3: #2d3242;
+    --fg: #ede8df;
+    --muted: #a39c90;
+    --line: #2d3240;
+    --accent: #a6b1ff;
+    --accent-ink: #0f1329;
+    --accent-soft: #232946;
+    --saffron: #e5a24f;
+    --saffron-soft: #382b1b;
+    --ok: #7ad19e;
+    --ok-soft: #1d3829;
+    --bad: #f28d82;
+    --bad-soft: #422321;
+    color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #14161d; --surface: #1c1f28; --surface-2: #262a36; --fg: #ebe6dc; --muted: #a39c90; --line: #2f3340;
-  --accent: #a3aeff; --accent-ink: #10132a; --accent-soft: #252a45; --saffron: #e3a04d; --saffron-soft: #3a2d1c;
-  --ok: #7bcf9d; --ok-soft: #1f3a2b; --bad: #f08c80; --bad-soft: #452523; color-scheme: dark;
+  --bg: #12141a;
+  --surface: #1a1d26;
+  --surface-2: #232733;
+  --surface-3: #2d3242;
+  --fg: #ede8df;
+  --muted: #a39c90;
+  --line: #2d3240;
+  --accent: #a6b1ff;
+  --accent-ink: #0f1329;
+  --accent-soft: #232946;
+  --saffron: #e5a24f;
+  --saffron-soft: #382b1b;
+  --ok: #7ad19e;
+  --ok-soft: #1d3829;
+  --bad: #f28d82;
+  --bad-soft: #422321;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
-a { color: var(--accent); }
-h1, h2, h3 { font-weight: 400; line-height: 1.2; text-wrap: balance; margin: 0; }
-button { font: inherit; color: inherit; }
+html {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--surface);
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3, h4 { font-weight: 400; line-height: 1.22; text-wrap: balance; margin: 0; }
+button, input, textarea, select { font: inherit; color: inherit; }
 img, iframe, video { max-width: 100%; }
 [hidden] { display: none !important; }
-:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+:focus-visible { outline: 2px solid var(--saffron); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
 
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
-.bar-in { max-width: 44rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding-block: .55rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.wordmark { display: flex; align-items: baseline; gap: .6rem; text-decoration: none; color: var(--fg); min-width: 0; }
-.wordmark .dev { font-size: 1.15rem; color: var(--accent); }
-.wordmark .en { font-family: var(--ui); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.chip { font-family: var(--ui); font-size: .78rem; padding: .25rem .6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
-
-main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.eyebrow { font-family: var(--ui); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+/* Typography helpers */
+.eyebrow {
+  font-family: var(--ui);
+  font-size: .76rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+}
 .dev { font-family: var(--dev); }
 .iast { font-style: italic; }
 .muted { color: var(--muted); }
 .mono { font-variant-numeric: tabular-nums; }
 .small { font-family: var(--ui); font-size: .85rem; }
 
-/* home */
-.hero { padding-block: 1.25rem .5rem; }
-.hero h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); }
-.hero .sub { margin: .35rem 0 0; color: var(--muted); max-width: 32rem; }
-.today { margin-top: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.2rem; display: grid; gap: .5rem; }
-.today h2 { font-size: 1.5rem; }
-.today .meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; color: var(--muted); font-family: var(--ui); font-size: .85rem; }
-.btn { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--ui); font-size: .95rem; font-weight: 700; text-decoration: none;
-  padding: .6rem 1rem; border-radius: 10px; border: 1px solid transparent; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
-.btn.secondary { background: transparent; color: var(--accent); border-color: var(--line); }
-.btn:disabled { opacity: .55; cursor: default; }
-.btn-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: .3rem; }
+/* 3-Zone Top Bar Contract */
+.bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 15;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.bar-in {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: .65rem;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .55rem;
+  text-decoration: none;
+  color: var(--fg);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.wordmark .dev { font-size: 1.2rem; color: var(--accent); }
+.wordmark .en {
+  font-family: var(--ui);
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--fg);
+}
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--ui);
+  font-size: .88rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.topnav::-webkit-scrollbar { display: none; }
+.topnav a {
+  text-decoration: none;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-block: .25rem;
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.topnav a:hover { color: var(--fg); }
+.topnav a.active {
+  color: var(--fg);
+  font-weight: 700;
+  border-bottom-color: var(--saffron);
+}
+.bar-actions {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  flex-shrink: 0;
+}
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-family: var(--ui);
+  font-size: .8rem;
+  padding: .38rem .7rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.theme-btn:hover { color: var(--fg); background: var(--surface-2); }
+.bar-cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ui);
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: .42rem .85rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity .15s ease;
+}
+.bar-cta:hover { opacity: .92; }
+.read-progress {
+  height: 2px;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+}
+.read-progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--saffron);
+  transition: width .12s ease-out;
+}
+@media (max-width: 760px) {
+  .bar-in { gap: .75rem; flex-wrap: wrap; }
+  .topnav { order: 3; width: 100%; gap: 1.15rem; padding-top: .25rem; border-top: 1px solid var(--line); }
+}
 
-.board { margin-top: 1.5rem; display: grid; gap: .8rem; }
-.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
-@media (max-width: 560px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7rem .85rem; min-width: 0; }
-.tile .v { font-family: var(--ui); font-size: 1.55rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.tile .v small { font-size: .9rem; font-weight: 400; color: var(--muted); }
-.tile .l { font-family: var(--ui); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: .2rem; }
-.bars { display: grid; gap: .5rem; }
-.bars .row { display: flex; justify-content: space-between; gap: 1rem; font-family: var(--ui); font-size: .85rem; }
-.track { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
-.track > i { display: block; height: 100%; background: var(--saffron); width: 0; transition: width .4s ease; }
-.note { font-family: var(--ui); font-size: .82rem; color: var(--muted); }
+/* Main Container & Asymmetric Grid */
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-block: 1.75rem 4.5rem;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
 
-.course { margin-top: 2rem; }
-.course h2 { font-size: 1.3rem; margin-bottom: .25rem; }
-.stage { margin-top: 1.4rem; }
-.stage-h { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
-.stage-h h3 { font-size: 1.05rem; }
-.stage-h span { font-family: var(--ui); font-size: .8rem; color: var(--muted); white-space: nowrap; }
+/* Buttons & Segmented Controls */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  font-family: var(--ui);
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: .58rem 1.1rem;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity .15s ease, transform .12s ease;
+}
+.btn:hover:not(:disabled) { opacity: .92; }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn.secondary {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--line);
+  font-weight: 400;
+}
+.btn.secondary:hover:not(:disabled) { background: var(--surface-2); }
+.btn.subtle {
+  background: var(--surface-2);
+  color: var(--fg);
+  font-weight: 400;
+  padding: .42rem .8rem;
+  font-size: .84rem;
+}
+.btn:disabled { opacity: .5; cursor: default; }
+.btn-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-top: .5rem; }
+
+/* Segmented filter bar */
+.seg-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  padding: .25rem;
+  background: var(--surface-2);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.seg-btn {
+  font-family: var(--ui);
+  font-size: .8rem;
+  padding: .35rem .75rem;
+  border-radius: 7px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color .15s ease, color .15s ease;
+}
+.seg-btn:hover { color: var(--fg); }
+.seg-btn.active {
+  background: var(--surface);
+  color: var(--fg);
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+
+/* Interactive Control Buttons (Audio, Watch, Rep) */
+.ctl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-family: var(--ui);
+  font-size: .8rem;
+  padding: .32rem .72rem;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.ctl-btn:hover { background: var(--surface-2); }
+.ctl-btn.on {
+  background: var(--ok-soft);
+  color: var(--ok);
+  border-color: var(--ok);
+  font-weight: 700;
+}
+.ctl-btn.sel {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+.ctl-btn.rec {
+  background: var(--bad-soft);
+  color: var(--bad);
+  border-color: var(--bad);
+  font-weight: 700;
+}
+
+/* Home Layout: 2-Column Editorial Hero + Ledger */
+.home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+@media (max-width: 920px) {
+  .home-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+.hero-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  letter-spacing: -.01em;
+  margin-top: .2rem;
+}
+.hero .sub {
+  margin: .45rem 0 0;
+  color: var(--muted);
+  max-width: 40rem;
+  font-size: 1.05rem;
+}
+.today {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  display: grid;
+  gap: .65rem;
+}
+.today h2 { font-size: clamp(1.45rem, 2.5vw, 1.85rem); }
+.meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .55rem;
+  color: var(--muted);
+  font-family: var(--ui);
+  font-size: .84rem;
+}
+.meta-sep { color: var(--line); user-select: none; }
+.today-preview {
+  margin: .2rem 0;
+  padding-top: .65rem;
+  border-top: 1px solid var(--line);
+  color: var(--fg);
+  font-size: .98rem;
+}
+.today-preview .vowel-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .55rem;
+}
+.vowel-key {
+  font-family: var(--dev);
+  font-size: 1.15rem;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 .45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  cursor: pointer;
+  transition: transform .12s ease, border-color .15s ease, background-color .15s ease;
+}
+.vowel-key:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+/* Scholar's Study Ledger (Progress Board) */
+.board {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.35rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.1rem;
+}
+.board-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--line);
+}
+.board-head h2 { font-size: 1.15rem; }
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+}
+.tile {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .75rem .9rem;
+  min-width: 0;
+}
+.tile .v {
+  font-family: var(--ui);
+  font-size: 1.55rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.tile .v small { font-size: .88rem; font-weight: 400; color: var(--muted); }
+.tile .l {
+  font-family: var(--ui);
+  font-size: .74rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+.cadence {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem;
+  padding: .55rem .75rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: var(--ui);
+  font-size: .78rem;
+}
+.cadence-days {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
+}
+.c-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .15rem;
+  font-size: .68rem;
+  color: var(--muted);
+}
+.c-box {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 5px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  font-size: .7rem;
+  color: var(--muted);
+}
+.c-box.on {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+  color: var(--ok);
+  font-weight: 700;
+}
+.bars { display: grid; gap: .6rem; }
+.bars .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--ui);
+  font-size: .82rem;
+  margin-bottom: .2rem;
+}
+.track { height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.track > i { display: block; height: 100%; background: var(--saffron); width: 0; transition: width .3s ease; }
+.note { font-family: var(--ui); font-size: .81rem; color: var(--muted); margin: 0; }
+
+/* Subhashitam / Daily Phrase Strip */
+.subhashitam {
+  margin-top: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.subhashitam-main { display: grid; gap: .15rem; }
+.subhashitam .dev-lg { font-family: var(--dev); font-size: 1.35rem; color: var(--fg); }
+
+/* Course Syllabus Section */
+.course { margin-top: 2.75rem; }
+.course-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.course-toolbar h2 { font-size: 1.5rem; }
+.course-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+}
+.search-inp {
+  font-family: var(--ui);
+  font-size: .85rem;
+  padding: .42rem .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  min-width: 14rem;
+}
+.stage { margin-top: 1.75rem; }
+.stage-h {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--line);
+}
+.stage-h h3 { font-size: 1.15rem; font-weight: 700; }
+.stage-h span { font-family: var(--ui); font-size: .82rem; color: var(--muted); white-space: nowrap; }
 .days { list-style: none; margin: 0; padding: 0; }
-.day { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; align-items: center; gap: .6rem; padding: .5rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.day .n { font-family: var(--ui); font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
+.day {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem;
+  padding: .6rem .35rem;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+  transition: background-color .12s ease;
+}
+.day:hover:not(.up) { background: var(--surface); }
+.day .n {
+  font-family: var(--ui);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: .88rem;
+}
 .day a, .day .t { text-decoration: none; color: var(--fg); }
-.day .t { min-width: 0; }
+.day a.t:hover { color: var(--accent); text-decoration: underline; }
+.day .t { min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .45rem; }
 .day.up { color: var(--muted); }
 .day.up .t { color: var(--muted); }
-.day .st { font-family: var(--ui); font-size: .78rem; white-space: nowrap; color: var(--muted); display: flex; align-items: center; gap: .45rem; }
+.day .rev-tag {
+  font-family: var(--ui);
+  font-size: .72rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+.day .st {
+  font-family: var(--ui);
+  font-size: .8rem;
+  white-space: nowrap;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
 .day .st.open { color: var(--accent); font-weight: 700; }
-.day .st .score { color: var(--ok); font-weight: 700; }
-.day.review .t::after { content: " review"; font-family: var(--ui); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--saffron); margin-left: .35rem; }
-.ticks { display: inline-flex; gap: .2rem; }
-.tick { width: 1.15rem; height: 1.15rem; border-radius: 50%; display: inline-grid; place-items: center; font-size: .62rem; font-family: var(--ui); background: var(--surface-2); color: var(--muted); }
-.tick.on { background: var(--ok-soft); color: var(--ok); }
-.how { margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
-.how ol { padding-left: 1.2rem; margin: .4rem 0; }
+.day .st .score { color: var(--ok); font-weight: 700; font-variant-numeric: tabular-nums; }
+.status-text {
+  font-family: var(--ui);
+  font-size: .78rem;
+  color: var(--muted);
+}
+.status-text.done { color: var(--ok); font-weight: 700; }
 
-/* lesson */
-.crumbs { display: flex; justify-content: space-between; gap: 1rem; align-items: center; font-family: var(--ui); font-size: .85rem; }
+.how {
+  margin-top: 2.75rem;
+  padding: 1.35rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .95rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 760px) { .how { grid-template-columns: 1fr; } }
+.how ol { padding-left: 1.25rem; margin: .45rem 0 0; display: grid; gap: .25rem; }
+.how-tools {
+  border-left: 1px solid var(--line);
+  padding-left: 1.25rem;
+  display: grid;
+  gap: .55rem;
+}
+@media (max-width: 760px) {
+  .how-tools { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+}
+
+/* Lesson Layout: Asymmetric 2-Column Reading Canvas + Sticky Companion Rail */
+.lesson-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 43rem) minmax(18rem, 23rem);
+  gap: 2.5rem;
+  align-items: start;
+  justify-content: space-between;
+}
+@media (max-width: 980px) {
+  .lesson-shell { grid-template-columns: 1fr; }
+}
+.lesson-main { min-width: 0; }
+.lesson-rail {
+  position: sticky;
+  top: 4.5rem;
+  display: grid;
+  gap: 1.1rem;
+}
+.rail-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  font-family: var(--ui);
+  font-size: .85rem;
+}
+.rail-card h3 {
+  font-family: var(--ui);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .6rem;
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .35rem;
+}
+.toc-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  text-decoration: none;
+  color: var(--fg);
+  padding: .3rem .45rem;
+  border-radius: 6px;
+  transition: background-color .12s ease;
+}
+.toc-list a:hover { background: var(--surface-2); }
+.toc-list .k { color: var(--saffron); font-variant-numeric: tabular-nums; font-weight: 700; margin-right: .4rem; }
+.toc-list .st-mark { color: var(--muted); font-size: .78rem; }
+.toc-list .st-mark.on { color: var(--ok); font-weight: 700; }
+
+.iast-key-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .35rem .65rem;
+  font-size: .8rem;
+}
+.iast-key-item {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  padding-block: .15rem;
+  border-bottom: 1px dashed var(--line);
+}
+.iast-key-item .dev { font-size: 1rem; color: var(--accent); min-width: 1.4rem; }
+.notes-area {
+  width: 100%;
+  min-height: 5.5rem;
+  resize: vertical;
+  padding: .55rem .7rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.crumbs {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  font-family: var(--ui);
+  font-size: .85rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--line);
+}
 .crumbs a { text-decoration: none; }
-.lesson-h { margin-top: .8rem; }
-.lesson-h h1 { font-size: clamp(1.7rem, 5.5vw, 2.3rem); margin-top: .2rem; }
-.lesson-h .meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; color: var(--muted); font-family: var(--ui); font-size: .85rem; margin-top: .45rem; }
-.steps { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
-.step { font-family: var(--ui); font-size: .78rem; padding: .25rem .6rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); display: inline-flex; gap: .35rem; align-items: center; }
-.step.on { background: var(--ok-soft); color: var(--ok); }
-.done-btn { font-family: var(--ui); font-size: .8rem; padding: .25rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
-.done-btn.on { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
-.section { margin-top: 1.9rem; }
-.section > h2 { font-size: 1.25rem; padding-bottom: .3rem; border-bottom: 1px solid var(--line); margin-bottom: .7rem; display: flex; align-items: baseline; gap: .6rem; }
-.section > h2 .k { font-family: var(--ui); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--saffron); }
-.recap { background: var(--saffron-soft); border-radius: 10px; padding: .7rem .9rem; margin-top: 1rem; font-size: .97rem; }
-.player { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.lesson-h { margin-top: 1rem; }
+.lesson-h h1 { font-size: clamp(1.85rem, 4.5vw, 2.5rem); margin-top: .2rem; }
+.lesson-h .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem 1rem;
+  color: var(--muted);
+  font-family: var(--ui);
+  font-size: .85rem;
+  margin-top: .55rem;
+}
+.steps-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .75rem;
+  padding-block: .5rem;
+  border-block: 1px solid var(--line);
+  font-family: var(--ui);
+  font-size: .82rem;
+}
+.step-item { color: var(--muted); }
+.step-item.on { color: var(--ok); font-weight: 700; }
+
+.section { margin-top: 2.2rem; scroll-margin-top: 4.5rem; }
+.section > h2 {
+  font-size: 1.32rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: .85rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem;
+}
+.section > h2 .h2-left { display: flex; align-items: baseline; gap: .6rem; }
+.section > h2 .k {
+  font-family: var(--ui);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+.recap {
+  background: var(--saffron-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  margin-top: 1rem;
+  font-size: .97rem;
+}
+
+/* Video Player & Switcher */
+.video-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .65rem;
+}
+.player {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
 .player + .player { margin-top: .9rem; }
 .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; }
 .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.player .cap { padding: .75rem .95rem; }
-.player .vt { font-size: 1.05rem; line-height: 1.3; }
-.player .vm { font-family: var(--ui); font-size: .82rem; color: var(--muted); margin-top: .15rem; }
-.player .focus { margin: .5rem 0 0; font-size: .97rem; }
-.player .row { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin-top: .6rem; font-family: var(--ui); font-size: .85rem; }
+.player .cap { padding: .85rem 1.05rem; }
+.player .vt { font-size: 1.08rem; line-height: 1.3; font-weight: 700; }
+.player .vm { font-family: var(--ui); font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+.player .focus {
+  margin: .6rem 0 0;
+  padding: .55rem .75rem;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: .95rem;
+}
+.player .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: .7rem;
+  font-family: var(--ui);
+  font-size: .85rem;
+}
 .player .row a { text-decoration: none; }
-.pill { font-family: var(--ui); font-size: .8rem; padding: .25rem .65rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
-.pill.on { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
-.pill.sel { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
-.prose p { margin: 0 0 .8rem; }
-.prose ul { margin: 0 0 .8rem; padding-left: 1.2rem; }
-.prose li { margin: .15rem 0; }
-.prose h3 { font-size: 1.05rem; margin: 1rem 0 .4rem; font-family: var(--ui); }
-.prose .dev { font-size: 1.1em; }
-.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
-.rows li { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: .3rem .9rem; align-items: baseline; padding: .45rem 0; border-bottom: 1px dashed var(--line); min-width: 0; }
-.rows .dev { font-size: 1.35rem; line-height: 1.3; }
+
+/* Prose & Interactive Matra Box */
+.prose p { margin: 0 0 .85rem; }
+.prose ul { margin: 0 0 .85rem; padding-left: 1.25rem; }
+.prose li { margin: .2rem 0; }
+.prose h3 { font-size: 1.08rem; font-weight: 700; margin: 1.15rem 0 .4rem; font-family: var(--ui); }
+.prose .dev { font-size: 1.12em; }
+
+.matra-lab {
+  margin-top: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+}
+.matra-lab-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .75rem;
+}
+.matra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.4rem, 1fr));
+  gap: .45rem;
+}
+.m-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .45rem .3rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease, transform .1s ease;
+}
+.m-btn:hover { border-color: var(--accent); }
+.m-btn.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.m-btn .dev { font-size: 1.35rem; line-height: 1.2; }
+.m-btn .iast { font-family: var(--body); font-size: .8rem; color: var(--muted); }
+.m-btn .beats {
+  font-family: var(--ui);
+  font-size: .65rem;
+  color: var(--saffron);
+  margin-top: .15rem;
+}
+.matra-detail {
+  margin-top: .8rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  font-size: .94rem;
+}
+.matra-detail-left { display: grid; gap: .15rem; }
+
+/* Examples & Word Rows */
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+.rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .95fr) minmax(0, 1.4fr) auto;
+  gap: .4rem .85rem;
+  align-items: center;
+  padding: .55rem .4rem;
+  border-bottom: 1px dashed var(--line);
+  min-width: 0;
+  border-radius: 6px;
+}
+.rows li:hover { background: var(--surface); }
+.rows .dev { font-size: 1.38rem; line-height: 1.3; }
 .rows .iast { color: var(--accent); }
-.rows .m { color: var(--muted); }
-@media (max-width: 480px) { .rows li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .rows .m { grid-column: 1 / -1; } }
-.say { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-.say li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7rem .9rem; }
-.say .dev { font-size: 1.5rem; line-height: 1.35; display: block; }
-.say .sub { color: var(--muted); font-size: .95rem; }
-.audio { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; display: grid; gap: .6rem; }
+.rows .m { color: var(--muted); font-size: .95rem; }
+.speak-icon-btn {
+  font-family: var(--ui);
+  font-size: .78rem;
+  padding: .28rem .6rem;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.speak-icon-btn:hover { color: var(--fg); border-color: var(--accent); background: var(--accent-soft); }
+@media (max-width: 540px) {
+  .rows li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+  .rows .m { grid-column: 1 / -1; }
+}
+
+/* Say it Aloud Studio */
+.say { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.say li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .9rem 1.05rem;
+  display: grid;
+  gap: .55rem;
+}
+.say-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+}
+.say .dev { font-size: 1.55rem; line-height: 1.35; display: block; }
+.say .sub { color: var(--muted); font-size: .95rem; display: block; }
+.say-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem;
+  padding-top: .45rem;
+  border-top: 1px dashed var(--line);
+}
+.name-fill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .2rem;
+  font-family: var(--ui);
+  font-size: .84rem;
+}
+.name-fill-row input {
+  padding: .3rem .6rem;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: .9rem;
+  max-width: 13rem;
+}
+
+/* Mini Flashcard Drill inside Lesson Step 5 */
+.drill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: .65rem;
+}
+.drill-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: .85rem .95rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 6.8rem;
+  text-align: left;
+  transition: border-color .15s ease, transform .12s ease;
+}
+.drill-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.drill-card .dev { font-size: 1.45rem; }
+.drill-card .back { margin-top: .4rem; font-size: .9rem; color: var(--muted); }
+.drill-card .hint { font-family: var(--ui); font-size: .72rem; color: var(--muted); margin-top: .4rem; }
+
+/* Audio Studio */
+.audio {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  display: grid;
+  gap: .7rem;
+}
 .audio audio { width: 100%; max-width: 100%; }
-.audio .ctl { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-family: var(--ui); font-size: .85rem; color: var(--muted); }
+.audio .ctl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  align-items: center;
+  font-family: var(--ui);
+  font-size: .84rem;
+  color: var(--muted);
+}
+
+/* Quiz */
 .quiz { display: grid; gap: 1rem; }
-.q { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .85rem 1rem; }
-.q .qt { display: flex; gap: .6rem; }
-.q .qn { font-family: var(--ui); color: var(--muted); font-variant-numeric: tabular-nums; }
-.opts { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; gap: .4rem; }
-.opt { width: 100%; text-align: left; display: flex; gap: .6rem; align-items: baseline; padding: .5rem .7rem; border-radius: 9px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
-.opt .l { font-family: var(--ui); font-size: .8rem; color: var(--muted); min-width: 1.1rem; }
+.q {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .95rem 1.1rem;
+}
+.q .qt { display: flex; gap: .6rem; font-size: 1.03rem; }
+.q .qn { font-family: var(--ui); color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 700; }
+.opts { list-style: none; margin: .65rem 0 0; padding: 0; display: grid; gap: .42rem; }
+.opt {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  gap: .65rem;
+  align-items: baseline;
+  padding: .55rem .8rem;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color .12s ease, background-color .12s ease;
+}
+.opt:hover:not(:disabled) { border-color: var(--accent); }
+.opt .l { font-family: var(--ui); font-size: .8rem; color: var(--muted); min-width: 1.2rem; font-weight: 700; }
 .opt.sel { border-color: var(--accent); background: var(--accent-soft); }
 .opt.right { border-color: var(--ok); background: var(--ok-soft); }
 .opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
-.q input[type=text] { width: 100%; max-width: 100%; margin-top: .6rem; font: inherit; font-size: 1.05rem; padding: .5rem .7rem; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
-.why { margin-top: .6rem; padding: .55rem .75rem; border-radius: 9px; background: var(--surface-2); font-size: .95rem; }
+.q input[type=text] {
+  width: 100%;
+  max-width: 100%;
+  margin-top: .6rem;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: .52rem .75rem;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+}
+.why { margin-top: .65rem; padding: .6rem .8rem; border-radius: 9px; background: var(--surface-2); font-size: .95rem; }
 .why.right { background: var(--ok-soft); }
 .why.wrong { background: var(--bad-soft); }
 .selfmark { display: flex; gap: .5rem; margin-top: .5rem; }
-.result { font-family: var(--ui); font-size: 1rem; padding: .7rem .9rem; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
-.teacher { font-family: var(--ui); font-size: .9rem; padding: .6rem .9rem; border-radius: 10px; background: var(--ok-soft); color: var(--ok); margin-bottom: .8rem; }
-.extra { background: var(--saffron-soft); border-radius: 10px; padding: .7rem .9rem; }
-.navrow { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: var(--ui); font-size: .9rem; }
-.navrow a { text-decoration: none; }
-.empty { margin-top: 1.2rem; padding: 1.2rem; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); }
+.result {
+  font-family: var(--ui);
+  font-size: .95rem;
+  padding: .8rem 1rem;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+.teacher {
+  font-family: var(--ui);
+  font-size: .9rem;
+  padding: .65rem .95rem;
+  border-radius: 10px;
+  background: var(--ok-soft);
+  color: var(--ok);
+  margin-bottom: .8rem;
+}
+.extra { background: var(--saffron-soft); border: 1px solid var(--line); border-radius: 10px; padding: .8rem 1rem; }
+.navrow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--ui);
+  font-size: .9rem;
+}
+.navrow a { text-decoration: none; font-weight: 700; }
+.empty { margin-top: 1.2rem; padding: 1.4rem; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); }
+
+/* Varnamala Interactive Studio View */
+.varna-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(19rem, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.25rem;
+}
+@media (max-width: 920px) { .varna-layout { grid-template-columns: 1fr; } }
+.varna-table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+.varna-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+}
+.varna-table th, .varna-table td {
+  padding: .55rem .5rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+.varna-table th {
+  font-family: var(--ui);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+.sthana-name {
+  font-family: var(--ui);
+  font-weight: 700;
+  font-size: .84rem;
+  display: block;
+}
+.sthana-sub {
+  font-family: var(--ui);
+  font-size: .74rem;
+  color: var(--muted);
+}
+.v-cell-group { display: flex; flex-wrap: wrap; gap: .3rem; }
+.v-char {
+  min-width: 2.35rem;
+  height: 2.35rem;
+  padding: 0 .35rem;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1.05;
+  transition: border-color .12s ease, background-color .12s ease;
+}
+.v-char:hover { border-color: var(--accent); }
+.v-char.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.v-char .dev { font-size: 1.15rem; }
+.v-char .iast { font-size: .68rem; color: var(--muted); }
+.varna-inspector {
+  position: sticky;
+  top: 4.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.35rem;
+  display: grid;
+  gap: .85rem;
+}
+.insp-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .85rem;
+  border-bottom: 1px solid var(--line);
+}
+.insp-char {
+  font-family: var(--dev);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.insp-meta { display: grid; gap: .2rem; }
+.insp-iast { font-size: 1.4rem; font-style: italic; }
+
+/* Flashcard & Vocabulary View */
+.flashcard-stage {
+  margin-top: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.1rem;
+  text-align: center;
+}
+.fc-box {
+  min-height: 12rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .15s ease;
+}
+.fc-box:hover { border-color: var(--accent); }
+.fc-box .dev-xl { font-family: var(--dev); font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.2; }
+.fc-box .iast-lg { font-size: 1.35rem; font-style: italic; color: var(--accent); }
+.fc-box .meaning-lg { font-size: 1.2rem; color: var(--fg); }
+.fc-box.flagged-due { border-color: var(--saffron); }
+.srs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.25rem;
+  padding: .75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: var(--ui);
+  font-size: .82rem;
+  text-align: left;
+}
+.srs-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .65rem;
+}
+.srs-flag-text { color: var(--saffron); font-weight: 700; }
+.srs-ok-text { color: var(--ok); font-weight: 700; }
+.fc-srs-banner {
+  font-family: var(--ui);
+  font-size: .8rem;
+  color: var(--muted);
+  padding-bottom: .45rem;
+  border-bottom: 1px dashed var(--line);
+  width: 100%;
+  max-width: 34rem;
+}
+.rows li.lex-row {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .85fr) minmax(0, 1.2fr) minmax(0, 1.35fr) auto;
+}
+.srs-cell {
+  font-family: var(--ui);
+  font-size: .78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 720px) {
+  .rows li.lex-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+  .rows li.lex-row .m, .rows li.lex-row .srs-cell { grid-column: 1 / -1; }
+}
 </style>
 </head>
 <body>
 <header class="bar">
   <div class="bar-in">
-    <a class="wordmark" href="#home"><span class="dev">संस्कृतं प्रतिदिनम्</span><span class="en">Sanskritam Daily</span></a>
-    <span class="chip" id="chip" hidden></span>
+    <a class="wordmark" href="#home">
+      <span class="dev">संस्कृतं प्रतिदिनम्</span>
+      <span class="en">Sanskritam Daily</span>
+    </a>
+    <nav class="topnav" id="topnav" aria-label="Primary navigation">
+      <a href="#home" data-nav="home" class="active">Today &amp; Syllabus</a>
+      <a href="#day-1" data-nav="lesson" id="navLessonLink">Day 1 Lesson</a>
+      <a href="#varnamala" data-nav="varnamala">Varṇamālā Studio</a>
+      <a href="#words" data-nav="words">Lexicon &amp; Flashcards</a>
+    </nav>
+    <div class="bar-actions">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle color theme">Theme</button>
+      <a class="bar-cta" id="headerCta" href="#day-1">Start Day 1</a>
+    </div>
   </div>
+  <div class="read-progress" aria-hidden="true"><span id="readBar"></span></div>
 </header>
+
 <main id="app">
   <section class="hero">
     <h1>Sanskritam Daily</h1>
@@ -211,13 +1335,118 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
 <script>
 (function () {
   "use strict";
+
+  // ---------- theme management ----------
+  var THEME_KEY = "sanskritam-daily.theme";
+  function currentTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+    if (saved === "dark" || saved === "light") return saved;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    var btn = document.getElementById("themeBtn");
+    if (btn) btn.textContent = t === "dark" ? "☀ Light" : "☾ Dark";
+  }
+  applyTheme(currentTheme());
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    applyTheme(next);
+  });
+
+  // ---------- scroll reading progress ----------
+  window.addEventListener("scroll", function () {
+    var bar = document.getElementById("readBar");
+    if (!bar) return;
+    if (!/^#day-\d+/.test(location.hash || "")) { bar.style.width = "0%"; return; }
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    bar.style.width = pct + "%";
+  }, { passive: true });
+
+  // ---------- speech synthesis helper ----------
+  function speakSanskrit(text, rateOverride) {
+    if (!("speechSynthesis" in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      var clean = String(text || "").replace(/______|\.\.\./g, "").trim();
+      var u = new SpeechSynthesisUtterance(clean);
+      var voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+      var chosen = voices.find(function (v) { return /^sa(-|_|$)/i.test(v.lang); }) ||
+                   voices.find(function (v) { return /^hi(-|_|$)/i.test(v.lang); }) ||
+                   voices.find(function (v) { return /india|hindi|sanskrit/i.test(v.name); });
+      if (chosen) u.voice = chosen;
+      u.lang = chosen ? chosen.lang : "hi-IN";
+      u.rate = rateOverride || 0.82;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  // ---------- Pāṇinian Varṇamālā reference data ----------
+  var VOWELS_DATA = [
+    { dev: "अ", iast: "a", beats: 1, type: "Short (hrasva)", sthana: "Kaṇṭhya (Throat)", ex: "अत्र (atra · here), राम (rāma)", note: "Never dropped at the end of a Sanskrit word unless marked with virāma (्)." },
+    { dev: "आ", iast: "ā", beats: 2, type: "Long (dīrgha)", sthana: "Kaṇṭhya (Throat)", ex: "आनन्द (ānanda · joy), नाम (nāma · name)", note: "Open the throat and hold for two full beats (mātrās)." },
+    { dev: "इ", iast: "i", beats: 1, type: "Short (hrasva)", sthana: "Tālavya (Hard palate)", ex: "इति (iti · thus), दिन (dina · day)", note: "Crisp 1-beat vowel with the middle of the tongue raised toward the hard palate." },
+    { dev: "ई", iast: "ī", beats: 2, type: "Long (dīrgha)", sthana: "Tālavya (Hard palate)", ex: "ईश्वर (īśvara · Lord), दीन (dīna · poor)", note: "Hold for two full beats; contrasts directly with short इ (dina vs dīna)." },
+    { dev: "उ", iast: "u", beats: 1, type: "Short (hrasva)", sthana: "Oṣṭhya (Lips)", ex: "गुरु (guru · teacher), कुल (kula · family)", note: "Both u vowels in guru are short (1 beat each) with rounded lips." },
+    { dev: "ऊ", iast: "ū", beats: 2, type: "Long (dīrgha)", sthana: "Oṣṭhya (Lips)", ex: "कूल (kūla · riverbank), ऊर्जा (ūrjā · energy)", note: "Two beats with rounded lips; contrasts with short उ (kula vs kūla)." },
+    { dev: "ऋ", iast: "ṛ", beats: 1, type: "Short (hrasva)", sthana: "Mūrdhanya (Roof / Retroflex)", ex: "ऋषि (ṛṣi · sage), कृपा (kṛpā · grace)", note: "A pure vowel, not र + इ. Curl the tongue tip slightly back toward the roof of the mouth." },
+    { dev: "ॠ", iast: "ṝ", beats: 2, type: "Long (dīrgha)", sthana: "Mūrdhanya (Roof / Retroflex)", ex: "पितॄन् (pitṝn · ancestors, acc. pl.)", note: "Long counterpart of ऋ; occurs mainly in noun declension tables." },
+    { dev: "ऌ", iast: "ḷ", beats: 1, type: "Short (hrasva)", sthana: "Dantya (Teeth)", ex: "कॢप्त (kḷpta · arranged, ready)", note: "Syllabic l sound touched at the teeth; rare but part of the 13 classical vowels." },
+    { dev: "ए", iast: "e", beats: 2, type: "Always long (sandhyakṣara)", sthana: "Kaṇṭha-tālavya (Throat + Palate)", ex: "एक (eka · one), देव (deva · deity)", note: "Arises from a + i blending together; always counts as a heavy 2-beat syllable." },
+    { dev: "ऐ", iast: "ai", beats: 2, type: "Always long (sandhyakṣara)", sthana: "Kaṇṭha-tālavya (Throat + Palate)", ex: "ऐक्य (aikya · unity)", note: "Pronounced a + i (like 'ai' in aisle), not the flat 'ae' of modern Hindi." },
+    { dev: "ओ", iast: "o", beats: 2, type: "Always long (sandhyakṣara)", sthana: "Kaṇṭhoṣṭhya (Throat + Lips)", ex: "ओम् (om), लोक (loka · world)", note: "Arises from a + u blending together; always held for two full beats." },
+    { dev: "औ", iast: "au", beats: 2, type: "Always long (sandhyakṣara)", sthana: "Kaṇṭhoṣṭhya (Throat + Lips)", ex: "औषध (auṣadha · medicine)", note: "Pronounced a + u (like 'ou' in loud), not the flat 'aw' of Hindi." }
+  ];
+
+  var STHANA_ROWS = [
+    {
+      sthana: "Kaṇṭhya",
+      place: "Throat / Soft palate (Velar)",
+      vowels: [{ dev: "अ", iast: "a" }, { dev: "आ", iast: "ā" }],
+      stops: [{ dev: "क", iast: "ka" }, { dev: "ख", iast: "kha" }, { dev: "ग", iast: "ga" }, { dev: "घ", iast: "gha" }, { dev: "ङ", iast: "ṅa" }],
+      other: [{ dev: "ह", iast: "ha" }, { dev: "अः", iast: "aḥ" }]
+    },
+    {
+      sthana: "Tālavya",
+      place: "Hard palate (Palatal)",
+      vowels: [{ dev: "इ", iast: "i" }, { dev: "ई", iast: "ī" }, { dev: "ए", iast: "e" }, { dev: "ऐ", iast: "ai" }],
+      stops: [{ dev: "च", iast: "ca" }, { dev: "छ", iast: "cha" }, { dev: "ज", iast: "ja" }, { dev: "झ", iast: "jha" }, { dev: "ञ", iast: "ña" }],
+      other: [{ dev: "य", iast: "ya" }, { dev: "श", iast: "śa" }]
+    },
+    {
+      sthana: "Mūrdhanya",
+      place: "Roof of mouth, tongue curled back (Retroflex)",
+      vowels: [{ dev: "ऋ", iast: "ṛ" }, { dev: "ॠ", iast: "ṝ" }],
+      stops: [{ dev: "ट", iast: "ṭa" }, { dev: "ठ", iast: "ṭha" }, { dev: "ड", iast: "ḍa" }, { dev: "ढ", iast: "ḍha" }, { dev: "ण", iast: "ṇa" }],
+      other: [{ dev: "र", iast: "ra" }, { dev: "ष", iast: "ṣa" }]
+    },
+    {
+      sthana: "Dantya",
+      place: "Upper teeth (Dental)",
+      vowels: [{ dev: "ऌ", iast: "ḷ" }],
+      stops: [{ dev: "त", iast: "ta" }, { dev: "थ", iast: "tha" }, { dev: "द", iast: "da" }, { dev: "ध", iast: "dha" }, { dev: "न", iast: "na" }],
+      other: [{ dev: "ल", iast: "la" }, { dev: "स", iast: "sa" }]
+    },
+    {
+      sthana: "Oṣṭhya",
+      place: "Both lips (Labial)",
+      vowels: [{ dev: "उ", iast: "u" }, { dev: "ऊ", iast: "ū" }, { dev: "ओ", iast: "o" }, { dev: "औ", iast: "au" }],
+      stops: [{ dev: "प", iast: "pa" }, { dev: "फ", iast: "pha" }, { dev: "ब", iast: "ba" }, { dev: "भ", iast: "bha" }, { dev: "म", iast: "ma" }],
+      other: [{ dev: "अं", iast: "aṃ" }]
+    }
+  ];
+
   // ---------- course plan ----------
   var BASE = Date.UTC(2026, 9, 29);            // Day N (N >= 2) is on 29 Oct 2026 + (N - 1) days
   var DAY1_DATE = Date.UTC(2026, 9, 27);        // Day 1 was taught on 27 Oct 2026
   var LESSON_TIME = "about 12:40 PM";
   var STAGES = [
-    { name: "Stage 0 · Sounds and script", from: 1, to: 13 },
-    { name: "Stage 1 · Foundations", from: 14, to: 111 }
+    { id: "s0", name: "Stage 0 · Sounds and script", from: 1, to: 13 },
+    { id: "s1", name: "Stage 1 · Foundations", from: 14, to: 111 }
   ];
   var TOPICS = {
     1: "The 13 vowels", 2: "Anusvāra and visarga", 3: "The 25 stop consonants and the nasals",
@@ -266,16 +1495,30 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
   function parseDate(s) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ""); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null; }
   function pad3(n) { return (n < 10 ? "00" : n < 100 ? "0" : "") + n; }
 
-  // ---------- progress ----------
-  // Two sources: (1) what you do on this device (watched, listened, self-check quiz), kept in this browser;
-  // (2) results the teacher recorded after you replied in the chat, published as data/progress.json for every device.
+  // ---------- progress & notes ----------
   var KEY = "sanskritam-daily.progress.v2", OLD_KEY = "sanskritam-daily.progress";
+  var NOTES_KEY = "sanskritam-daily.notes.v1";
+  var NAME_KEY = "sanskritam-daily.learner-name";
   function loadLocal() {
     var p = null;
     try { p = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { p = null; }
-    if (!p || typeof p !== "object") p = { days: {} };
+    if (!p || typeof p !== "object") p = { days: {}, reps: {}, masteredWords: {}, srs: {} };
     if (!p.days) p.days = {};
-    try { // carry over the first version's ticks
+    if (!p.reps) p.reps = {};
+    if (!p.masteredWords) p.masteredWords = {};
+    if (!p.srs) p.srs = {};
+    // Migrate any boolean masteredWords into structured SRS records if missing
+    Object.keys(p.masteredWords).forEach(function (wKey) {
+      if (p.masteredWords[wKey] && !p.srs[wKey]) {
+        p.srs[wKey] = {
+          mastered: true,
+          level: 1,
+          lastReviewedAt: Date.now(),
+          intervalHours: 24
+        };
+      }
+    });
+    try {
       var old = JSON.parse(localStorage.getItem(OLD_KEY) || "null");
       if (old && typeof old === "object" && !p.migrated) {
         Object.keys(old).forEach(function (k) {
@@ -286,18 +1529,149 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
         });
         p.migrated = true; saveLocal(p);
       }
-    } catch (e) { /* ignore */ }
+    } catch (e) {}
     return p;
   }
-  function saveLocal(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) { /* storage unavailable: progress lives for this visit only */ } }
+  function saveLocal(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) {} }
+  function loadNotes() {
+    try { return JSON.parse(localStorage.getItem(NOTES_KEY) || "{}") || {}; } catch (e) { return {}; }
+  }
+  function saveNote(day, text) {
+    var all = loadNotes();
+    all[day] = text;
+    try { localStorage.setItem(NOTES_KEY, JSON.stringify(all)); } catch (e) {}
+  }
+
   var local = loadLocal(), teacher = { days: {} };
+
+  // ---------- Spaced Repetition System (SRS) Algorithm ----------
+  // Expanding Leitner/SM-2 interval schedule in hours for Mastered levels 1..5:
+  // Level 1: 24h (1d) · Level 2: 72h (3d) · Level 3: 168h (7d) · Level 4: 336h (14d) · Level 5: 720h (30d)
+  var SRS_INTERVALS_HOURS = [0, 24, 72, 168, 336, 720];
+  var srsSimOffsetMs = 0; // Optional time-elapsed offset for testing/previewing SRS decay
+
+  function srsNow() {
+    return Date.now() + srsSimOffsetMs;
+  }
+
+  function fmtElapsed(ms) {
+    var totalHours = Math.max(0, Math.floor(ms / 3600e3));
+    var days = Math.floor(totalHours / 24);
+    var hours = totalHours % 24;
+    if (days > 0) return days + "d" + (hours > 0 ? " " + hours + "h" : "");
+    if (totalHours > 0) return totalHours + "h";
+    var mins = Math.max(0, Math.floor(ms / 60e3));
+    return mins <= 1 ? "just now" : mins + "m";
+  }
+
+  function evaluateWordSRS(dev, wordDay) {
+    if (!local.srs) local.srs = {};
+    var rec = local.srs[dev] || null;
+    var isMasteredBool = !!(rec ? rec.mastered : (local.masteredWords && local.masteredWords[dev]));
+    var now = srsNow();
+    var introMs = dayDate(wordDay || 1);
+
+    if (!isMasteredBool) {
+      var refUnmastered = (rec && rec.lastReviewedAt) ? rec.lastReviewedAt : introMs;
+      var elapsedUnmastered = Math.max(0, now - refUnmastered);
+      return {
+        mastered: false,
+        level: 0,
+        intervalHours: 0,
+        lastReviewedAt: refUnmastered,
+        elapsedMs: elapsedUnmastered,
+        remainingMs: 0,
+        overdueMs: elapsedUnmastered,
+        flaggedForReview: true,
+        flagType: "unmastered",
+        priorityScore: 1000 + Math.min(999, Math.floor(elapsedUnmastered / 3600e3)),
+        label: "● Flagged for Review · Unmastered",
+        detail: (rec && rec.lastReviewedAt ? "Reset " : "Introduced ") + fmtElapsed(elapsedUnmastered) + (fmtElapsed(elapsedUnmastered) === "just now" ? "" : " ago")
+      };
+    }
+
+    var level = Math.max(1, Math.min(5, (rec && rec.level) || 1));
+    var intervalHours = (rec && rec.intervalHours) || SRS_INTERVALS_HOURS[level] || 24;
+    var intervalMs = intervalHours * 3600e3;
+    var lastRev = (rec && rec.lastReviewedAt) || Date.now();
+    var elapsedMs = Math.max(0, now - lastRev);
+
+    if (elapsedMs >= intervalMs) {
+      var overdueMs = elapsedMs - intervalMs;
+      return {
+        mastered: true,
+        level: level,
+        intervalHours: intervalHours,
+        lastReviewedAt: lastRev,
+        elapsedMs: elapsedMs,
+        remainingMs: 0,
+        overdueMs: overdueMs,
+        flaggedForReview: true,
+        flagType: "elapsed",
+        priorityScore: 2000 + Math.min(999, Math.floor(overdueMs / 3600e3)),
+        label: "▲ Flagged for Review · Interval Elapsed",
+        detail: "Mastered (Box " + level + " · " + (intervalHours / 24) + "d interval) · " + fmtElapsed(elapsedMs) + " elapsed"
+      };
+    }
+
+    var remainingMs = intervalMs - elapsedMs;
+    return {
+      mastered: true,
+      level: level,
+      intervalHours: intervalHours,
+      lastReviewedAt: lastRev,
+      elapsedMs: elapsedMs,
+      remainingMs: remainingMs,
+      overdueMs: 0,
+      flaggedForReview: false,
+      flagType: "none",
+      priorityScore: Math.floor((elapsedMs / intervalMs) * 100),
+      label: "✓ Mastered (Box " + level + " · " + (intervalHours / 24) + "d)",
+      detail: fmtElapsed(elapsedMs) + " elapsed · Next review in " + fmtElapsed(remainingMs)
+    };
+  }
+
+  function updateWordSRS(dev, action) {
+    if (!local.srs) local.srs = {};
+    if (!local.masteredWords) local.masteredWords = {};
+    var current = local.srs[dev] || { mastered: !!local.masteredWords[dev], level: local.masteredWords[dev] ? 1 : 0, lastReviewedAt: 0, intervalHours: 0 };
+    var now = srsNow();
+
+    if (action === "master") {
+      var nextLevel = current.mastered ? Math.min(5, (current.level || 1) + 1) : 1;
+      var nextInterval = SRS_INTERVALS_HOURS[nextLevel] || 24;
+      local.srs[dev] = {
+        mastered: true,
+        level: nextLevel,
+        lastReviewedAt: now,
+        intervalHours: nextInterval
+      };
+      local.masteredWords[dev] = true;
+    } else if (action === "flag" || action === "unmaster") {
+      local.srs[dev] = {
+        mastered: false,
+        level: 0,
+        lastReviewedAt: now,
+        intervalHours: 0
+      };
+      local.masteredWords[dev] = false;
+    } else if (action === "toggle") {
+      var ev = evaluateWordSRS(dev, 1);
+      if (ev.mastered && !ev.flaggedForReview) {
+        return updateWordSRS(dev, "flag");
+      } else {
+        return updateWordSRS(dev, "master");
+      }
+    }
+    saveLocal(local);
+  }
   function mark(n, patch) {
     var d = local.days[n] || {};
     Object.keys(patch).forEach(function (k) { if (patch[k] === null) delete d[k]; else d[k] = patch[k]; });
-    local.days[n] = d; saveLocal(local); updateChip();
+    local.days[n] = d; saveLocal(local); updateHeaderStatus();
     return d;
   }
-  function state(n) { // merged view of one lesson
+  function state(n) {
     var d = local.days[n] || {}, t = teacher.days[n] || null;
     return { video: !!d.video, alt: !!d.alt, audio: !!d.audio, quiz: d.quiz || null, teacher: t, done: !!(d.done || (t && t.total)) };
   }
@@ -332,7 +1706,7 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
     return fetch(path, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
   }
   function loadTeacher() {
-    return fetchJSON("data/progress.json").then(function (j) { if (j && j.days) teacher = j; }).catch(function () { /* none yet */ });
+    return fetchJSON("data/progress.json").then(function (j) { if (j && j.days) teacher = j; }).catch(function () {});
   }
   function loadLatest() {
     if (latestKnown) return Promise.resolve(latest);
@@ -352,7 +1726,13 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
   // ---------- rendering helpers ----------
   var app = document.getElementById("app");
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  function inline(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/[ऀ-ॿ][ऀ-ॿ‌‍\s।॥]*[ऀ-ॿ।॥]|[ऀ-ॿ]/g, function (m) { return '<span class="dev">' + m + "</span>"; }); }
+  function inline(s) {
+    return esc(s)
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/[ऀ-ॿ][ऀ-ॿ‌‍\s।॥]*[ऀ-ॿ।॥]|[ऀ-ॿ]/g, function (m) {
+        return '<span class="dev">' + m + "</span>";
+      });
+  }
   function prose(items) {
     if (typeof items === "string") items = [items];
     var out = "", list = [];
@@ -365,82 +1745,686 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
     flush(); return out;
   }
   function row(x) {
-    if (typeof x === "string") return '<li><span class="dev">' + esc(x) + "</span></li>";
-    return '<li><span class="dev">' + esc(x.dev) + '</span><span class="iast">' + esc(x.iast) + '</span><span class="m">' + esc(x.meaning) + "</span></li>";
+    if (typeof x === "string") {
+      return '<li><span class="dev">' + esc(x) + '</span><span></span><span></span><button class="speak-icon-btn" type="button" data-speak="' + esc(x) + '">🔊 Listen</button></li>';
+    }
+    var spk = String(x.dev || "").split("/")[0].trim();
+    return '<li><span class="dev">' + esc(x.dev) + '</span><span class="iast">' + esc(x.iast) + '</span><span class="m">' + esc(x.meaning) + '</span><button class="speak-icon-btn" type="button" data-speak="' + esc(spk) + '">🔊 Listen</button></li>';
   }
-  function ticks(st) {
-    return '<span class="ticks" aria-label="video, audio, quiz"><span class="tick' + (st.video ? " on" : "") + '" title="Video">▶</span><span class="tick' + (st.audio ? " on" : "") + '" title="Audio">♪</span><span class="tick' + (st.quiz || (st.teacher && st.teacher.total) ? " on" : "") + '" title="Quiz">?</span></span>';
+  function stepSummaryText(st) {
+    var parts = [];
+    parts.push((st.video ? "✓ " : "") + "Video");
+    parts.push((st.audio ? "✓ " : "") + "Audio");
+    parts.push((st.quiz || (st.teacher && st.teacher.total) ? "✓ " : "") + "Quiz");
+    return parts.join(" · ");
   }
-  function updateChip() {
-    var chip = document.getElementById("chip");
-    if (!latest) { chip.hidden = true; return; }
-    chip.hidden = false; chip.textContent = doneDays(latest).length + " of " + latest + " done";
+  function updateHeaderStatus() {
+    var has = latest || 1;
+    var show = Math.min(Math.max(1, todayDay()), has);
+    var sst = state(show);
+    var cta = document.getElementById("headerCta");
+    var navLesson = document.getElementById("navLessonLink");
+    if (navLesson) {
+      navLesson.href = "#day-" + show;
+      navLesson.textContent = "Day " + show + " Lesson";
+    }
+    if (cta) {
+      cta.href = "#day-" + show;
+      cta.textContent = sst.done ? "Review Day " + show : sst.video || sst.audio ? "Continue Day " + show : "Start Day " + show;
+    }
+  }
+  function setActiveNav(key) {
+    Array.prototype.forEach.call(document.querySelectorAll("#topnav a"), function (a) {
+      a.classList.toggle("active", a.getAttribute("data-nav") === key);
+    });
   }
   function ytId(url) {
     var m = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/.exec(url || "");
     return m ? m[1] : null;
   }
 
-  // ---------- home ----------
+  // ---------- home view ----------
+  var syllabusState = { filter: "all", query: "", expandBlocks: false };
+
   function renderHome() {
     document.title = "Sanskritam Daily";
+    setActiveNav("home");
+    var bar = document.getElementById("readBar"); if (bar) bar.style.width = "0%";
+
     var tn = todayDay(), has = latest || 0;
-    var html = '<section class="hero"><h1>Sanskritam Daily</h1><p class="sub">One Sanskrit lesson a day: a video, a short explanation, words to say aloud, audio and a quiz. From the sounds to the Gītā.</p></section>';
+    var done = doneDays(has), avg = quizAverage(has), sk = streak();
+    var show = has ? Math.min(Math.max(1, tn), has) : 1;
+    var pending = tn > has;
+    var l = cache[show], sst = state(show);
+
+    var html = '<div class="home-grid">';
+    // Left Column: Masthead + Today's Featured Lesson
+    html += '<div class="hero-col">';
+    html += '<section class="hero"><span class="eyebrow">संस्कृतं प्रतिदिनम् · Daily Classical Sanskrit</span><h1>From the First Sounds to the Bhagavad Gītā</h1><p class="sub">One structured lesson every day: watch the guided video, study the core grammatical principle, speak the examples aloud, practice the audio, and verify with a self-check quiz.</p></section>';
+
     if (!has) {
       html += '<div class="empty">The first lesson appears here on ' + fmt(DAY1_DATE, true) + ".</div>";
     } else {
-      var show = Math.min(tn, has), pending = tn > has, l = cache[show], sst = state(show);
-      html += '<section class="today"><span class="eyebrow">' + (pending ? "Latest lesson" : "Today") + " · Day " + show + " · " + fmt(dayDate(show)) + "</span>";
-      html += "<h2>" + esc(l && l.title ? l.title : topicOf(show)) + "</h2>";
-      html += '<div class="meta"><span>' + esc(stageOf(show)) + "</span><span>Video · read · say aloud · quiz</span><span>30–45 min</span></div>";
-      html += '<div class="btn-row"><a class="btn" href="#day-' + show + '">' + (sst.done ? "Open again" : sst.video || sst.audio ? "Continue Day " + show : "Start Day " + show) + "</a>";
-      if (pending && tn <= 400) html += '<span class="note">Day ' + tn + " arrives " + (tn === has + 1 ? "today" : "soon") + " at " + LESSON_TIME + ".</span>";
+      html += '<section class="today">';
+      html += '<div class="meta-line"><span class="eyebrow" style="display:inline">' + (pending ? "Latest Published Lesson" : "Today’s Lesson") + '</span><span class="meta-sep">·</span><span>Day ' + show + '</span><span class="meta-sep">·</span><span>' + fmt(dayDate(show), true) + '</span><span class="meta-sep">·</span><span>' + esc(stageOf(show)) + "</span></div>";
+      html += '<h2>' + esc(l && l.title ? l.title : topicOf(show)) + "</h2>";
+      html += '<div class="meta-line"><span>30–45 min study</span><span class="meta-sep">·</span><span>' + stepSummaryText(sst) + "</span></div>";
+
+      if (l && l.idea && l.idea.length) {
+        html += '<div class="today-preview"><p style="margin:0">' + inline(l.idea[0]) + '</p>';
+        if (show === 1) {
+          html += '<div class="vowel-strip" aria-label="Click any vowel to hear its sound">';
+          VOWELS_DATA.forEach(function (v) {
+            html += '<button type="button" class="vowel-key" data-speak="' + esc(v.dev) + '" title="' + esc(v.iast + " · " + v.type) + '">' + esc(v.dev) + "</button>";
+          });
+          html += "</div>";
+        }
+        html += "</div>";
+      }
+
+      html += '<div class="btn-row">';
+      html += '<a class="btn" href="#day-' + show + '">' + (sst.done ? "Open Day " + show + " Again" : sst.video || sst.audio ? "Continue Day " + show : "Start Day " + show) + " →</a>";
+      html += '<a class="btn secondary" href="#varnamala">Explore Varṇamālā Chart</a>';
+      html += '<a class="btn secondary" href="#words">Practice ' + (l && l.words ? l.words.length : 5) + " Words</a>";
+      if (pending && tn <= 400) html += '<span class="note">Day ' + tn + " (" + esc(topicOf(tn)) + ") arrives " + (tn === has + 1 ? "today" : "soon") + " at " + LESSON_TIME + ".</span>";
       html += "</div></section>";
     }
-    var done = doneDays(has), avg = quizAverage(has), sk = streak();
-    html += '<section class="board"><div class="tiles">';
-    html += '<div class="tile"><div class="v">' + done.length + " <small>of " + has + '</small></div><div class="l">Lessons done</div></div>';
-    html += '<div class="tile"><div class="v">' + sk + " <small>day" + (sk === 1 ? "" : "s") + '</small></div><div class="l">Streak</div></div>';
-    html += '<div class="tile"><div class="v">' + (avg == null ? "–" : avg + "<small>%</small>") + '</div><div class="l">Quiz average</div></div>';
-    html += '<div class="tile"><div class="v">' + done.length * WORDS_PER_LESSON + '</div><div class="l">Words learned</div></div>';
     html += "</div>";
+
+    // Right Column: Scholar's Study Ledger
+    html += '<aside class="board" aria-label="Study progress board">';
+    html += '<div class="board-head"><h2>Scholar’s Ledger</h2><span class="small muted mono">' + done.length + " of " + has + " completed</span></div>";
+    html += '<div class="tiles">';
+    html += '<div class="tile"><div class="v">' + done.length + ' <small>/ ' + has + '</small></div><div class="l">Lessons done</div></div>';
+    html += '<div class="tile"><div class="v">' + sk + ' <small>day' + (sk === 1 ? "" : "s") + '</small></div><div class="l">Active streak</div></div>';
+    html += '<div class="tile"><div class="v">' + (avg == null ? "–" : avg + "<small>%</small>") + '</div><div class="l">Quiz average</div></div>';
+    html += '<div class="tile"><div class="v">' + (done.length * WORDS_PER_LESSON) + ' <small>words</small></div><div class="l">Vocabulary</div></div>';
+    html += "</div>";
+
+    // 7-day cadence strip
+    var actSet = activityDates(), todayMs = istDate();
+    html += '<div class="cadence"><span>Last 7 days</span><div class="cadence-days">';
+    for (var offset = 6; offset >= 0; offset--) {
+      var dMs = todayMs - offset * DAY_MS;
+      var dObj = new Date(dMs);
+      var active = !!actSet[dMs];
+      html += '<div class="c-day"><span>' + DAYN[dObj.getUTCDay()].slice(0, 2) + '</span><span class="c-box' + (active ? " on" : "") + '" title="' + fmt(dMs) + '">' + (active ? "✓" : "·") + "</span></div>";
+    }
+    html += "</div></div>";
+
     html += '<div class="bars">';
     STAGES.forEach(function (st) {
       var tot = st.to - st.from + 1, dn = done.filter(function (n) { return n >= st.from && n <= st.to; }).length;
-      html += '<div><div class="row"><span>' + esc(st.name) + "</span><span class=\"muted\">" + dn + " / " + tot + '</span></div><div class="track"><i style="width:' + Math.min(100, dn / tot * 100) + '%"></i></div></div>';
+      html += '<div><div class="row"><span>' + esc(st.name) + '</span><span class="muted mono">' + dn + " / " + tot + '</span></div><div class="track"><i style="width:' + Math.min(100, dn / tot * 100) + '%"></i></div></div>';
     });
     html += "</div>";
     var tcount = Object.keys(teacher.days).length;
-    html += '<p class="note">Ticks and self-check scores are saved in this browser. ' + (tcount ? tcount + " quiz result" + (tcount === 1 ? "" : "s") + " checked by your teacher in the chat show on every device." : "Quiz results you send in the chat are recorded by your teacher and show on every device.") + "</p>";
+    html += '<p class="note">Self-check scores save in this browser. ' + (tcount ? tcount + " quiz result" + (tcount === 1 ? "" : "s") + " checked by your teacher in the chat show on every device." : "Send quiz answers in your Sanskrit Day chat for teacher verification across devices.") + "</p>";
+    html += "</aside></div>";
+
+    // Daily Spoken Sanskrit Strip
+    html += '<section class="subhashitam" aria-label="Daily spoken phrase">';
+    html += '<div class="subhashitam-main"><span class="eyebrow">Spoken Sanskrit Practice · Day 1 Phrase</span><span class="dev-lg">नमस्ते। मम नाम संस्कृतच्छात्रः।</span><span class="small muted"><span class="iast">namaste. mama nāma saṃskṛtacchātraḥ.</span> · Hello. My name is a student of Sanskrit. (Remember to pronounce every final <em>a</em>.)</span></div>';
+    html += '<div class="btn-row" style="margin:0"><button class="ctl-btn" type="button" data-speak="नमस्ते। मम नाम संस्कृतच्छात्रः।">🔊 Hear Phrase</button><a class="ctl-btn" href="#day-1" style="text-decoration:none">Practice in Lesson →</a></div>';
     html += "</section>";
-    html += '<section class="course"><h2>The course</h2>';
+
+    // Interactive Syllabus Section
+    html += '<section class="course" id="syllabus">';
+    html += '<div class="course-toolbar"><div><span class="eyebrow">111-Day Structured Curriculum</span><h2>The Course Roadmap</h2></div>';
+    html += '<div class="course-controls">';
+    html += '<input type="search" class="search-inp" id="courseSearch" placeholder="Search topics (e.g. sandhi, cases, Gītā)…" value="' + esc(syllabusState.query) + '" aria-label="Search course topics">';
+    html += '<div class="seg-bar" role="group" aria-label="Filter syllabus">';
+    [
+      ["all", "All Days"],
+      ["avail", "Published"],
+      ["s0", "Stage 0"],
+      ["s1", "Stage 1"],
+      ["review", "Reviews"]
+    ].forEach(function (tab) {
+      html += '<button type="button" class="seg-btn' + (syllabusState.filter === tab[0] ? " active" : "") + '" data-filter="' + tab[0] + '">' + tab[1] + "</button>";
+    });
+    html += "</div></div></div>";
+
+    html += '<div id="courseListContainer">' + buildCourseListHTML(has) + "</div>";
+    html += '<div class="stage"><div class="stage-h"><h3>Stage 2 · Reading the Gītā</h3><span>from Day 112</span></div><p class="muted" style="margin:.5rem 0 0;font-size:.95rem">Continues one idea a day: the remaining noun types, all tenses, full sandhi, compounds, and one Bhagavad Gītā verse a day read the traditional <em>anvaya</em> (prose word-order) way.</p></div>';
+    html += "</section>";
+
+    // How to use & Local Progress Backup
+    html += '<section class="how"><div><strong style="color:var(--fg)">How to study each day.</strong> A new lesson appears here, and in your Sanskrit Day chat, every day at ' + LESSON_TIME + '.<ol><li>Watch the video first. It ticks itself when it ends, or press "Watched".</li><li>Read today’s idea and test the sounds in the interactive vowel &amp; mouth-position strip.</li><li>Play the audio and repeat each item aloud three times, recording your own voice if you wish.</li><li>Take the quiz here, then copy and send your answers in the chat so your teacher’s marks are recorded.</li></ol></div>';
+    html += '<div class="how-tools"><strong style="color:var(--fg)">Study Tools &amp; Backup</strong><p class="note">Your progress ticks and personal notes are stored locally in your browser. You can export or restore a backup anytime.</p><div class="btn-row"><button type="button" class="ctl-btn" id="exportBtn">Export Progress JSON</button><button type="button" class="ctl-btn" id="importBtn">Import Backup</button><input type="file" id="importFile" accept="application/json" hidden></div><span class="note" id="backupMsg"></span></div></section>';
+
+    app.innerHTML = html;
+    wireHome(has);
+  }
+
+  function buildCourseListHTML(has) {
+    var q = syllabusState.query.trim().toLowerCase();
+    var f = syllabusState.filter;
+    var out = "";
+    var anyMatch = false;
+
     STAGES.forEach(function (st) {
-      html += '<div class="stage"><div class="stage-h"><h3>' + esc(st.name) + "</h3><span>Days " + st.from + "–" + st.to + '</span></div><ul class="days">';
+      if (f === "s0" && st.id !== "s0") return;
+      if (f === "s1" && st.id !== "s1") return;
+
+      var rowsHtml = "";
       for (var n = st.from; n <= st.to; n++) {
         var avail = n <= has, rv = isReview(n), blk = null;
         for (var bi = 0; bi < BLOCKS.length; bi++) if (n >= BLOCKS[bi][0] && n <= BLOCKS[bi][1]) blk = BLOCKS[bi];
-        if (blk && !avail) {
+
+        if (blk && !avail && !q && f === "all" && !syllabusState.expandBlocks) {
           var r = n; while (r < blk[1] && r + 1 > has) r++;
-          html += '<li class="day up"><span class="n mono">' + (r > n ? n + "–" + r : n) + '</span><span class="t">' + esc(blk[2]) + (r === blk[1] ? " · review on Day " + blk[1] : "") + '</span><span class="st">' + fmt(dayDate(n)) + (r > n ? " →" : "") + "</span></li>";
+          rowsHtml += '<li class="day up"><span class="n mono">' + (r > n ? n + "–" + r : n) + '</span><span class="t">' + esc(blk[2]) + (r === blk[1] ? ' <span class="rev-tag">· review on Day ' + blk[1] + "</span>" : "") + '</span><span class="st">' + fmt(dayDate(n)) + (r > n ? " →" : "") + "</span></li>";
+          anyMatch = true;
           n = r; continue;
         }
-        var title = (cache[n] && cache[n].title) || topicOf(n), sx = state(n);
-        html += '<li class="day' + (avail ? "" : " up") + (rv ? " review" : "") + '"><span class="n mono">' + n + "</span>";
-        html += avail ? '<a class="t" href="#day-' + n + '">' + esc(title) + "</a>" : '<span class="t">' + esc(title) + "</span>";
-        if (!avail) html += '<span class="st">' + fmt(dayDate(n)) + "</span>";
-        else {
-          var q = sx.teacher && sx.teacher.total ? sx.teacher : sx.quiz, sc = q && q.total ? '<span class="score">' + q.score + "/" + q.total + "</span>" : "";
-          html += '<span class="st' + (!sx.done && !sx.video && !sx.audio ? " open" : "") + '">' + (sx.done ? "✓ " : sx.video || sx.audio ? "" : "Open ") + sc + ticks(sx) + "</span>";
+
+        if (f === "avail" && !avail) continue;
+        if (f === "review" && !rv) continue;
+
+        var title = (cache[n] && cache[n].title) || topicOf(n);
+        if (q && title.toLowerCase().indexOf(q) === -1 && ("day " + n).indexOf(q) === -1) continue;
+
+        anyMatch = true;
+        var sx = state(n);
+        rowsHtml += '<li class="day' + (avail ? "" : " up") + (rv ? " review" : "") + '"><span class="n mono">' + n + "</span>";
+        rowsHtml += avail
+          ? '<a class="t" href="#day-' + n + '"><span>' + esc(title) + '</span>' + (rv ? '<span class="rev-tag">· review</span>' : "") + "</a>"
+          : '<span class="t"><span>' + esc(title) + '</span>' + (rv ? '<span class="rev-tag">· review</span>' : "") + "</span>";
+
+        if (!avail) {
+          rowsHtml += '<span class="st">' + fmt(dayDate(n)) + "</span>";
+        } else {
+          var qz = sx.teacher && sx.teacher.total ? sx.teacher : sx.quiz;
+          var sc = qz && qz.total ? '<span class="score">' + qz.score + "/" + qz.total + "</span>" : "";
+          var statusParts = [];
+          if (sx.video) statusParts.push("Video ✓");
+          if (sx.audio) statusParts.push("Audio ✓");
+          if (qz && qz.total) statusParts.push("Quiz " + qz.score + "/" + qz.total);
+          var summary = sx.done
+            ? '<span class="status-text done">✓ Completed</span>' + (sc ? " · " + sc : "")
+            : statusParts.length
+              ? '<span class="status-text">' + statusParts.join(" · ") + "</span>"
+              : '<span class="st open">Start lesson →</span>';
+          rowsHtml += '<span class="st">' + summary + "</span>";
         }
-        html += "</li>";
+        rowsHtml += "</li>";
       }
-      html += "</ul></div>";
+
+      if (rowsHtml) {
+        out += '<div class="stage"><div class="stage-h"><h3>' + esc(st.name) + '</h3><span>Days ' + st.from + "–" + st.to + '</span></div><ul class="days">' + rowsHtml + "</ul></div>";
+      }
     });
-    html += '<div class="stage"><div class="stage-h"><h3>Stage 2 · Reading the Gītā</h3><span>from Day 112</span></div><p class="muted" style="margin:.5rem 0 0;font-size:.95rem">Continues one idea a day: the remaining noun types, all tenses, full sandhi, compounds, and one Gītā verse a day read the anvaya way.</p></div>';
-    html += "</section>";
-    html += '<section class="how"><strong>How to use it.</strong> A new lesson appears here, and in your Sanskrit Day chat, every day at ' + LESSON_TIME + '.<ol><li>Watch the video first. It ticks itself when it ends, or press "Watched".</li><li>Read today’s idea and the examples.</li><li>Play the audio and repeat each item aloud. It is a computer voice, so copy a human reciter too (Sanskrit Sangam, NCERT).</li><li>Take the quiz here, then send your answers in the chat: the teacher’s marks are recorded on this site for every device.</li></ol>Every seventh lesson is a review. <a href="https://claude.ai/artifact/LgQ1sJxHVzT1KmxnzHJanG">Full roadmap</a>.</section>';
+
+    if (!anyMatch) {
+      out += '<div class="empty">No lessons match your current filter. Try clearing the search box or switching to "All Days".</div>';
+    } else if (!q && f === "all") {
+      out += '<div style="margin-top:.75rem"><button type="button" class="ctl-btn" id="toggleBlocksBtn">' + (syllabusState.expandBlocks ? "Collapse Days 56–111 into weekly blocks" : "Expand all individual days (Days 56–111)") + "</button></div>";
+    }
+    return out;
+  }
+
+  function wireHome(has) {
+    Array.prototype.forEach.call(app.querySelectorAll("[data-speak]"), function (b) {
+      b.addEventListener("click", function () { speakSanskrit(b.getAttribute("data-speak")); });
+    });
+
+    var searchEl = document.getElementById("courseSearch");
+    if (searchEl) {
+      searchEl.addEventListener("input", function () {
+        syllabusState.query = searchEl.value;
+        document.getElementById("courseListContainer").innerHTML = buildCourseListHTML(has);
+        wireCourseListButtons(has);
+      });
+    }
+
+    Array.prototype.forEach.call(app.querySelectorAll("[data-filter]"), function (b) {
+      b.addEventListener("click", function () {
+        syllabusState.filter = b.getAttribute("data-filter");
+        Array.prototype.forEach.call(app.querySelectorAll("[data-filter]"), function (x) { x.classList.toggle("active", x === b); });
+        document.getElementById("courseListContainer").innerHTML = buildCourseListHTML(has);
+        wireCourseListButtons(has);
+      });
+    });
+
+    wireCourseListButtons(has);
+
+    var expBtn = document.getElementById("exportBtn");
+    var impBtn = document.getElementById("importBtn");
+    var impFile = document.getElementById("importFile");
+    var msg = document.getElementById("backupMsg");
+    if (expBtn) {
+      expBtn.addEventListener("click", function () {
+        var payload = JSON.stringify({ progress: local, notes: loadNotes(), exportedAt: new Date().toISOString() }, null, 2);
+        var blob = new Blob([payload], { type: "application/json" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "sanskritam-daily-backup.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        if (msg) msg.textContent = "✓ Progress backup downloaded.";
+      });
+    }
+    if (impBtn && impFile) {
+      impBtn.addEventListener("click", function () { impFile.click(); });
+      impFile.addEventListener("change", function () {
+        var file = impFile.files && impFile.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          try {
+            var data = JSON.parse(String(reader.result || "{}"));
+            if (data.progress && data.progress.days) {
+              local = data.progress;
+              saveLocal(local);
+            }
+            if (data.notes) {
+              try { localStorage.setItem(NOTES_KEY, JSON.stringify(data.notes)); } catch (e) {}
+            }
+            renderHome();
+            updateHeaderStatus();
+          } catch (e) {
+            if (msg) msg.textContent = "Could not read backup JSON file.";
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+  }
+
+  function wireCourseListButtons(has) {
+    var tb = document.getElementById("toggleBlocksBtn");
+    if (tb) {
+      tb.addEventListener("click", function () {
+        syllabusState.expandBlocks = !syllabusState.expandBlocks;
+        document.getElementById("courseListContainer").innerHTML = buildCourseListHTML(has);
+        wireCourseListButtons(has);
+      });
+    }
+  }
+
+  // ---------- Interactive Varṇamālā Studio View ----------
+  var selectedVarna = VOWELS_DATA[0];
+
+  function renderVarnamala() {
+    document.title = "Varṇamālā Studio · Sanskritam Daily";
+    setActiveNav("varnamala");
+    var bar = document.getElementById("readBar"); if (bar) bar.style.width = "0%";
+
+    var html = '<nav class="crumbs"><a href="#home">‹ Back to Course</a><span class="muted">Pāṇinian Sound System · Stage 0 Reference</span></nav>';
+    html += '<header class="lesson-h"><span class="eyebrow">वर्णमाला · The Necklace of Sounds</span><h1>Interactive Varṇamālā &amp; Mouth Positions</h1>';
+    html += '<p class="muted" style="max-width:44rem;margin:.35rem 0 0">Unlike the Latin alphabet, the Sanskrit alphabet is arranged strictly by phonetic science—moving from the back of the throat (<em>kaṇṭhya</em>) forward to the lips (<em>oṣṭhya</em>). Click any character below to inspect its mouth position, beat length, and pronunciation.</p></header>';
+
+    html += '<div class="varna-layout">';
+    html += '<div class="varna-table-wrap">';
+    html += '<table class="varna-table" aria-label="Sanskrit sounds by place of articulation">';
+    html += '<thead><tr><th>Mouth Place (Sthāna)</th><th>Vowels (Svara)</th><th>Stop Consonants &amp; Nasals (Sparśa)</th><th>Semivowels &amp; Sibilants</th></tr></thead><tbody>';
+
+    STHANA_ROWS.forEach(function (r) {
+      html += '<tr>';
+      html += '<td><span class="sthana-name">' + esc(r.sthana) + '</span><span class="sthana-sub">' + esc(r.place) + '</span></td>';
+      html += '<td><div class="v-cell-group">' + r.vowels.map(function (c) {
+        return '<button type="button" class="v-char' + (selectedVarna.dev === c.dev ? " active" : "") + '" data-vchar="' + esc(c.dev) + '" data-viast="' + esc(c.iast) + '" data-vsthana="' + esc(r.sthana + " · " + r.place) + '"><span class="dev">' + esc(c.dev) + '</span><span class="iast">' + esc(c.iast) + '</span></button>';
+      }).join("") + '</div></td>';
+      html += '<td><div class="v-cell-group">' + r.stops.map(function (c) {
+        return '<button type="button" class="v-char' + (selectedVarna.dev === c.dev ? " active" : "") + '" data-vchar="' + esc(c.dev) + '" data-viast="' + esc(c.iast) + '" data-vsthana="' + esc(r.sthana + " · " + r.place) + '"><span class="dev">' + esc(c.dev) + '</span><span class="iast">' + esc(c.iast) + '</span></button>';
+      }).join("") + '</div></td>';
+      html += '<td><div class="v-cell-group">' + r.other.map(function (c) {
+        return '<button type="button" class="v-char' + (selectedVarna.dev === c.dev ? " active" : "") + '" data-vchar="' + esc(c.dev) + '" data-viast="' + esc(c.iast) + '" data-vsthana="' + esc(r.sthana + " · " + r.place) + '"><span class="dev">' + esc(c.dev) + '</span><span class="iast">' + esc(c.iast) + '</span></button>';
+      }).join("") + '</div></td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+
+    html += '<div style="margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);display:grid;gap:.4rem" class="small muted">';
+    html += '<div><strong style="color:var(--fg)">The 5 Columns of Stop Consonants:</strong> Column 1: unvoiced unaspirated (क च ट त प) · Column 2: unvoiced aspirated with a puff of air (ख छ ठ थ फ) · Column 3: voiced unaspirated (ग ज ड द ब) · Column 4: voiced aspirated (घ झ ढ ध भ) · Column 5: nasal sung through the nose at that exact mouth position (ङ ञ ण न म).</div>';
+    html += '</div></div>';
+
+    // Inspector Panel
+    html += '<aside class="varna-inspector" id="varnaInspector">' + renderInspectorHTML(selectedVarna) + '</aside>';
+    html += '</div>';
+
     app.innerHTML = html;
     window.scrollTo(0, 0);
+    wireVarnamala();
+  }
+
+  function renderInspectorHTML(v) {
+    var html = '<span class="eyebrow">Sound Inspector</span>';
+    html += '<div class="insp-hero"><div><div class="insp-char">' + esc(v.dev) + '</div></div>';
+    html += '<div class="insp-meta"><span class="insp-iast">' + esc(v.iast) + '</span><span class="small muted">' + esc(v.type || "Consonant with inherent a") + '</span></div>';
+    html += '<button type="button" class="btn" id="inspSpeakBtn" data-speak="' + esc(v.dev) + '">🔊 Pronounce</button></div>';
+    html += '<div class="small"><strong style="color:var(--fg)">Place in the mouth (Sthāna):</strong><br><span class="muted">' + esc(v.sthana) + '</span></div>';
+    if (v.beats) {
+      html += '<div class="small"><strong style="color:var(--fg)">Duration (Mātrā):</strong><br><span class="muted">' + v.beats + (v.beats === 1 ? " beat (hrasva · short)" : " beats (dīrgha · hold twice as long)") + '</span></div>';
+    }
+    if (v.ex) {
+      html += '<div class="small"><strong style="color:var(--fg)">Course Examples:</strong><br><span>' + inline(v.ex) + '</span></div>';
+    }
+    html += '<div class="small"><strong style="color:var(--fg)">Pronunciation Note:</strong><br><span class="muted">' + inline(v.note) + '</span></div>';
+    return html;
+  }
+
+  function wireVarnamala() {
+    function bindInspectorSpeak() {
+      var sb = document.getElementById("inspSpeakBtn");
+      if (sb) sb.addEventListener("click", function () { speakSanskrit(sb.getAttribute("data-speak")); });
+    }
+    bindInspectorSpeak();
+
+    Array.prototype.forEach.call(app.querySelectorAll("[data-vchar]"), function (btn) {
+      btn.addEventListener("click", function () {
+        var dev = btn.getAttribute("data-vchar");
+        var iast = btn.getAttribute("data-viast");
+        var sthana = btn.getAttribute("data-vsthana");
+        var found = VOWELS_DATA.find(function (x) { return x.dev === dev; });
+        if (!found) {
+          var isNasal = /[ङञणनम]/.test(dev);
+          var isAsp = /h/.test(iast) && dev !== "ह";
+          found = {
+            dev: dev,
+            iast: iast,
+            beats: 1,
+            type: dev === "अं" ? "Anusvāra (after-sound)" : dev === "अः" ? "Visarga (echo-breath)" : isNasal ? "Anunāsika (Nasal stop)" : isAsp ? "Mahāprāṇa (Aspirated stop)" : "Consonant + inherent अ (a)",
+            sthana: sthana,
+            ex: "Spoken with full final अ (" + iast + "), never clipped unless marked with virāma (्).",
+            note: isAsp
+              ? "Release a distinct puff of breath immediately with the consonant, keeping the tongue at the " + sthana.split("·")[0].trim() + " position."
+              : "Pronounce the consonant cleanly at the " + sthana.split("·")[0].trim() + " position followed by a full 1-beat अ."
+          };
+        }
+        selectedVarna = found;
+        Array.prototype.forEach.call(app.querySelectorAll("[data-vchar]"), function (x) { x.classList.toggle("active", x === btn); });
+        var insp = document.getElementById("varnaInspector");
+        if (insp) {
+          insp.innerHTML = renderInspectorHTML(selectedVarna);
+          bindInspectorSpeak();
+        }
+        speakSanskrit(dev);
+      });
+    });
+  }
+
+  // ---------- Vocabulary Lexicon & Flashcards View (with SRS) ----------
+  var fcState = { idx: 0, flipped: false, promptMode: "dev", deckFilter: "all", query: "" };
+
+  function collectAllWords() {
+    var list = [], seen = {};
+    Object.keys(cache).sort(function (a, b) { return (+a) - (+b); }).forEach(function (k) {
+      var l = cache[k];
+      if (!l) return;
+      (l.words || []).forEach(function (w) {
+        if (w && w.dev && !seen[w.dev]) {
+          seen[w.dev] = 1;
+          list.push({ dev: w.dev, iast: w.iast || "", meaning: w.meaning || "", day: l.day, kind: "Core Word" });
+        }
+      });
+      (l.examples || []).forEach(function (ex) {
+        if (ex && ex.dev && !seen[ex.dev]) {
+          seen[ex.dev] = 1;
+          list.push({ dev: ex.dev, iast: ex.iast || "", meaning: ex.meaning || "", day: l.day, kind: "Example" });
+        }
+      });
+    });
+    return list;
+  }
+
+  function lexRowHTML(w) {
+    var srs = evaluateWordSRS(w.dev, w.day);
+    var spk = String(w.dev || "").split("/")[0].trim();
+    var srsText = srs.flaggedForReview
+      ? '<span class="srs-flag-text">' + esc(srs.label) + '</span> · <span>' + esc(srs.detail) + '</span>'
+      : '<span class="srs-ok-text">' + esc(srs.label) + '</span> · <span>' + esc(srs.detail) + '</span>';
+    var btnLabel = srs.mastered && !srs.flaggedForReview
+      ? "✓ Box " + srs.level
+      : srs.mastered && srs.flaggedForReview
+        ? "↻ Review Due (Box " + srs.level + ")"
+        : "Mark Mastered";
+    return '<li class="lex-row">' +
+      '<span class="dev">' + esc(w.dev) + '</span>' +
+      '<span class="iast">' + esc(w.iast) + '</span>' +
+      '<span class="m">' + esc(w.meaning) + '</span>' +
+      '<span class="srs-cell">' + srsText + '</span>' +
+      '<span style="display:flex;gap:.35rem;align-items:center">' +
+        '<button class="ctl-btn' + (srs.mastered && !srs.flaggedForReview ? " on" : srs.flaggedForReview && srs.mastered ? " sel" : "") + '" type="button" data-srs-row="' + esc(w.dev) + '">' + esc(btnLabel) + '</button>' +
+        '<button class="speak-icon-btn" type="button" data-speak="' + esc(spk) + '">🔊</button>' +
+      '</span></li>';
+  }
+
+  function renderWordsView() {
+    document.title = "Lexicon & Flashcards (SRS) · Sanskritam Daily";
+    setActiveNav("words");
+    var bar = document.getElementById("readBar"); if (bar) bar.style.width = "0%";
+
+    var allWords = collectAllWords();
+    if (!allWords.length) allWords = [{ dev: "नमस्ते", iast: "namaste", meaning: "greetings, hello", day: 1, kind: "Core Word" }];
+
+    // Evaluate SRS state across all words
+    var annotated = allWords.map(function (w) {
+      return { word: w, srs: evaluateWordSRS(w.dev, w.day) };
+    });
+    var flaggedList = annotated
+      .filter(function (x) { return x.srs.flaggedForReview; })
+      .sort(function (a, b) { return b.srs.priorityScore - a.srs.priorityScore; })
+      .map(function (x) { return x.word; });
+    var activeMasteredList = annotated
+      .filter(function (x) { return x.srs.mastered && !x.srs.flaggedForReview; })
+      .map(function (x) { return x.word; });
+    var elapsedFlaggedCount = annotated.filter(function (x) { return x.srs.flagType === "elapsed"; }).length;
+
+    var deckWords = fcState.deckFilter === "flagged"
+      ? flaggedList
+      : fcState.deckFilter === "mastered"
+        ? activeMasteredList
+        : allWords;
+
+    var html = '<nav class="crumbs"><a href="#home">‹ Back to Course</a><span class="muted mono">Cumulative Lexicon · ' + allWords.length + " entries · " + flaggedList.length + " flagged for review · " + activeMasteredList.length + " mastered</span></nav>";
+    html += '<header class="lesson-h"><span class="eyebrow">शब्दकोशः · Spaced Repetition Flashcards</span><h1>Lexicon &amp; SRS Recall Deck</h1></header>';
+
+    // SRS Algorithm Status & Controls Bar
+    html += '<section class="flashcard-stage" aria-label="Vocabulary flashcard deck">';
+    html += '<div class="srs-bar">';
+    html += '<div class="srs-metrics">';
+    html += '<span><strong class="srs-flag-text mono">▲ ' + flaggedList.length + ' Flagged for Review</strong> <span class="muted">(' + (flaggedList.length - elapsedFlaggedCount) + ' unmastered · ' + elapsedFlaggedCount + ' interval elapsed)</span></span>';
+    html += '<span class="meta-sep">·</span>';
+    html += '<span><strong class="srs-ok-text mono">✓ ' + activeMasteredList.length + ' Mastered</strong> <span class="muted">(within interval)</span></span>';
+    html += '</div>';
+
+    // Time Elapsed Simulator to test SRS decay intervals
+    html += '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:.45rem">';
+    html += '<span class="muted">Simulate time elapsed:</span>';
+    html += '<div class="seg-bar">';
+    [
+      [0, "Now"],
+      [24 * 3600e3, "+1d"],
+      [72 * 3600e3, "+3d"],
+      [168 * 3600e3, "+7d"],
+      [360 * 3600e3, "+15d"]
+    ].forEach(function (t) {
+      html += '<button type="button" class="seg-btn' + (srsSimOffsetMs === t[0] ? " active" : "") + '" data-simtime="' + t[0] + '">' + t[1] + '</button>';
+    });
+    html += '</div></div></div>';
+
+    // Deck Filter & Prompt Direction Controls
+    html += '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem">';
+    html += '<div class="seg-bar" role="group" aria-label="Filter flashcard deck by SRS status">';
+    html += '<button type="button" class="seg-btn' + (fcState.deckFilter === "all" ? " active" : "") + '" data-fcdeck="all">All Cards (' + allWords.length + ')</button>';
+    html += '<button type="button" class="seg-btn' + (fcState.deckFilter === "flagged" ? " active" : "") + '" data-fcdeck="flagged">▲ Flagged for Review (' + flaggedList.length + ')</button>';
+    html += '<button type="button" class="seg-btn' + (fcState.deckFilter === "mastered" ? " active" : "") + '" data-fcdeck="mastered">✓ Mastered (' + activeMasteredList.length + ')</button>';
+    html += '</div>';
+
+    html += '<div class="seg-bar">';
+    html += '<button type="button" class="seg-btn' + (fcState.promptMode === "dev" ? " active" : "") + '" data-fcmode="dev">Devanagari → Meaning</button>';
+    html += '<button type="button" class="seg-btn' + (fcState.promptMode === "en" ? " active" : "") + '" data-fcmode="en">Meaning → Sanskrit</button>';
+    html += '</div></div>';
+
+    if (!deckWords.length) {
+      html += '<div class="empty" style="margin:0">' +
+        (fcState.deckFilter === "flagged"
+          ? "<strong>All words are currently mastered and within their review intervals!</strong><br>Use the <em>Simulate time elapsed (+1d / +3d / +7d)</em> selector above to preview when mastered words will become due for review, or switch to All Cards."
+          : "No cards in the Mastered deck yet. Mark cards as Mastered to start their spaced repetition intervals (1d → 3d → 7d → 14d → 30d).") +
+        '</div>';
+    } else {
+      if (fcState.idx >= deckWords.length) fcState.idx = 0;
+      var cur = deckWords[fcState.idx];
+      var curSRS = evaluateWordSRS(cur.dev, cur.day);
+      var nextBox = curSRS.mastered ? Math.min(5, curSRS.level + 1) : 1;
+      var nextIntDays = (SRS_INTERVALS_HOURS[nextBox] || 24) / 24;
+
+      html += '<div class="fc-box' + (curSRS.flaggedForReview ? " flagged-due" : "") + '" id="fcBox" tabindex="0" role="button" aria-label="Click to flip flashcard">';
+      html += '<div class="fc-srs-banner mono">';
+      html += '<span>Card ' + (fcState.idx + 1) + ' of ' + deckWords.length + ' · Day ' + cur.day + '</span>';
+      html += ' · ';
+      html += curSRS.flaggedForReview
+        ? '<span class="srs-flag-text">' + esc(curSRS.label) + '</span> (' + esc(curSRS.detail) + ')'
+        : '<span class="srs-ok-text">' + esc(curSRS.label) + '</span> (' + esc(curSRS.detail) + ')';
+      html += '</div>';
+
+      if (fcState.promptMode === "dev") {
+        html += '<div class="dev-xl">' + esc(cur.dev) + '</div>';
+        if (fcState.flipped) {
+          html += '<div class="iast-lg">' + esc(cur.iast) + '</div>';
+          html += '<div class="meaning-lg">' + esc(cur.meaning) + '</div>';
+        } else {
+          html += '<div class="small muted">Click card to reveal IAST &amp; English meaning</div>';
+        }
+      } else {
+        html += '<div class="meaning-lg">' + esc(cur.meaning) + '</div>';
+        if (fcState.flipped) {
+          html += '<div class="dev-xl">' + esc(cur.dev) + '</div>';
+          html += '<div class="iast-lg">' + esc(cur.iast) + '</div>';
+        } else {
+          html += '<div class="small muted">Click card to reveal Sanskrit &amp; IAST</div>';
+        }
+      }
+      html += '</div>';
+
+      html += '<div class="btn-row" style="justify-content:center;margin:0">';
+      html += '<button type="button" class="ctl-btn" id="fcPrev">‹ Previous</button>';
+      html += '<button type="button" class="ctl-btn" id="fcFlip">Flip Card</button>';
+      html += '<button type="button" class="ctl-btn" id="fcSpeak" data-speak="' + esc(cur.dev.split("/")[0].trim()) + '">🔊 Pronounce</button>';
+      html += '<button type="button" class="ctl-btn' + (curSRS.mastered && !curSRS.flaggedForReview ? " on" : "") + '" id="fcMaster">✓ Mastered (Schedule +' + nextIntDays + 'd · Box ' + nextBox + ')</button>';
+      html += '<button type="button" class="ctl-btn' + (!curSRS.mastered ? " sel" : "") + '" id="fcFlagReview">↻ Needs Review (Reset)</button>';
+      html += '<button type="button" class="ctl-btn" id="fcNext">Next ›</button>';
+      html += '</div>';
+    }
+    html += '</section>';
+
+    // Searchable Lexicon Table with SRS Column
+    var q = fcState.query.trim().toLowerCase();
+    var filtered = allWords.filter(function (w) {
+      if (!q) return true;
+      return w.dev.toLowerCase().indexOf(q) !== -1 || w.iast.toLowerCase().indexOf(q) !== -1 || w.meaning.toLowerCase().indexOf(q) !== -1;
+    });
+
+    html += '<section class="section">';
+    html += '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);margin-bottom:.8rem">';
+    html += '<div><h2 style="margin:0;border:0;padding:0">Lexicon &amp; SRS Schedule (' + filtered.length + ')</h2><span class="small muted">SRS intervals expand each time you confirm mastery: Box 1 (1d) → Box 2 (3d) → Box 3 (7d) → Box 4 (14d) → Box 5 (30d).</span></div>';
+    html += '<input type="search" class="search-inp" id="lexSearch" placeholder="Filter by Devanagari, IAST, or English…" value="' + esc(fcState.query) + '">';
+    html += '</div>';
+    html += '<ul class="rows" id="lexRows">' + filtered.map(lexRowHTML).join("") + '</ul>';
+    html += '</section>';
+
+    app.innerHTML = html;
+    wireWordsView(allWords, deckWords);
+  }
+
+  function wireWordsView(allWords, deckWords) {
+    var cur = deckWords && deckWords.length ? deckWords[fcState.idx] : null;
+    var fcBox = document.getElementById("fcBox");
+    if (fcBox && cur) {
+      fcBox.addEventListener("click", function () {
+        fcState.flipped = !fcState.flipped;
+        renderWordsView();
+      });
+      document.getElementById("fcFlip").addEventListener("click", function () {
+        fcState.flipped = !fcState.flipped;
+        renderWordsView();
+      });
+      document.getElementById("fcPrev").addEventListener("click", function () {
+        fcState.idx = (fcState.idx - 1 + deckWords.length) % deckWords.length;
+        fcState.flipped = false;
+        renderWordsView();
+      });
+      document.getElementById("fcNext").addEventListener("click", function () {
+        fcState.idx = (fcState.idx + 1) % deckWords.length;
+        fcState.flipped = false;
+        renderWordsView();
+      });
+      document.getElementById("fcSpeak").addEventListener("click", function () {
+        speakSanskrit(this.getAttribute("data-speak"));
+      });
+      document.getElementById("fcMaster").addEventListener("click", function () {
+        updateWordSRS(cur.dev, "master");
+        fcState.flipped = false;
+        renderWordsView();
+      });
+      document.getElementById("fcFlagReview").addEventListener("click", function () {
+        updateWordSRS(cur.dev, "flag");
+        fcState.flipped = false;
+        renderWordsView();
+      });
+    }
+
+    Array.prototype.forEach.call(app.querySelectorAll("[data-fcdeck]"), function (b) {
+      b.addEventListener("click", function () {
+        fcState.deckFilter = b.getAttribute("data-fcdeck");
+        fcState.idx = 0;
+        fcState.flipped = false;
+        renderWordsView();
+      });
+    });
+
+    Array.prototype.forEach.call(app.querySelectorAll("[data-simtime]"), function (b) {
+      b.addEventListener("click", function () {
+        srsSimOffsetMs = +b.getAttribute("data-simtime");
+        fcState.idx = 0;
+        renderWordsView();
+      });
+    });
+
+    Array.prototype.forEach.call(app.querySelectorAll("[data-fcmode]"), function (b) {
+      b.addEventListener("click", function () {
+        fcState.promptMode = b.getAttribute("data-fcmode");
+        fcState.flipped = false;
+        renderWordsView();
+      });
+    });
+
+    function wireLexRowButtons() {
+      bindSpeakButtons();
+      Array.prototype.forEach.call(app.querySelectorAll("[data-srs-row]"), function (b) {
+        b.onclick = function () {
+          var devKey = b.getAttribute("data-srs-row");
+          updateWordSRS(devKey, "toggle");
+          renderWordsView();
+        };
+      });
+    }
+
+    var ls = document.getElementById("lexSearch");
+    if (ls) {
+      ls.addEventListener("input", function () {
+        fcState.query = ls.value;
+        var q = fcState.query.trim().toLowerCase();
+        var filtered = allWords.filter(function (w) {
+          if (!q) return true;
+          return w.dev.toLowerCase().indexOf(q) !== -1 || w.iast.toLowerCase().indexOf(q) !== -1 || w.meaning.toLowerCase().indexOf(q) !== -1;
+        });
+        document.getElementById("lexRows").innerHTML = filtered.map(lexRowHTML).join("");
+        wireLexRowButtons();
+      });
+    }
+    wireLexRowButtons();
+  }
+
+  function bindSpeakButtons() {
+    Array.prototype.forEach.call(app.querySelectorAll("[data-speak]"), function (b) {
+      b.onclick = function () { speakSanskrit(b.getAttribute("data-speak")); };
+    });
   }
 
   // ---------- YouTube players ----------
@@ -451,52 +2435,122 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
     if (document.getElementById("yt-api")) return;
     var s = document.createElement("script"); s.id = "yt-api"; s.src = "https://www.youtube.com/iframe_api"; s.async = true; document.head.appendChild(s);
   }
-  function attachPlayer(spec) { // spec: {id, onEnd}
+  function attachPlayer(spec) {
     if (!ytReady) { pending.push(spec); return; }
     try {
       new YT.Player(spec.id, { events: { onStateChange: function (e) { if (e.data === YT.PlayerState.ENDED) spec.onEnd(); } } });
-    } catch (e) { /* the plain iframe still plays; the viewer can press Watched */ }
+    } catch (e) {}
   }
-  function playerHtml(v, idx, label, lazy) {
+  function playerHtml(v, idx, label, lazy, hidden) {
     var id = ytId(v.url), frameId = "yt-" + idx;
-    var html = '<div class="player">';
+    var html = '<div class="player" id="player-wrap-' + idx + '"' + (hidden ? " hidden" : "") + ">";
     if (id) html += '<div class="frame"><iframe id="' + frameId + '" src="https://www.youtube-nocookie.com/embed/' + id + '?enablejsapi=1&rel=0&origin=' + encodeURIComponent(location.origin) + '" title="' + esc(v.title || "Video") + '" ' + (lazy ? 'loading="lazy" ' : "") + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
     html += '<div class="cap">' + (label ? '<span class="eyebrow">' + esc(label) + "</span>" : "") + '<div class="vt">' + esc(v.title) + '</div><div class="vm">' + esc([v.channel, v.language, v.minutes ? v.minutes + " min" : ""].filter(Boolean).join(" · ")) + "</div>";
     if (v.focus) html += '<p class="focus"><strong>Watch for:</strong> ' + inline(v.focus) + "</p>";
-    html += '<div class="row"><button class="pill" type="button" data-watch="' + idx + '">Watched</button><a href="' + esc(v.url) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div></div></div>';
+    html += '<div class="row"><button class="ctl-btn" type="button" data-watch="' + idx + '">Mark Watched</button><a href="' + esc(v.url) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div></div></div>';
     return html;
   }
 
-  // ---------- lesson ----------
+  // ---------- lesson view ----------
+  var activeMatraIdx = 0;
+  var wordViewMode = "table"; // "table" | "drill"
+
   function renderLesson(n, l) {
     document.title = "Day " + n + " · " + (l.title || topicOf(n)) + " · Sanskritam Daily";
+    setActiveNav("lesson");
     var st = state(n), date = parseDate(l.date) || dayDate(n);
-    var html = '<nav class="crumbs"><a href="#home">‹ Course</a><span class="muted">Day ' + n + " of 111 · " + esc(stageOf(n)) + "</span></nav>";
-    html += '<header class="lesson-h"><span class="eyebrow">Sanskrit Day ' + n + (isReview(n) ? " · review" : "") + "</span><h1>" + esc(l.title || topicOf(n)) + "</h1>";
-    html += '<div class="meta"><span>' + fmt(date, true) + '</span><button class="done-btn' + (st.done ? " on" : "") + '" id="doneBtn" type="button">' + (st.done ? "✓ Done" : "Mark done") + "</button></div>";
-    html += '<div class="steps" id="steps"></div></header>';
+    var savedName = "";
+    try { savedName = localStorage.getItem(NAME_KEY) || ""; } catch (e) {}
+
+    var html = '<nav class="crumbs"><a href="#home">‹ Course Syllabus</a><span class="muted">Day ' + n + " of 111 · " + esc(stageOf(n)) + "</span></nav>";
+    html += '<div class="lesson-shell"><div class="lesson-main">';
+
+    html += '<header class="lesson-h"><span class="eyebrow">Sanskrit Day ' + n + (isReview(n) ? " · Review Lesson" : "") + " · " + fmt(date, true) + "</span><h1>" + esc(l.title || topicOf(n)) + "</h1>";
+    html += '<div class="steps-inline" id="steps"></div></header>';
     if (l.recap) html += '<div class="recap"><strong>From last time.</strong> ' + inline(l.recap) + "</div>";
 
-    var v = l.video, a = l.altVideo, idx = 0;
+    // Step 1: Video
+    var v = l.video, a = l.altVideo;
     if (v && v.url) {
-      html += '<section class="section"><h2><span class="k">1</span>Video of the day</h2>' + playerHtml(v, 0, null, false);
-      if (a && a.url) html += playerHtml(a, 1, (a.language || "Alternative") + " version", true);
+      html += '<section class="section" id="sec-video"><h2><span class="h2-left"><span class="k">01</span>Video of the day</span>';
+      if (a && a.url) {
+        html += '<span class="seg-bar"><button type="button" class="seg-btn active" data-vtab="0">' + esc(v.language || "Primary") + ' (' + (v.minutes || 10) + 'm)</button><button type="button" class="seg-btn" data-vtab="1">' + esc(a.language || "Alt") + ' (' + (a.minutes || 10) + 'm)</button><button type="button" class="seg-btn" data-vtab="both">Both</button></span>';
+      }
+      html += "</h2>";
+      html += playerHtml(v, 0, null, false, false);
+      if (a && a.url) html += playerHtml(a, 1, (a.language || "Alternative") + " version", true, true);
       html += "</section>";
     }
-    if (l.idea) html += '<section class="section"><h2><span class="k">2</span>Today’s idea</h2><div class="prose">' + prose(l.idea) + "</div></section>";
-    if (l.examples && l.examples.length) html += '<section class="section"><h2><span class="k">3</span>Examples</h2><ul class="rows">' + l.examples.map(row).join("") + "</ul></section>";
+
+    // Step 2: Today's Idea + Interactive Vowel Matra Lab on Day 1
+    if (l.idea) {
+      html += '<section class="section" id="sec-idea"><h2><span class="h2-left"><span class="k">02</span>Today’s idea</span></h2><div class="prose">' + prose(l.idea) + "</div>";
+      if (n === 1) {
+        var mv = VOWELS_DATA[activeMatraIdx] || VOWELS_DATA[0];
+        html += '<div class="matra-lab" id="matraLab">';
+        html += '<div class="matra-lab-head"><div><span class="eyebrow">Interactive Sound &amp; Beat Explorer</span><strong>Click any of the 13 vowels to hear its length (mātrā) and mouth place</strong></div></div>';
+        html += '<div class="matra-grid">';
+        VOWELS_DATA.forEach(function (item, idx) {
+          html += '<button type="button" class="m-btn' + (idx === activeMatraIdx ? " active" : "") + '" data-matra="' + idx + '"><span class="dev">' + esc(item.dev) + '</span><span class="iast">' + esc(item.iast) + '</span><span class="beats">' + item.beats + (item.beats === 1 ? " beat" : " beats") + "</span></button>";
+        });
+        html += "</div>";
+        html += '<div class="matra-detail" id="matraDetail">' + buildMatraDetailHTML(mv) + "</div>";
+        html += "</div>";
+      }
+      html += "</section>";
+    }
+
+    // Step 3: Examples
+    if (l.examples && l.examples.length) {
+      html += '<section class="section" id="sec-examples"><h2><span class="h2-left"><span class="k">03</span>Examples</span><span class="small muted">Click Listen on any row to hear pronunciation</span></h2><ul class="rows">' + l.examples.map(row).join("") + "</ul></section>";
+    }
+
+    // Step 4: Say it Aloud (with 3-rep counter, name customizer, and voice recorder)
     if (l.sayAloud && l.sayAloud.length) {
-      html += '<section class="section"><h2><span class="k">4</span>Say it aloud</h2><p class="muted" style="margin:0 0 .7rem;font-size:.95rem">Three times each, slowly. Every written <span class="dev">अ</span> is spoken.</p><ul class="say">';
-      html += l.sayAloud.map(function (x) { if (typeof x === "string") x = { dev: x }; return '<li><span class="dev">' + esc(x.dev) + '</span><span class="sub">' + (x.iast ? '<span class="iast">' + esc(x.iast) + "</span>" : "") + (x.meaning ? " · " + esc(x.meaning) : "") + "</span></li>"; }).join("");
+      html += '<section class="section" id="sec-say"><h2><span class="h2-left"><span class="k">04</span>Say it aloud</span><span class="small muted">Repeat 3 times slowly · Every written अ is spoken</span></h2>';
+      html += '<ul class="say">';
+      l.sayAloud.forEach(function (x, sIdx) {
+        if (typeof x === "string") x = { dev: x };
+        var repKey = n + "-" + sIdx;
+        var count = (local.reps && local.reps[repKey]) || 0;
+        var hasBlank = /______|\.\.\./.test(x.dev || "");
+        var dispDev = hasBlank && savedName ? x.dev.replace(/______/, savedName) : x.dev;
+        var dispIast = hasBlank && savedName ? (x.iast || "").replace(/\.\.\./, savedName) : (x.iast || "");
+
+        html += '<li data-say-idx="' + sIdx + '">';
+        html += '<div class="say-top"><div><span class="dev" id="say-dev-' + sIdx + '">' + esc(dispDev) + '</span>';
+        html += '<span class="sub" id="say-sub-' + sIdx + '">' + (dispIast ? '<span class="iast">' + esc(dispIast) + "</span>" : "") + (x.meaning ? " · " + esc(x.meaning) : "") + "</span></div></div>";
+
+        if (hasBlank) {
+          html += '<div class="name-fill-row"><label for="learnerNameInp">Personalize with your name:</label><input type="text" id="learnerNameInp" placeholder="e.g. आदित्यः / Āditya" value="' + esc(savedName) + '"></div>';
+        }
+
+        html += '<div class="say-actions">';
+        html += '<button type="button" class="ctl-btn" data-speak-say="' + sIdx + '" data-raw-dev="' + esc(x.dev) + '">🔊 Hear Model</button>';
+        html += '<button type="button" class="ctl-btn' + (count >= 3 ? " on" : "") + '" data-rep="' + repKey + '">' + (count >= 3 ? "✓ Spoken 3 / 3 times" : "Count Repetition (" + count + " / 3)") + "</button>";
+        html += '<button type="button" class="ctl-btn" data-rec-btn="' + sIdx + '">🎙 Record My Voice</button>';
+        html += '<audio id="rec-audio-' + sIdx + '" controls hidden style="height:2rem;max-width:14rem"></audio>';
+        html += "</div></li>";
+      });
       html += "</ul></section>";
     }
-    if (l.words && l.words.length) html += '<section class="section"><h2><span class="k">5</span>New words</h2><ul class="rows">' + l.words.map(row).join("") + "</ul></section>";
-    if (l.audio) {
-      html += '<section class="section"><h2><span class="k">6</span>Listen and repeat</h2><div class="audio"><audio id="aud" controls preload="none" src="' + esc(l.audio) + '"></audio>';
-      html += '<div class="ctl"><span>Speed</span><button class="pill sel" type="button" data-rate="1">Normal</button><button class="pill" type="button" data-rate="0.8">Slower</button><button class="pill" type="button" id="audBtn">Listened</button><span>· Pause after each item and say it yourself.</span></div></div></section>';
+
+    // Step 5: New Words (with Table / Recall Cards switcher)
+    if (l.words && l.words.length) {
+      html += '<section class="section" id="sec-words"><h2><span class="h2-left"><span class="k">05</span>New words (' + l.words.length + ')</span>';
+      html += '<span class="seg-bar"><button type="button" class="seg-btn' + (wordViewMode === "table" ? " active" : "") + '" data-wmode="table">Table View</button><button type="button" class="seg-btn' + (wordViewMode === "drill" ? " active" : "") + '" data-wmode="drill">Flip &amp; Test Cards</button></span></h2>';
+      html += '<div id="wordsContainer">' + renderWordsSectionContent(l.words) + "</div></section>";
     }
+
+    // Step 6: Listen and Repeat
+    if (l.audio) {
+      html += '<section class="section" id="sec-audio"><h2><span class="h2-left"><span class="k">06</span>Listen and repeat</span></h2><div class="audio"><audio id="aud" controls preload="none" src="' + esc(l.audio) + '"></audio>';
+      html += '<div class="ctl"><span>Speed:</span><button class="ctl-btn sel" type="button" data-rate="1">1.0× Normal</button><button class="ctl-btn" type="button" data-rate="0.85">0.85× Measured</button><button class="ctl-btn" type="button" data-rate="0.7">0.7× Slow</button><button class="ctl-btn" type="button" id="rewBtn">↺ Rewind 5s</button><button class="ctl-btn" type="button" id="audBtn">Mark Listened</button></div></div></section>';
+    }
+
+    // Step 7: Quiz
     if (l.quiz && l.quiz.length) {
-      html += '<section class="section"><h2><span class="k">7</span>Quiz</h2>';
+      html += '<section class="section" id="sec-quiz"><h2><span class="h2-left"><span class="k">07</span>Self-Check Quiz</span><span class="small muted">' + l.quiz.length + ' questions</span></h2>';
       if (st.teacher && st.teacher.total) html += '<div class="teacher">Checked by your teacher: ' + st.teacher.score + " of " + st.teacher.total + (st.teacher.checked ? " · " + fmt(parseDate(st.teacher.checked) || Date.now()) : "") + (st.teacher.note ? '<br><span style="color:var(--fg)">' + inline(st.teacher.note) + "</span>" : "") + "</div>";
       html += '<div class="quiz" id="quiz">';
       l.quiz.forEach(function (q, i) {
@@ -508,37 +2562,138 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
         }
         html += '<div class="why" hidden></div></div>';
       });
-      html += '<div class="btn-row"><button class="btn" type="button" id="checkBtn">Check my answers</button><span class="note">Then send your answers in your Sanskrit Day chat for the teacher’s marks.</span></div>';
-      html += '<div class="result" id="result"' + (st.quiz ? "" : " hidden") + ">" + (st.quiz ? "Your last self-check: " + st.quiz.score + " of " + st.quiz.total + " · " + fmt(istDate(Date.parse(st.quiz.at))) : "") + "</div></div></section>";
+      html += '<div class="btn-row"><button class="btn" type="button" id="checkBtn">Check My Answers</button><button class="btn secondary" type="button" id="retryQuizBtn" hidden>Reset &amp; Retry Quiz</button><button class="btn secondary" type="button" id="copyQuizBtn">Copy Answers for Teacher Chat</button><span class="note" id="copyStatusNote"></span></div>';
+      html += '<div class="result" id="result"' + (st.quiz ? "" : " hidden") + '><span>' + (st.quiz ? "Your last self-check: " + st.quiz.score + " of " + st.quiz.total + " · " + fmt(istDate(Date.parse(st.quiz.at))) : "") + "</span></div></div></section>";
     }
-    if (l.extra) html += '<section class="section"><h2><span class="k">+</span>Extra practice</h2><div class="extra">' + inline(l.extra) + "</div></section>";
+
+    if (l.extra) html += '<section class="section"><h2><span class="h2-left"><span class="k">+</span>Extra practice</span></h2><div class="extra">' + inline(l.extra) + "</div></section>";
+
     var prev = n > 1 && n - 1 <= (latest || 0) ? n - 1 : 0, next = n + 1 <= (latest || 0) ? n + 1 : 0;
-    html += '<nav class="navrow"><span>' + (prev ? '<a href="#day-' + prev + '">‹ Day ' + prev + "</a>" : "") + "</span><span>" + (next ? '<a href="#day-' + next + '">Day ' + next + " ›</a>" : '<span class="muted">Day ' + (n + 1) + " arrives " + fmt(dayDate(n + 1)) + "</span>") + "</span></nav>";
+    html += '<nav class="navrow"><span>' + (prev ? '<a href="#day-' + prev + '">‹ Day ' + prev + ": " + esc(topicOf(prev)) + "</a>" : '<a href="#home">‹ Course Home</a>') + "</span><span>" + (next ? '<a href="#day-' + next + '">Day ' + next + ": " + esc(topicOf(next)) + " ›</a>" : '<span class="muted">Day ' + (n + 1) + " (" + esc(topicOf(n + 1)) + ") arrives " + fmt(dayDate(n + 1)) + "</span>") + "</span></nav>";
+    html += "</div>"; // end .lesson-main
+
+    // Right Companion Rail
+    var notesMap = loadNotes();
+    html += '<aside class="lesson-rail" aria-label="Lesson companion tools">';
+    html += '<div class="rail-card"><h3>Lesson Steps</h3><ul class="toc-list" id="railToc"></ul>';
+    html += '<div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--line)"><button class="btn subtle" style="width:100%" id="doneBtn" type="button">' + (st.done ? "✓ Lesson Completed" : "Mark Lesson Done") + "</button></div></div>";
+
+    html += '<div class="rail-card"><h3>IAST &amp; Sound Key</h3><div class="iast-key-grid">';
+    [
+      ["आ", "ā · long a (2 beats)"],
+      ["ई", "ī · long i (2 beats)"],
+      ["ऊ", "ū · long u (2 beats)"],
+      ["ऋ", "ṛ · retroflex vowel"],
+      ["ऐ", "ai · a + i (aisle)"],
+      ["औ", "au · a + u (loud)"],
+      ["ं", "ṃ · anusvāra dot"],
+      ["ः", "ḥ · visarga breath"]
+    ].forEach(function (pair) {
+      html += '<div class="iast-key-item"><span class="dev">' + pair[0] + '</span><span class="muted">' + pair[1] + "</span></div>";
+    });
+    html += '</div><div style="margin-top:.65rem"><a href="#varnamala" class="small">Open full Varṇamālā chart →</a></div></div>';
+
+    html += '<div class="rail-card"><h3>Personal Study Notes (Day ' + n + ')</h3>';
+    html += '<textarea class="notes-area" id="lessonNotes" placeholder="Jot down vowel pairs, questions for the chat, or words to review…">' + esc(notesMap[n] || "") + '</textarea>';
+    html += '<div class="note" id="notesSavedIndicator" style="margin-top:.3rem">Saved automatically in this browser.</div></div>';
+    html += "</aside></div>"; // end .lesson-shell
+
     app.innerHTML = html;
     window.scrollTo(0, 0);
     wireLesson(n, l);
   }
 
+  function buildMatraDetailHTML(mv) {
+    return '<div class="matra-detail-left"><div><span class="dev" style="font-size:1.45rem;color:var(--accent);margin-right:.45rem">' + esc(mv.dev) + '</span><strong class="iast">' + esc(mv.iast) + '</strong> · <span>' + esc(mv.type) + ' (' + mv.beats + (mv.beats === 1 ? " beat" : " beats") + ')</span> · <span class="muted">' + esc(mv.sthana) + '</span></div>' +
+      '<div class="small muted">Examples: ' + inline(mv.ex) + " — " + inline(mv.note) + '</div></div>' +
+      '<button type="button" class="ctl-btn" id="matraSpeakBtn" data-speak="' + esc(mv.dev) + '">🔊 Hear ' + esc(mv.dev) + '</button>';
+  }
+
+  function renderWordsSectionContent(words) {
+    if (wordViewMode === "table") {
+      return '<ul class="rows">' + words.map(row).join("") + "</ul>";
+    }
+    return '<div class="drill-grid">' + words.map(function (w, idx) {
+      return '<button type="button" class="drill-card" data-drill-card="' + idx + '">' +
+        '<div><div class="dev">' + esc(w.dev) + '</div><div class="iast" style="color:var(--accent)">' + esc(w.iast) + '</div></div>' +
+        '<div class="back" hidden><strong>' + esc(w.meaning) + '</strong></div>' +
+        '<div class="hint">Click to reveal meaning &amp; hear</div></button>';
+    }).join("") + "</div>";
+  }
+
   function norm(s) { return String(s || "").toLowerCase().replace(/[\s।॥.,;:!?'"()\-–—]/g, "").replace(/ṁ/g, "ṃ"); }
+
   function wireLesson(n, l) {
     function renderSteps() {
       var st = state(n), el = document.getElementById("steps");
-      var parts = [["video", "▶ Video", st.video], ["audio", "♪ Audio", st.audio || !l.audio], ["quiz", "? Quiz", !!(st.quiz || (st.teacher && st.teacher.total))]];
-      el.innerHTML = parts.map(function (p) { return '<span class="step' + (p[2] ? " on" : "") + '">' + (p[2] ? "✓ " : "") + p[1] + "</span>"; }).join("");
-      var db = document.getElementById("doneBtn"); db.className = "done-btn" + (st.done ? " on" : ""); db.textContent = st.done ? "✓ Done" : "Mark done";
-      Array.prototype.forEach.call(document.querySelectorAll("[data-watch]"), function (b) { var k = b.getAttribute("data-watch") === "0" ? "video" : "alt"; b.classList.toggle("on", !!(local.days[n] || {})[k]); b.textContent = (local.days[n] || {})[k] ? "✓ Watched" : "Watched"; });
-      var ab = document.getElementById("audBtn"); if (ab) { ab.classList.toggle("on", st.audio); ab.textContent = st.audio ? "✓ Listened" : "Listened"; }
+      var quizDone = !!(st.quiz || (st.teacher && st.teacher.total));
+      var parts = [
+        ["#sec-video", "01", "Video", st.video],
+        ["#sec-idea", "02", "Today’s idea", st.video || st.audio || quizDone || st.done],
+        ["#sec-examples", "03", "Examples", st.video || st.audio || quizDone || st.done],
+        ["#sec-say", "04", "Say it aloud", Object.keys(local.reps || {}).some(function (k) { return k.indexOf(n + "-") === 0 && local.reps[k] > 0; }) || st.done],
+        ["#sec-words", "05", "New words", st.audio || quizDone || st.done],
+        ["#sec-audio", "06", "Audio", st.audio || !l.audio],
+        ["#sec-quiz", "07", "Quiz", quizDone]
+      ];
+      if (el) {
+        el.innerHTML =
+          '<span class="step-item' + (st.video ? " on" : "") + '">' + (st.video ? "✓ " : "○ ") + 'Video</span>' +
+          '<span class="meta-sep">·</span>' +
+          '<span class="step-item' + (st.audio ? " on" : "") + '">' + (st.audio ? "✓ " : "○ ") + 'Audio</span>' +
+          '<span class="meta-sep">·</span>' +
+          '<span class="step-item' + (quizDone ? " on" : "") + '">' + (quizDone ? "✓ " : "○ ") + 'Quiz</span>' +
+          (st.done ? '<span class="meta-sep">·</span><span class="step-item on">✓ Lesson Complete</span>' : "");
+      }
+      var toc = document.getElementById("railToc");
+      if (toc) {
+        toc.innerHTML = parts.map(function (p) {
+          return '<li><a href="' + p[0] + '"><span><span class="k">' + p[1] + '</span>' + p[2] + '</span><span class="st-mark' + (p[3] ? " on" : "") + '">' + (p[3] ? "✓" : "·") + "</span></a></li>";
+        }).join("");
+      }
+      var db = document.getElementById("doneBtn");
+      if (db) {
+        db.className = "ctl-btn" + (st.done ? " on" : "");
+        db.style.width = "100%";
+        db.style.justifyContent = "center";
+        db.textContent = st.done ? "✓ Lesson Completed" : "Mark Lesson Done";
+      }
+      Array.prototype.forEach.call(document.querySelectorAll("[data-watch]"), function (b) {
+        var k = b.getAttribute("data-watch") === "0" ? "video" : "alt";
+        var isOn = !!(local.days[n] || {})[k];
+        b.classList.toggle("on", isOn);
+        b.textContent = isOn ? "✓ Watched" : "Mark Watched";
+      });
+      var ab = document.getElementById("audBtn");
+      if (ab) {
+        ab.classList.toggle("on", st.audio);
+        ab.textContent = st.audio ? "✓ Listened" : "Mark Listened";
+      }
     }
     renderSteps();
-    document.getElementById("doneBtn").addEventListener("click", function () { var on = !state(n).done; mark(n, { done: on ? new Date().toISOString() : null }); renderSteps(); });
 
-    // videos
+    document.getElementById("doneBtn").addEventListener("click", function () {
+      var on = !state(n).done;
+      mark(n, { done: on ? new Date().toISOString() : null });
+      renderSteps();
+    });
+
+    // Video tabs & YouTube players
     var hasVideo = !!(l.video && ytId(l.video.url));
     if (hasVideo) {
       loadYT();
       attachPlayer({ id: "yt-0", onEnd: function () { if (!(local.days[n] || {}).video) { mark(n, { video: new Date().toISOString() }); renderSteps(); } } });
       if (l.altVideo && ytId(l.altVideo.url)) attachPlayer({ id: "yt-1", onEnd: function () { mark(n, { alt: new Date().toISOString(), video: (local.days[n] || {}).video || new Date().toISOString() }); renderSteps(); } });
     }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-vtab]"), function (b) {
+      b.addEventListener("click", function () {
+        var mode = b.getAttribute("data-vtab");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-vtab]"), function (x) { x.classList.toggle("active", x === b); });
+        var p0 = document.getElementById("player-wrap-0"), p1 = document.getElementById("player-wrap-1");
+        if (p0) p0.hidden = mode === "1";
+        if (p1) p1.hidden = mode === "0";
+      });
+    });
     Array.prototype.forEach.call(document.querySelectorAll("[data-watch]"), function (b) {
       b.addEventListener("click", function () {
         var k = b.getAttribute("data-watch") === "0" ? "video" : "alt", d = local.days[n] || {}, patch = {};
@@ -548,20 +2703,176 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
       });
     });
 
-    // audio
+    // Interactive Matra Lab on Day 1
+    Array.prototype.forEach.call(document.querySelectorAll("[data-matra]"), function (b) {
+      b.addEventListener("click", function () {
+        activeMatraIdx = +b.getAttribute("data-matra");
+        var mv = VOWELS_DATA[activeMatraIdx];
+        Array.prototype.forEach.call(document.querySelectorAll("[data-matra]"), function (x) { x.classList.toggle("active", x === b); });
+        var det = document.getElementById("matraDetail");
+        if (det && mv) {
+          det.innerHTML = buildMatraDetailHTML(mv);
+          var msb = document.getElementById("matraSpeakBtn");
+          if (msb) msb.addEventListener("click", function () { speakSanskrit(mv.dev); });
+        }
+        if (mv) speakSanskrit(mv.dev);
+      });
+    });
+    var msbInit = document.getElementById("matraSpeakBtn");
+    if (msbInit) msbInit.addEventListener("click", function () { speakSanskrit(msbInit.getAttribute("data-speak")); });
+
+    // Speak buttons for Examples & Words
+    bindSpeakButtons();
+
+    // Step 4: Say it aloud interactions (Name input, 3-rep counter, Voice Recorder)
+    var nameInp = document.getElementById("learnerNameInp");
+    if (nameInp) {
+      nameInp.addEventListener("input", function () {
+        var val = nameInp.value.trim();
+        try { localStorage.setItem(NAME_KEY, val); } catch (e) {}
+        (l.sayAloud || []).forEach(function (x, idx) {
+          if (typeof x === "string") x = { dev: x };
+          if (/______|\.\.\./.test(x.dev || "")) {
+            var dEl = document.getElementById("say-dev-" + idx);
+            var sEl = document.getElementById("say-sub-" + idx);
+            if (dEl) dEl.textContent = val ? x.dev.replace(/______/, val) : x.dev;
+            if (sEl) {
+              var iastTxt = val ? (x.iast || "").replace(/\.\.\./, val) : (x.iast || "");
+              sEl.innerHTML = (iastTxt ? '<span class="iast">' + esc(iastTxt) + "</span>" : "") + (x.meaning ? " · " + esc(x.meaning) : "");
+            }
+          }
+        });
+      });
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-speak-say]"), function (b) {
+      b.addEventListener("click", function () {
+        var idx = +b.getAttribute("data-speak-say");
+        var dEl = document.getElementById("say-dev-" + idx);
+        speakSanskrit(dEl ? dEl.textContent : b.getAttribute("data-raw-dev"));
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-rep]"), function (b) {
+      b.addEventListener("click", function () {
+        var key = b.getAttribute("data-rep");
+        if (!local.reps) local.reps = {};
+        var cur = (local.reps[key] || 0) + 1;
+        if (cur > 3) cur = 0;
+        local.reps[key] = cur;
+        saveLocal(local);
+        b.classList.toggle("on", cur >= 3);
+        b.textContent = cur >= 3 ? "✓ Spoken 3 / 3 times" : "Count Repetition (" + cur + " / 3)";
+        renderSteps();
+      });
+    });
+
+    // Browser microphone voice recorder for pronunciation comparison
+    var activeRecorders = {};
+    Array.prototype.forEach.call(document.querySelectorAll("[data-rec-btn]"), function (b) {
+      b.addEventListener("click", function () {
+        var idx = b.getAttribute("data-rec-btn");
+        var audOut = document.getElementById("rec-audio-" + idx);
+        if (activeRecorders[idx] && activeRecorders[idx].state === "recording") {
+          activeRecorders[idx].stop();
+          return;
+        }
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          b.textContent = "Mic unavailable in this browser";
+          return;
+        }
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+          var chunks = [];
+          var rec = new MediaRecorder(stream);
+          activeRecorders[idx] = rec;
+          b.classList.add("rec");
+          b.textContent = "⏹ Stop Recording";
+          rec.ondataavailable = function (e) { if (e.data && e.data.size > 0) chunks.push(e.data); };
+          rec.onstop = function () {
+            stream.getTracks().forEach(function (t) { t.stop(); });
+            b.classList.remove("rec");
+            b.textContent = "🎙 Re-record Voice";
+            var blob = new Blob(chunks, { type: "audio/webm" });
+            if (audOut) {
+              audOut.src = URL.createObjectURL(blob);
+              audOut.hidden = false;
+              audOut.play().catch(function () {});
+            }
+          };
+          rec.start();
+        }).catch(function () {
+          b.textContent = "Allow microphone access to record";
+        });
+      });
+    });
+
+    // Step 5: Words Table vs Drill Cards switcher
+    function wireDrillCards() {
+      Array.prototype.forEach.call(document.querySelectorAll("[data-drill-card]"), function (card) {
+        card.addEventListener("click", function () {
+          var back = card.querySelector(".back");
+          var hint = card.querySelector(".hint");
+          var devTxt = card.querySelector(".dev").textContent;
+          if (back) {
+            var nowHidden = !back.hidden;
+            back.hidden = nowHidden;
+            if (hint) hint.textContent = nowHidden ? "Click to reveal meaning & hear" : "✓ Meaning revealed · click to hide";
+            if (!nowHidden) speakSanskrit(devTxt);
+          }
+        });
+      });
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-wmode]"), function (b) {
+      b.addEventListener("click", function () {
+        wordViewMode = b.getAttribute("data-wmode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-wmode]"), function (x) { x.classList.toggle("active", x === b); });
+        var wc = document.getElementById("wordsContainer");
+        if (wc && l.words) {
+          wc.innerHTML = renderWordsSectionContent(l.words);
+          bindSpeakButtons();
+          wireDrillCards();
+        }
+      });
+    });
+    wireDrillCards();
+
+    // Step 6: Audio controls
     var audioEl = document.getElementById("aud");
     if (audioEl) {
       audioEl.addEventListener("ended", function () { if (!(local.days[n] || {}).audio) { mark(n, { audio: new Date().toISOString() }); renderSteps(); } });
-      Array.prototype.forEach.call(document.querySelectorAll(".pill[data-rate]"), function (b) {
-        b.addEventListener("click", function () { audioEl.playbackRate = +b.getAttribute("data-rate"); Array.prototype.forEach.call(document.querySelectorAll(".pill[data-rate]"), function (x) { x.classList.toggle("sel", x === b); }); });
+      Array.prototype.forEach.call(document.querySelectorAll(".ctl-btn[data-rate]"), function (b) {
+        b.addEventListener("click", function () {
+          audioEl.playbackRate = +b.getAttribute("data-rate");
+          Array.prototype.forEach.call(document.querySelectorAll(".ctl-btn[data-rate]"), function (x) { x.classList.toggle("sel", x === b); });
+        });
       });
-      document.getElementById("audBtn").addEventListener("click", function () { mark(n, { audio: (local.days[n] || {}).audio ? null : new Date().toISOString() }); renderSteps(); });
+      var rewBtn = document.getElementById("rewBtn");
+      if (rewBtn) {
+        rewBtn.addEventListener("click", function () {
+          audioEl.currentTime = Math.max(0, (audioEl.currentTime || 0) - 5);
+          audioEl.play().catch(function () {});
+        });
+      }
+      document.getElementById("audBtn").addEventListener("click", function () {
+        mark(n, { audio: (local.days[n] || {}).audio ? null : new Date().toISOString() });
+        renderSteps();
+      });
     }
 
-    // quiz
+    // Personal Study Notes
+    var notesEl = document.getElementById("lessonNotes");
+    var notesInd = document.getElementById("notesSavedIndicator");
+    if (notesEl) {
+      notesEl.addEventListener("input", function () {
+        saveNote(n, notesEl.value);
+        if (notesInd) notesInd.textContent = "✓ Saved just now.";
+      });
+    }
+
+    // Step 7: Quiz
     var quiz = document.getElementById("quiz");
     if (!quiz) return;
-    var picked = {}, self = {};
+    var picked = {}, self = {}, lastScore = null;
     Array.prototype.forEach.call(quiz.querySelectorAll(".opt"), function (b) {
       b.addEventListener("click", function () {
         var qEl = b.closest(".q"), i = +qEl.getAttribute("data-i");
@@ -570,7 +2881,13 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
         Array.prototype.forEach.call(qEl.querySelectorAll(".opt"), function (x) { x.classList.toggle("sel", x === b); });
       });
     });
-    document.getElementById("checkBtn").addEventListener("click", function () {
+
+    var checkBtn = document.getElementById("checkBtn");
+    var retryBtn = document.getElementById("retryQuizBtn");
+    var copyBtn = document.getElementById("copyQuizBtn");
+    var copyNote = document.getElementById("copyStatusNote");
+
+    checkBtn.addEventListener("click", function () {
       var score = 0, total = l.quiz.length, open = 0;
       l.quiz.forEach(function (q, i) {
         var qEl = quiz.querySelector('.q[data-i="' + i + '"]'), why = qEl.querySelector(".why");
@@ -593,7 +2910,7 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
           else {
             open++;
             why.className = "why";
-            why.innerHTML = "<strong>Answer:</strong> " + inline(ansText) + (q.why ? "<br>" + inline(q.why) : "") + '<div class="selfmark"><button class="pill" type="button" data-self="1">I had it right</button><button class="pill" type="button" data-self="0">I missed it</button></div>';
+            why.innerHTML = "<strong>Answer:</strong> " + inline(ansText) + (q.why ? "<br>" + inline(q.why) : "") + '<div class="selfmark"><button class="ctl-btn" type="button" data-self="1">I had it right</button><button class="ctl-btn" type="button" data-self="0">I missed it</button></div>';
             why.hidden = false;
             Array.prototype.forEach.call(why.querySelectorAll("[data-self]"), function (b) {
               b.addEventListener("click", function () {
@@ -607,32 +2924,99 @@ main { max-width: 44rem; margin: 0 auto; padding-block: 1.25rem 4rem;
         }
       });
       this.disabled = true;
+      if (retryBtn) retryBtn.hidden = false;
       function finish() {
         var s = score; for (var k in self) if (self[k]) s++;
+        lastScore = s;
         var res = document.getElementById("result"), waiting = open - Object.keys(self).length;
         res.hidden = false;
-        res.textContent = "Score: " + s + " of " + total + (waiting > 0 ? " so far. Mark the typed answers above." : s === total ? ". Excellent." : s >= total - 1 ? ". Good. Re-read the ones you missed." : ". Read today’s idea once more, then try the audio again.");
+        res.innerHTML = "<span><strong>Score: " + s + " of " + total + "</strong>" + (waiting > 0 ? " so far. Mark the typed answers above." : s === total ? " · Excellent mastery." : s >= total - 1 ? " · Good work. Re-read the one you missed." : " · Read today’s idea once more, then try the audio again.") + "</span>";
         if (waiting <= 0) { mark(n, { quiz: { score: s, total: total, at: new Date().toISOString() }, done: (local.days[n] || {}).done || new Date().toISOString() }); renderSteps(); }
       }
       finish();
     });
+
+    if (retryBtn) {
+      retryBtn.addEventListener("click", function () {
+        picked = {}; self = {}; lastScore = null;
+        checkBtn.disabled = false;
+        retryBtn.hidden = true;
+        Array.prototype.forEach.call(quiz.querySelectorAll(".q"), function (qEl) {
+          qEl.removeAttribute("data-checked");
+          Array.prototype.forEach.call(qEl.querySelectorAll(".opt"), function (o) {
+            o.classList.remove("sel", "right", "wrong");
+            o.disabled = false;
+          });
+          var inp = qEl.querySelector("input");
+          if (inp) { inp.disabled = false; inp.value = ""; }
+          var why = qEl.querySelector(".why");
+          if (why) { why.hidden = true; why.innerHTML = ""; }
+        });
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        var lines = ["Sanskritam Daily · Day " + n + " (" + (l.title || topicOf(n)) + ") Quiz Answers:"];
+        l.quiz.forEach(function (q, i) {
+          if (q.options && q.options.length) {
+            var pIdx = picked[i];
+            var letter = pIdx != null ? String.fromCharCode(97 + pIdx) : "–";
+            var optText = pIdx != null && q.options[pIdx] ? q.options[pIdx] : "unanswered";
+            lines.push((i + 1) + ". " + letter + ") " + optText);
+          } else {
+            var inp = document.getElementById("q" + n + "-" + i);
+            lines.push((i + 1) + ". " + (inp && inp.value.trim() ? inp.value.trim() : "unanswered"));
+          }
+        });
+        var stNow = state(n);
+        if (lastScore != null) lines.push("Self-check score: " + lastScore + "/" + l.quiz.length);
+        else if (stNow.quiz) lines.push("Self-check score: " + stNow.quiz.score + "/" + stNow.quiz.total);
+        var text = lines.join("\n");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            if (copyNote) copyNote.textContent = "✓ Copied to clipboard! Paste into your Sanskrit Day chat.";
+          }).catch(function () {
+            if (copyNote) copyNote.textContent = text;
+          });
+        } else if (copyNote) {
+          copyNote.textContent = text;
+        }
+      });
+    }
   }
 
   // ---------- router ----------
   var teacherLoaded = loadTeacher();
   function route() {
-    var m = /^#day-(\d{1,3})$/.exec(location.hash || "");
+    var h = location.hash || "#home";
+    var m = /^#day-(\d{1,3})$/.exec(h);
     if (m) {
       var n = +m[1];
       app.innerHTML = '<nav class="crumbs"><a href="#home">‹ Course</a></nav><div class="empty">Loading Day ' + n + "…</div>";
-      Promise.all([teacherLoaded, loadLatest()]).then(function () { return loadLesson(n); }).then(function (l) { renderLesson(n, l); updateChip(); }).catch(function () {
-        app.innerHTML = '<nav class="crumbs"><a href="#home">‹ Course</a></nav><div class="empty">Day ' + n + " isn’t published yet. " + (n >= 2 ? "It is due on " + fmt(dayDate(n), true) + " at " + LESSON_TIME + "." : "") + "</div>";
+      Promise.all([teacherLoaded, loadLatest()]).then(function () { return loadLesson(n); }).then(function (l) { renderLesson(n, l); updateHeaderStatus(); }).catch(function () {
+        setActiveNav("lesson");
+        app.innerHTML = '<nav class="crumbs"><a href="#home">‹ Course Syllabus</a></nav><div class="empty"><strong>Day ' + n + " (" + esc(topicOf(n)) + ") isn’t published yet.</strong><br>" + (n >= 2 ? "It is scheduled for " + fmt(dayDate(n), true) + " at " + LESSON_TIME + "." : "") + '<div class="btn-row" style="margin-top:.8rem"><a class="btn" href="#day-1">Open Day 1</a><a class="btn secondary" href="#varnamala">Study Varṇamālā Sounds</a></div></div>';
+      });
+    } else if (h === "#varnamala") {
+      Promise.all([teacherLoaded, loadLatest()]).then(function () {
+        renderVarnamala();
+        updateHeaderStatus();
+      });
+    } else if (h === "#words") {
+      Promise.all([teacherLoaded, loadLatest()]).then(function (r) {
+        var has = r[1] || 1, loads = [];
+        for (var d = 1; d <= has; d++) loads.push(loadLesson(d).catch(function () { return null; }));
+        return Promise.all(loads);
+      }).then(function () {
+        renderWordsView();
+        updateHeaderStatus();
       });
     } else {
       Promise.all([teacherLoaded, loadLatest()]).then(function (r) {
-        var has = r[1], show = Math.min(todayDay(), has || 0);
+        var has = r[1], show = Math.min(Math.max(1, todayDay()), has || 0);
         return show >= 1 ? loadLesson(show).catch(function () { return null; }) : null;
-      }).then(function () { renderHome(); updateChip(); }).catch(function () { renderHome(); });
+      }).then(function () { renderHome(); updateHeaderStatus(); }).catch(function () { renderHome(); });
     }
   }
   window.addEventListener("hashchange", route);
