@@ -1,0 +1,53 @@
+{"day": 13, "date": "2026-11-10", "title": "Stage 0 gate test", "stage": "Stage 0 - Sounds and script", "review": true,
+ "video": {"title": "Number of alphabets in Samskritam", "url": "https://www.youtube.com/watch?v=GBIGS4ogtTE", "channel": "Tattvam", "language": "English", "minutes": 5, "focus": "How the letters are grouped and counted: the vowels, the consonants, and the two add-on sounds (anusvara and visarga)."},
+ "recap": "Your Day 12 answers didn't come in, so here's a quick warm-up on Gita 2.47. W1: split कर्मण्येवाधिकारस्ते into 4 words. W2: in मा फलेषु, does मा mean (a) always (b) not, never (c) mother? W3: roughly translate मा फलेषु कदाचन.",
+ "idea": [
+  "Today is the **gate test** for Stage 0, the end of the sounds-and-script part of the course. If you score 8 out of 10, you're ready for Stage 1 (sentences and grammar). If you score less, that's fine: we go back over the weak spots first.",
+  "Video note: different books count the letters differently, and that's normal. Two things to remember: क्ष त्र ज्ञ, which Hindi charts add at the end, are **conjuncts** (two consonants joined), not extra letters. And अं अः are not vowels.",
+  "## Read-aloud checklist",
+  "Read each line aloud with the audio. Tick it off if you can do it without looking.",
+  "- All 13 vowels, holding the long ones (आ ई ऊ ॠ ए ऐ ओ औ) for two beats",
+  "- Final अ is spoken: राम is rāma, not 'Ram'",
+  "- Anusvara ं turns into the nasal of the next consonant's row: संस्कृतम् = sa**n**skṛtam",
+  "- Visarga ः at a pause gives a soft h plus an echo of the vowel: रामः = rāmaha",
+  "- Aspirated vs plain: क/ख, त/थ, प/फ",
+  "- Retroflex ट-row (tongue curled back) vs dental त-row (tongue on the teeth)",
+  "- श, ष and स are three different sounds; व is a soft v/w",
+  "- ज्ञ = j + ñ (jñ), क्ष = k + ṣ (kṣ)",
+  "- Heavy syllables (long vowel, or a vowel followed by ं, ः or two consonants) get two beats",
+  "## Transliteration both ways",
+  "Cover one side and write the other: कृष्णः = kṛṣṇaḥ, ज्ञानम् = jñānam, शान्तिः = śāntiḥ."
+ ],
+ "examples": [
+  {"dev": "संस्कृतम्", "iast": "saṃskṛtam", "meaning": "Sanskrit (literally, 'refined')"},
+  {"dev": "ज्ञानम्", "iast": "jñānam", "meaning": "knowledge"},
+  {"dev": "क्षेत्रम्", "iast": "kṣetram", "meaning": "field"},
+  {"dev": "दुःखम्", "iast": "duḥkham", "meaning": "sorrow, pain"},
+  {"dev": "विष्णुः", "iast": "viṣṇuḥ", "meaning": "Vishnu"},
+  {"dev": "शान्तिः", "iast": "śāntiḥ", "meaning": "peace"}
+ ],
+ "sayAloud": [
+  {"dev": "ॐ सह नाववतु।", "iast": "oṃ saha nāvavatu", "meaning": "Om, may (He) protect us both."},
+  {"dev": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।", "iast": "karmaṇy evādhikāras te mā phaleṣu kadācana", "meaning": "Your right is to action alone, never to its fruits. (Gita 2.47)"},
+  {"dev": "सत्यमेव जयते।", "iast": "satyam eva jayate", "meaning": "Truth alone wins."}
+ ],
+ "words": [
+  {"dev": "गुरुः", "iast": "guruḥ", "meaning": "teacher"},
+  {"dev": "शिष्यः", "iast": "śiṣyaḥ", "meaning": "student, disciple"},
+  {"dev": "विद्या", "iast": "vidyā", "meaning": "learning, knowledge"},
+  {"dev": "अक्षरम्", "iast": "akṣaram", "meaning": "syllable, letter (also 'imperishable')"},
+  {"dev": "ध्वनिः", "iast": "dhvaniḥ", "meaning": "sound (a masculine noun)"}
+ ],
+ "quiz": [
+  {"q": "How many vowels does Sanskrit have?", "options": ["11", "13", "16"], "answer": "b", "why": "अ आ इ ई उ ऊ ऋ ॠ ऌ ए ऐ ओ औ. अं and अः are not vowels."},
+  {"q": "Write कृष्णः in IAST (with diacritics).", "answer": "kṛṣṇaḥ", "accept": ["kṛṣṇaḥ"], "why": "ऋ = ṛ, ष = ṣ, ण = ṇ, visarga = ḥ."},
+  {"q": "Write jñānam in Devanagari.", "answer": "ज्ञानम्", "accept": ["ज्ञानम्"], "why": "jñ is the conjunct ज्ञ; the final m takes a virama: म्."},
+  {"q": "In शङ्खः, which row does ङ् belong to?", "options": ["क-row (throat)", "च-row (palate)", "त-row (teeth)"], "answer": "a", "why": "ङ is the nasal of the क-row, so it comes before ख."},
+  {"q": "Which letter is retroflex (said with the tongue curled back)?", "options": ["त", "ट", "थ"], "answer": "b", "why": "ट is from the ट-row (retroflex); त and थ are dental."},
+  {"q": "What sounds make up क्ष?", "options": ["k + ś", "k + ṣ", "k + s"], "answer": "b", "why": "क्ष = क् + ष, so it is kṣa."},
+  {"q": "How is the visarga in रामः said at the end of a sentence?", "options": ["It is silent", "A soft h with an echo of the vowel: rāmaha", "As s: rāmas"], "answer": "b", "why": "At a pause the visarga is a breathy h that echoes the vowel before it."},
+  {"q": "In कर्म (kar-ma), the first syllable is:", "options": ["light (laghu)", "heavy (guru)"], "answer": "b", "why": "Its vowel is followed by two consonants (r + m), so it is heavy."},
+  {"q": "Join with sandhi: नमः + ते = ?", "answer": "नमस्ते", "accept": ["namaste", "नमस्ते"], "why": "Visarga before त becomes स्: नमस्ते."},
+  {"q": "In सोऽहम्, what does ऽ (avagraha) show?", "options": ["a long vowel", "a dropped अ: सः + अहम्", "a pause for breath"], "answer": "b", "why": "सः + अहम् → सो + (अ)हम्; the avagraha marks the missing अ."}
+ ],
+ "audio": "audio/day-013.mp3"}
