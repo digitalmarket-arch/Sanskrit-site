@@ -1,0 +1,55 @@
+{"day": 14, "date": "2026-11-11", "title": "First sentences: he, she, this, who", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "सः, सा, एषः, एषा शब्दों का प्रयोग चित्र सहित", "url": "https://www.youtube.com/watch?v=UkqrTeA-hpI", "channel": "अमृतं संस्कृतम्", "language": "Hindi", "minutes": 12, "focus": "When to use सः/सा (he, she: 'that one') and एषः/एषा (this one, near you), and how each picture becomes a sentence."},
+ "recap": "Your Day 13 gate-test answers didn't come in, so start with this warm-up. W1: Write कृष्णः in IAST. W2: Which sounds make up क्ष? (a) k+ś (b) k+ṣ (c) k+s. W3: Join नमः + ते.",
+ "idea": [
+  "Welcome to **Stage 1**. Today you make your first real Sanskrit sentences.",
+  "## The verb",
+  "A **verb** (क्रिया) is an action word. Each verb comes from a **root** (धातु), the bare core of the word: पठ् means 'read'. Add the ending **-ति** and you get पठति, '(he/she) reads' or 'is reading'. The ending -ति means: one person or thing, not you, not me (grammar calls this the **third person singular**), in the **present tense** (now).",
+  "- पठति paṭhati - reads",
+  "- लिखति likhati - writes",
+  "- गच्छति gacchati - goes",
+  "- खादति khādati - eats",
+  "- वदति vadati - speaks, says",
+  "**Big difference from Hindi:** the Sanskrit verb does not change for male or female. Hindi says वह पढ़ता है / वह पढ़ती है, but Sanskrit says सः पठति and सा पठति, both with पठति. There is also no separate 'है': पठति already means 'reads' / 'is reading'.",
+  "## He, she, this",
+  "- सः saḥ - he, that one (masculine)",
+  "- सा sā - she, that one (feminine)",
+  "- एषः eṣaḥ - this one (masculine, near you)",
+  "- एषा eṣā - this one (feminine, near you)",
+  "Hindi वह and यह don't show gender. Sanskrit does: सः/एषः for a male (or a masculine word), सा/एषा for a female (or a feminine word).",
+  "## Who? What?",
+  "- कः kaḥ - who? (asking about a male)",
+  "- का kā - who? (asking about a female)",
+  "- किम् kim - what?",
+  "The answer replaces the question word: कः पठति? → सः पठति।",
+  "The verb usually goes at the end, as in Hindi, but Sanskrit word order is free.",
+  "Looking ahead: in the Gita you'll see स गच्छति (no ः). That's a sandhi rule we'll learn later. For now, write सः पठति as school textbooks do."
+ ],
+ "examples": [
+  {"dev": "सः पठति।", "iast": "saḥ paṭhati", "meaning": "He reads."},
+  {"dev": "सा लिखति।", "iast": "sā likhati", "meaning": "She writes."},
+  {"dev": "एषः बालकः गच्छति।", "iast": "eṣaḥ bālakaḥ gacchati", "meaning": "This boy goes."},
+  {"dev": "एषा बालिका वदति।", "iast": "eṣā bālikā vadati", "meaning": "This girl speaks."},
+  {"dev": "कः खादति? सः खादति।", "iast": "kaḥ khādati? saḥ khādati", "meaning": "Who is eating? He is eating."},
+  {"dev": "का पठति? एषा पठति।", "iast": "kā paṭhati? eṣā paṭhati", "meaning": "Who (female) is reading? This one (she) is reading."}
+ ],
+ "sayAloud": [
+  {"dev": "कः गच्छति? सः गच्छति।", "iast": "kaḥ gacchati? saḥ gacchati", "meaning": "Who goes? He goes."},
+  {"dev": "सा किं खादति?", "iast": "sā kiṃ khādati?", "meaning": "What does she eat? (किम् becomes किं before a consonant: the anusvara from Day 2)"},
+  {"dev": "अद्य माता पठति।", "iast": "adya mātā paṭhati", "meaning": "Today Mother is reading. Your turn: make one sentence about someone at home today, e.g. अद्य सः गच्छति।"}
+ ],
+ "words": [
+  {"dev": "बालकः", "iast": "bālakaḥ", "meaning": "boy"},
+  {"dev": "बालिका", "iast": "bālikā", "meaning": "girl"},
+  {"dev": "माता", "iast": "mātā", "meaning": "mother"},
+  {"dev": "फलम्", "iast": "phalam", "meaning": "fruit"},
+  {"dev": "अद्य", "iast": "adya", "meaning": "today"}
+ ],
+ "quiz": [
+  {"q": "How do you say 'She writes'?", "options": ["सः लिखति", "सा लिखति", "सा लिखती"], "answer": "b", "why": "सा = she, and the verb stays लिखति for both genders (लिखती is a Hindi-style mistake)."},
+  {"q": "Fill in the blank: ___ पठति? सः पठति। (Who is reading? He is reading.)", "answer": "कः", "accept": ["kaḥ", "kah", "कः"], "why": "The answer is about a male (सः), so the question uses कः."},
+  {"q": "What does एषा mean?", "options": ["this one (masculine)", "this one (feminine)", "who? (feminine)"], "answer": "b", "why": "एषः is 'this' for a male, एषा for a female; का is 'who?' for a female."},
+  {"q": "Translate into Sanskrit: This boy goes.", "answer": "एषः बालकः गच्छति", "accept": ["एषः बालकः गच्छति।", "एष बालको गच्छति", "एष बालको गच्छति।", "eṣaḥ bālakaḥ gacchati", "esah balakah gacchati"], "why": "एषः (this, masc.) + बालकः (boy) + गच्छति (goes)."},
+  {"q": "In सा किं खादति?, what does किम् (किं) mean?", "options": ["who", "what", "where"], "answer": "b", "why": "किम् = what. Who is कः/का."}
+ ],
+ "audio": "audio/day-014.mp3"}
