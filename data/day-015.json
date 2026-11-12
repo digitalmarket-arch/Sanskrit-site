@@ -1,0 +1,49 @@
+{"day": 15, "date": "2026-11-12", "title": "I and you: -mi and -si; my name is ...", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "मम परिचयः संस्कृत में", "url": "https://www.youtube.com/watch?v=3Ww5c_j7fgk", "channel": "पठत संस्कृतम्", "language": "Hindi", "minutes": 9, "focus": "Listen for मम नाम ... (my name is ...) and how each self-introduction sentence is built."},
+ "recap": "Your Day 14 quiz answers didn't come in, so start with this warm-up. W1: Say 'He writes' in Sanskrit. W2: Which is right: सा पठती or सा पठति? W3: Fill in कः or का: ___ वदति? सा वदति।",
+ "idea": [
+  "Yesterday every verb ended in **-ति** (he/she reads). Today you talk about **yourself** and **the person in front of you**.",
+  "## Three 'persons'",
+  "Grammar sorts speakers into three **persons** (पुरुष): **1st person** = the speaker (I), **2nd person** = the one spoken to (you), **3rd person** = anyone else (he, she, it). Careful: Sanskrit grammar books name them the other way round: उत्तम पुरुष = I, मध्यम पुरुष = you, प्रथम पुरुष = he/she.",
+  "## The endings",
+  "- अहम् ahám → **-आमि**: पठामि paṭhāmi - I read",
+  "- त्वम् tvam → **-सि**: पठसि paṭhasi - you read",
+  "- सः / सा → **-ति**: पठति paṭhati - he/she reads",
+  "Notice the **long ā** before -मि: पठ + मि becomes पठामि, not पठमि. So गच्छामि, लिखामि, वदामि, खादामि.",
+  "**Hindi trap:** Hindi needs हूँ / हो (मैं पढ़ता हूँ, तुम पढ़ते हो) and changes for male/female. Sanskrit needs neither: पठामि alone means 'I read / I am reading', for a man or a woman.",
+  "Because the ending already shows the person, अहम् and त्वम् can be dropped: पठामि। = I read.",
+  "## My and your",
+  "- मम mama - my",
+  "- तव tava - your",
+  "**मम नाम रमेशः।** = My name is Ramesh. No word for 'is' is needed. **तव नाम किम्?** = What is your name?",
+  "Before a consonant, the final म् is written as anusvara (Day 2): अहम् → अहं पठामि, त्वम् → त्वं लिखसि.",
+  "The video may add अस्मि ('am') or अस्ति ('is'). Both are correct; Sanskrit just often leaves them out. For strangers and elders, spoken Sanskrit prefers the polite भवान्/भवती (Day 32)."
+ ],
+ "examples": [
+  {"dev": "अहं पठामि।", "iast": "ahaṃ paṭhāmi", "meaning": "I read."},
+  {"dev": "त्वं लिखसि।", "iast": "tvaṃ likhasi", "meaning": "You write."},
+  {"dev": "अहं फलं खादामि।", "iast": "ahaṃ phalaṃ khādāmi", "meaning": "I eat a fruit."},
+  {"dev": "त्वं किं वदसि?", "iast": "tvaṃ kiṃ vadasi?", "meaning": "What are you saying?"},
+  {"dev": "मम नाम रमेशः।", "iast": "mama nāma rameśaḥ", "meaning": "My name is Ramesh."},
+  {"dev": "तव नाम किम्?", "iast": "tava nāma kim?", "meaning": "What is your name?"}
+ ],
+ "sayAloud": [
+  {"dev": "नमस्ते। मम नाम ___।", "iast": "namaste. mama nāma ___", "meaning": "Hello. My name is ___ (say your own name)."},
+  {"dev": "त्वं किं पठसि? अहं संस्कृतं पठामि।", "iast": "tvaṃ kiṃ paṭhasi? ahaṃ saṃskṛtaṃ paṭhāmi", "meaning": "What do you study? I study Sanskrit."},
+  {"dev": "अद्य अहं कार्यालयं गच्छामि।", "iast": "adya ahaṃ kāryālayaṃ gacchāmi", "meaning": "Today I go to the office. Your turn: one sentence about your own day, e.g. अद्य अहं गृहं गच्छामि।"}
+ ],
+ "words": [
+  {"dev": "नाम", "iast": "nāma", "meaning": "name"},
+  {"dev": "छात्रः", "iast": "chātraḥ", "meaning": "student (male); छात्रा chātrā for a female student"},
+  {"dev": "मित्रम्", "iast": "mitram", "meaning": "friend"},
+  {"dev": "गृहम्", "iast": "gṛham", "meaning": "house, home (not घर)"},
+  {"dev": "संस्कृतम्", "iast": "saṃskṛtam", "meaning": "Sanskrit (the language)"}
+ ],
+ "quiz": [
+  {"q": "How do you say 'I write'?", "options": ["अहं लिखति", "अहं लिखामि", "अहं लिखसि"], "answer": "b", "why": "अहम् (I) takes -आमि: लिखामि. -ति is for he/she, -सि for you."},
+  {"q": "Fill in the blank: त्वं ___। (You read.)", "answer": "पठसि", "accept": ["पठसि।", "paṭhasi", "pathasi"], "why": "त्वम् (you) takes -सि: पठसि."},
+  {"q": "What does तव mean?", "options": ["my", "your", "you"], "answer": "b", "why": "तव = your; मम = my; त्वम् = you."},
+  {"q": "Translate into Sanskrit: My name is Gita.", "answer": "मम नाम गीता", "accept": ["मम नाम गीता।", "mama nāma gītā", "mama nama gita"], "why": "मम (my) + नाम (name) + गीता. No word for 'is' is needed."},
+  {"q": "गच्छामि on its own (with no अहम्) means:", "options": ["I go", "you go", "he goes"], "answer": "a", "why": "The ending -आमि already says 'I', so अहम् can be left out."}
+ ],
+ "audio": "audio/day-015.mp3"}
