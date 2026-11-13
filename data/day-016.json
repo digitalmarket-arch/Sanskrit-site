@@ -1,0 +1,53 @@
+{"day": 16, "date": "2026-11-13", "title": "All 9 present forms of पठ्; we two, you all, they", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "लकार और पठ् धातु रूप - एक सरल समझ", "url": "https://www.youtube.com/watch?v=nV--J6eRrx4", "channel": "SunitaChaurasiya", "language": "Hindi", "minutes": 17, "focus": "Watch for the 3 x 3 grid of पठ् forms in लट् लकार (present tense) and say each row along with her."},
+ "recap": "Your Day 15 quiz answers didn't come in, so start with this warm-up. W1: Say 'I go' in Sanskrit. W2: Which is right: त्वं पठामि or त्वं पठसि? W3: Translate: What is your name?",
+ "idea": [
+  "So far you have three forms: पठति (he reads), पठसि (you read), पठामि (I read). All of them are about **one** person. Today you add **two** and **many**.",
+  "## Number (वचन)",
+  "**Number** (वचन vacana) tells how many people do the action. Sanskrit has three:",
+  "- एकवचन ekavacana - singular: one",
+  "- द्विवचन dvivacana - dual: exactly two",
+  "- बहुवचन bahuvacana - plural: three or more",
+  "**Hindi has no dual.** Hindi says वे दो पढ़ते हैं with the plural. Sanskrit has a separate form just for two: तौ पठतः।",
+  "## The 9 forms of पठ् (present tense)",
+  "Read each row as one - two - many:",
+  "- **he/she:** पठति - पठतः - पठन्ति",
+  "- **you:** पठसि - पठथः - पठथ",
+  "- **I/we:** पठामि - पठावः - पठामः",
+  "Notice: the **I/we** row always has a long **ā** (पठा-). The dual endings are -तः, -थः, -वः; most plurals end in -न्ति, -थ, -मः.",
+  "## The pronouns that go with them",
+  "- सः sa (he) - तौ tau (those two) - ते te (they)",
+  "- त्वम् tvam (you) - युवाम् yuvām (you two) - यूयम् yūyam (you all)",
+  "- अहम् aham (I) - आवाम् āvām (we two) - वयम् vayam (we)",
+  "For women: सा - ते - ताः. Yes, ते again: for two women it is ते, for many men it is also ते. The verb shows which: ते पठतः (two) vs ते पठन्ति (many).",
+  "Every verb from Day 14 works the same way: गच्छति - गच्छतः - गच्छन्ति, वदामि - वदावः - वदामः.",
+  "The video calls this table लट् लकार. A **lakāra** is one of Sanskrit's ten tense/mood sets; लट् is the present. You'll meet the others later, so don't worry if the video names more."
+ ],
+ "examples": [
+  {"dev": "तौ पठतः।", "iast": "tau paṭhataḥ", "meaning": "Those two read."},
+  {"dev": "ते पठन्ति।", "iast": "te paṭhanti", "meaning": "They (3 or more men) read."},
+  {"dev": "आवां पठावः।", "iast": "āvāṃ paṭhāvaḥ", "meaning": "We two read."},
+  {"dev": "वयं संस्कृतं पठामः।", "iast": "vayaṃ saṃskṛtaṃ paṭhāmaḥ", "meaning": "We study Sanskrit."},
+  {"dev": "युवां किं पठथः?", "iast": "yuvāṃ kiṃ paṭhathaḥ?", "meaning": "What are you two reading?"},
+  {"dev": "यूयं गच्छथ।", "iast": "yūyaṃ gacchatha", "meaning": "You all go."}
+ ],
+ "sayAloud": [
+  {"dev": "वयं गृहं गच्छामः।", "iast": "vayaṃ gṛhaṃ gacchāmaḥ", "meaning": "We go home."},
+  {"dev": "ते बालकाः धावन्ति।", "iast": "te bālakāḥ dhāvanti", "meaning": "Those boys run. (बालकाः = boys, plural of बालकः; more on Day 17)"},
+  {"dev": "अद्य अहं पुस्तकं पठामि।", "iast": "adya ahaṃ pustakaṃ paṭhāmi", "meaning": "Today I read a book. Your turn: one sentence about your own day, e.g. अद्य वयं गृहं गच्छामः।"}
+ ],
+ "words": [
+  {"dev": "पुस्तकम्", "iast": "pustakam", "meaning": "book"},
+  {"dev": "विद्यालयः", "iast": "vidyālayaḥ", "meaning": "school"},
+  {"dev": "पिता", "iast": "pitā", "meaning": "father"},
+  {"dev": "धावति", "iast": "dhāvati", "meaning": "runs"},
+  {"dev": "हसति", "iast": "hasati", "meaning": "laughs"}
+ ],
+ "quiz": [
+  {"q": "How do you say 'We (three or more) read'?", "options": ["वयं पठावः", "वयं पठामः", "वयं पठन्ति"], "answer": "b", "why": "वयम् (we, many) takes -आमः: पठामः. पठावः is for two; पठन्ति is 'they'."},
+  {"q": "Fill in the blank: ते ___। (They read.)", "answer": "पठन्ति", "accept": ["पठन्ति।", "paṭhanti", "pathanti"], "why": "ते (they, many) takes -न्ति: पठन्ति."},
+  {"q": "What does आवाम् mean?", "options": ["we two", "you two", "those two"], "answer": "a", "why": "आवाम् = we two; युवाम् = you two; तौ = those two."},
+  {"q": "Which verb form goes with युवाम्?", "options": ["पठथः", "पठथ", "पठतः"], "answer": "a", "why": "युवाम् (you two) takes the dual -थः. पठथ is 'you all'; पठतः is 'those two'."},
+  {"q": "Translate into Sanskrit: You all go.", "answer": "यूयं गच्छथ", "accept": ["यूयं गच्छथ।", "यूयम् गच्छथ", "गच्छथ", "yūyaṃ gacchatha", "yuyam gacchatha", "yūyam gacchatha"], "why": "यूयम् (you all) + गच्छथ. Before a consonant, यूयम् is written यूयं."}
+ ],
+ "audio": "audio/day-016.mp3"}
