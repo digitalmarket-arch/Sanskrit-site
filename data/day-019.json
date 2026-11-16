@@ -1,0 +1,51 @@
+{"day": 19, "date": "2026-11-16", "title": "Question words; अस्ति/नास्ति; आम्/न", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "किम्? कुत्र? कति? कदा? कुतः? कथम्? किमर्थम्?", "url": "https://www.youtube.com/watch?v=lerLbtT-g4c", "channel": "आदर्शसंस्कृतम्", "language": "Sanskrit and Hindi", "minutes": 4, "focus": "Pause after each question word and say its Hindi meaning out loud before the video does."},
+ "recap": "Your Day 18 quiz answers didn't come in, and the Day 17 and 18 lessons never reached this site, so here is a warm-up from Day 16. W1: Say 'We (three or more) read'. W2: Which goes with युवाम्: पठथः or पठथ? W3: Translate: They (many) run.",
+ "idea": [
+  "Today you learn to **ask** questions. Most Sanskrit question words start with **क-**, just as most Hindi ones do (कब, कहाँ, कैसे, कितने).",
+  "## The question words",
+  "- कुत्र kutra - where? (Hindi: कहाँ)",
+  "- कदा kadā - when? (कब)",
+  "- कथम् katham - how? (कैसे)",
+  "- किमर्थम् kimartham - why? literally 'for what purpose' (क्यों)",
+  "- कति kati - how many? (कितने)",
+  "- किम् kim - what? (Day 14). At the start of a sentence it also turns a statement into a yes/no question: किं त्वं पठसि? = Do you read? (क्या तुम पढ़ते हो?)",
+  "कुत्र, कदा, कथम् and किमर्थम् are **indeclinables** (अव्यय avyaya): words that never change their form, whatever the gender or number. कति is always plural.",
+  "A question word can stand anywhere; most often it comes before the verb: पिता कुत्र अस्ति?",
+  "## is / is not",
+  "- अस्ति asti - is, there is (है)",
+  "- नास्ति nāsti - is not, there is no (नहीं है). It is न + अस्ति joined: the two a's merge into ā. You'll learn this joining (sandhi) properly on Day 46.",
+  "## yes / no",
+  "- आम् ām - yes (हाँ)",
+  "- न na - no, not (नहीं). Put it just before the verb: अहं न गच्छामि = I don't go.",
+  "**Sound tip:** Hindi speech drops the final a (कब, कहाँ). In Sanskrit say every vowel: ku-tra, ka-dā, ka-tham. And remember: before a consonant, final म् is written ं: कथं वदति, किमर्थं धावति.",
+  "The video also uses कुतः (from where?). Keep it in mind; you'll use it with the 5th case on Day 23."
+ ],
+ "examples": [
+  {"dev": "पिता कुत्र अस्ति?", "iast": "pitā kutra asti?", "meaning": "Where is father?"},
+  {"dev": "त्वं कदा गच्छसि?", "iast": "tvaṃ kadā gacchasi?", "meaning": "When do you go?"},
+  {"dev": "सः कथं वदति?", "iast": "saḥ kathaṃ vadati?", "meaning": "How does he speak?"},
+  {"dev": "सः किमर्थं धावति?", "iast": "saḥ kimarthaṃ dhāvati?", "meaning": "Why does he run?"},
+  {"dev": "कति बालकाः पठन्ति?", "iast": "kati bālakāḥ paṭhanti?", "meaning": "How many boys are reading?"},
+  {"dev": "जलम् अत्र नास्ति।", "iast": "jalam atra nāsti", "meaning": "There is no water here."}
+ ],
+ "sayAloud": [
+  {"dev": "अहं कुत्र गच्छामि? अहं विद्यालयं गच्छामि।", "iast": "ahaṃ kutra gacchāmi? ahaṃ vidyālayaṃ gacchāmi", "meaning": "Where am I going? I am going to school."},
+  {"dev": "किं पुस्तकम् अत्र अस्ति? आम्, अस्ति।", "iast": "kiṃ pustakam atra asti? ām, asti", "meaning": "Is the book here? Yes, it is."},
+  {"dev": "अद्य अहं संस्कृतं पठामि।", "iast": "adya ahaṃ saṃskṛtaṃ paṭhāmi", "meaning": "Today I study Sanskrit. Your turn: one sentence about your own day, then ask yourself a question about it with कुत्र or कदा."}
+ ],
+ "words": [
+  {"dev": "अत्र", "iast": "atra", "meaning": "here"},
+  {"dev": "तत्र", "iast": "tatra", "meaning": "there"},
+  {"dev": "मित्रम्", "iast": "mitram", "meaning": "friend (neuter in Sanskrit)"},
+  {"dev": "जलम्", "iast": "jalam", "meaning": "water"},
+  {"dev": "श्वः", "iast": "śvaḥ", "meaning": "tomorrow"}
+ ],
+ "quiz": [
+  {"q": "Which word means 'when?'", "options": ["कुत्र", "कदा", "कथम्"], "answer": "b", "why": "कदा = when (कब). कुत्र = where; कथम् = how."},
+  {"q": "Which sentence means 'There is no book here'?", "options": ["पुस्तकम् अत्र नास्ति।", "पुस्तकम् अत्र अस्ति।", "पुस्तकं कुत्र अस्ति?"], "answer": "a", "why": "नास्ति = न + अस्ति, 'is not'. (b) says the book IS here; (c) asks where it is."},
+  {"q": "Fill in the blank: त्वं ___ गच्छसि? (Where are you going?)", "answer": "कुत्र", "accept": ["kutra"], "why": "कुत्र = where (कहाँ)."},
+  {"q": "What does किमर्थम् mean?", "options": ["how", "how many", "why"], "answer": "c", "why": "किमर्थम् = 'for what purpose', i.e. why (क्यों). How = कथम्; how many = कति."},
+  {"q": "Translate into Sanskrit: Where is the water?", "answer": "जलं कुत्र अस्ति?", "accept": ["जलं कुत्र अस्ति", "जलम् कुत्र अस्ति", "जलम् कुत्र अस्ति?", "कुत्र जलम् अस्ति", "कुत्र जलम् अस्ति?", "जलं कुत्र", "jalaṃ kutra asti", "jalam kutra asti", "jalam kutra asti?", "jalaṃ kutra asti?"], "why": "जलम् (water) + कुत्र (where) + अस्ति (is). Before क, जलम् is written जलं."}
+ ],
+ "audio": "audio/day-019.mp3"}
