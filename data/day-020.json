@@ -1,0 +1,62 @@
+{"day": 20, "date": "2026-11-17", "title": "Review + speaking task: talk about yourself", "stage": "Stage 1 - Foundations", "review": true,
+ "video": {"title": "संस्कृत भाषा प्रवेश: स्व-परिचय", "url": "https://www.youtube.com/watch?v=ZeVSd6RD-Ic", "channel": "Saral Sanskrit Shikshanam", "language": "Hindi", "minutes": 5, "focus": "Listen for how each sentence about oneself is built: who (अहम्), what, and a verb ending in -आमि. Pause and repeat each line."},
+ "recap": "Your Day 19 quiz answers didn't come in, so here's a warm-up first. W1: Say 'Where is the book?' W2: What does नास्ति mean? W3: Which word means 'how?': कदा, कथम् or कति? (Answers: पुस्तकं कुत्र अस्ति? / is not, there is no / कथम्.) Also: Days 17 and 18 (cases; neuter nouns like फलम्) never reached this site. If you missed them, reply 'teach 17' and we'll do them next.",
+ "idea": [
+  "Today is a **review day**: no new grammar. We pull together Days 14-19 so you can talk about yourself in 10 short sentences.",
+  "## The 9 verb forms (present tense of पठ्)",
+  "A verb's **person** says who does it (he/she, you, I); its **number** says how many: one (singular), two (dual) or three-plus (plural). Hindi has no dual; Sanskrit does.",
+  "- he/she: पठति, those two: पठतः, they: पठन्ति",
+  "- you: पठसि, you two: पठथः, you all: पठथ",
+  "- I: पठामि, we two: पठावः, we all: पठामः",
+  "Every verb you know works the same way: गच्छामि, खादसि, वदन्ति, धावथः, हसावः.",
+  "## Pronouns and question words",
+  "- सः/सा he/she; एषः/एषा this one (m/f); कः/का who? (m/f); किम् what?",
+  "- अहम् I, त्वम् you; मम my, तव your",
+  "- कुत्र where, कदा when, कथम् how, किमर्थम् why, कति how many",
+  "- अस्ति is, नास्ति is not; आम् yes, न no/not",
+  "## New today: अस्मि and असि",
+  "अस्ति (is) has partners: **अहं ... अस्मि** = I am, **त्वं ... असि** = you are. So: अहं छात्रः अस्मि = मैं छात्र हूँ.",
+  "Careful writers join छात्रः + अस्मि into छात्रोऽस्मि (sound-joining, sandhi, Day 53). In simple modern Sanskrit, writing them apart is fine.",
+  "Video note: the speaker may say the final a the Hindi way (नाम as 'naam'). Say nā-ma, with the final a.",
+  "## Speaking task: 10 sentences about yourself",
+  "Write 10 sentences, then read them aloud twice. Use these models; change the words to fit you:",
+  "- 1 नमस्ते। मम नाम ___।",
+  "- 2 अहं छात्रः अस्मि। (a woman says छात्रा)",
+  "- 3 अहं संस्कृतं पठामि।",
+  "- 4 अहं प्रतिदिनं पठामि।",
+  "- 5 अहं कार्यालयं गच्छामि।",
+  "- 6 मम माता ___ । (what does she do? पठति, वदति, हसति ...)",
+  "- 7 मम पिता ___ ।",
+  "- 8 मम मित्रम् अत्र नास्ति।",
+  "- 9 अद्य अहं ___ खादामि।",
+  "- 10 किं त्वं संस्कृतं पठसि? आम्!",
+  "Send your 10 sentences with your quiz answers and I'll correct every one."
+ ],
+ "examples": [
+  {"dev": "तव नाम किम्? मम नाम सीता।", "iast": "tava nāma kim? mama nāma sītā.", "meaning": "What is your name? My name is Sita."},
+  {"dev": "का हसति? एषा बालिका हसति।", "iast": "kā hasati? eṣā bālikā hasati.", "meaning": "Who (female) is laughing? This girl is laughing."},
+  {"dev": "ते बालकाः धावन्ति।", "iast": "te bālakāḥ dhāvanti.", "meaning": "Those boys run."},
+  {"dev": "युवां किं पठथः?", "iast": "yuvāṃ kiṃ paṭhathaḥ?", "meaning": "What are you two reading?"},
+  {"dev": "मम पिता अत्र नास्ति।", "iast": "mama pitā atra nāsti.", "meaning": "My father is not here."},
+  {"dev": "वयम् अद्य गृहं गच्छामः।", "iast": "vayam adya gṛhaṃ gacchāmaḥ.", "meaning": "We are going home today."}
+ ],
+ "sayAloud": [
+  {"dev": "अहं छात्रः अस्मि। अहं प्रतिदिनं संस्कृतं पठामि।", "iast": "ahaṃ chātraḥ asmi. ahaṃ pratidinaṃ saṃskṛtaṃ paṭhāmi.", "meaning": "I am a student. I study Sanskrit every day."},
+  {"dev": "त्वं कुत्र गच्छसि? अहं कार्यालयं गच्छामि।", "iast": "tvaṃ kutra gacchasi? ahaṃ kāryālayaṃ gacchāmi.", "meaning": "Where are you going? I am going to the office."},
+  {"dev": "अद्य अहं ___ ।", "iast": "adya ahaṃ ___ .", "meaning": "Your own day: one sentence, e.g. अद्य अहं भोजनं खादामि। (Today I eat a meal.)"}
+ ],
+ "words": [
+  {"dev": "अस्मि", "iast": "asmi", "meaning": "(I) am - अहं ... अस्मि"},
+  {"dev": "असि", "iast": "asi", "meaning": "(you) are - त्वं ... असि"},
+  {"dev": "प्रतिदिनम्", "iast": "pratidinam", "meaning": "every day (never changes form)"},
+  {"dev": "भोजनम्", "iast": "bhojanam", "meaning": "food, meal (neuter)"},
+  {"dev": "नगरम्", "iast": "nagaram", "meaning": "city, town (neuter)"}
+ ],
+ "quiz": [
+  {"q": "Which verb form goes with आवाम् (we two)?", "options": ["गच्छामः", "गच्छावः", "गच्छथः"], "answer": "b", "why": "आवाम् (we two) takes the dual -आवः. गच्छामः is 'we all'; गच्छथः is 'you two'."},
+  {"q": "Fill in the blank: अहं छात्रा ___। (I am a student.)", "answer": "अस्मि", "accept": ["asmi", "अस्मि।"], "why": "With अहम् (I), 'am' is अस्मि. अस्ति is for he/she/it; असि for you."},
+  {"q": "What does का पठति? mean?", "options": ["Who (male) is reading?", "Who (female) is reading?", "What is she reading?"], "answer": "b", "why": "का = who, for a female; कः = who, for a male; किम् = what."},
+  {"q": "Which sentence means 'Why are you laughing?'", "options": ["त्वं कथं हससि?", "त्वं किमर्थं हससि?", "त्वं कदा हससि?"], "answer": "b", "why": "किमर्थम् = why (क्यों). कथम् = how; कदा = when."},
+  {"q": "Translate into Sanskrit: My father is not here.", "answer": "मम पिता अत्र नास्ति।", "accept": ["मम पिता अत्र नास्ति", "पिता मम अत्र नास्ति", "मम पिता नास्ति अत्र", "मम पिता अत्र न अस्ति", "mama pitā atra nāsti", "mama pita atra nasti"], "why": "मम (my) + पिता (father) + अत्र (here) + नास्ति (is not)."}
+ ],
+ "audio": "audio/day-020.mp3"}
