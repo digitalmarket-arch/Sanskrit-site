@@ -1,0 +1,45 @@
+{"day": 21, "date": "2026-11-18", "title": "3rd case: 'by means of' and 'with'", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "तृतीया विभक्ति", "url": "https://www.youtube.com/watch?v=8YGVzR-mrzU", "channel": "Mamta Ojha", "language": "Hindi", "minutes": 6, "focus": "Listen for the main idea: तृतीया = 'by means of / with' (करण), and सह ('together with') takes तृतीया. Note the -एन ending."},
+ "recap": "Your Day 20 answers (quiz and 10 sentences) didn't come in, so here's a warm-up first. W1: Say 'I am a student.' W2: Which verb goes with वयम् (we all): पठामः, पठावः or पठथ? W3: Translate: 'Do you read Sanskrit?' Your 10 sentences are still welcome; send them any time.",
+ "idea": [
+  "A **case (विभक्ति, vibhakti)** is an ending on a noun that shows its job in the sentence. Hindi puts a small word after the noun (ने, को, से, का); Sanskrit changes the noun's ending instead. Sanskrit has 7 cases; today is the 3rd, **तृतीया (tṛtīyā)**.",
+  "## Use 1: the tool, 'by means of'",
+  "The 3rd case marks the thing you use to do something. Hindi: हाथ **से** लिखता है. Sanskrit: **हस्तेन** लिखति.",
+  "## The endings for -a nouns (masculine and neuter)",
+  "- one (singular): -एन → हस्तेन, बालकेन, फलेन",
+  "- two (dual): -आभ्याम् → हस्ताभ्याम्",
+  "- three or more (plural): -ऐः → हस्तैः, मित्रैः",
+  "**Sound note:** when र, ऋ or ष comes earlier in the word, the न usually becomes ण: रामेण, मित्रेण, पुत्रेण (but हस्तेन, बालकेन). The exact rule comes later.",
+  "## Use 2: सह, 'together with'",
+  "सह (saha) = के साथ. The person you are with goes in the 3rd case: **मित्रेण सह** गच्छति = दोस्त के साथ जाता है.",
+  "**Careful:** Hindi से means both 'with' and 'from'. Sanskrit splits them: 'with / by' is the 3rd case; 'from' is the 5th case (Day 23).",
+  "**Video note:** the video uses exam terms (करण कारक, उपपद विभक्ति). You don't need to memorise them. If it says तृतीया marks the doer, that is only in passive sentences (Day 51)."
+ ],
+ "examples": [
+  {"dev": "सः हस्तेन लिखति।", "iast": "saḥ hastena likhati.", "meaning": "He writes with his hand."},
+  {"dev": "बालकः कन्दुकेन क्रीडति।", "iast": "bālakaḥ kandukena krīḍati.", "meaning": "The boy plays with a ball."},
+  {"dev": "अहं चमसेन खादामि।", "iast": "ahaṃ camasena khādāmi.", "meaning": "I eat with a spoon."},
+  {"dev": "पिता यानेन कार्यालयं गच्छति।", "iast": "pitā yānena kāryālayaṃ gacchati.", "meaning": "Father goes to the office by vehicle."},
+  {"dev": "वयं नेत्राभ्यां पश्यामः।", "iast": "vayaṃ netrābhyāṃ paśyāmaḥ.", "meaning": "We see with (our two) eyes."},
+  {"dev": "रामः मित्रैः सह गच्छति।", "iast": "rāmaḥ mitraiḥ saha gacchati.", "meaning": "Rama goes with (his) friends."}
+ ],
+ "sayAloud": [
+  {"dev": "अहं हस्तेन लिखामि।", "iast": "ahaṃ hastena likhāmi.", "meaning": "I write with my hand."},
+  {"dev": "अहं मित्रेण सह संस्कृतं वदामि।", "iast": "ahaṃ mitreṇa saha saṃskṛtaṃ vadāmi.", "meaning": "I speak Sanskrit with a friend."},
+  {"dev": "अद्य अहं मित्रेण सह भोजनं खादामि।", "iast": "adya ahaṃ mitreṇa saha bhojanaṃ khādāmi.", "meaning": "Today I eat a meal with a friend. (Your day: swap मित्रेण for who you ate with.)"}
+ ],
+ "words": [
+  {"dev": "हस्तः", "iast": "hastaḥ", "meaning": "hand (m)"},
+  {"dev": "नेत्रम्", "iast": "netram", "meaning": "eye (n)"},
+  {"dev": "यानम्", "iast": "yānam", "meaning": "vehicle (n)"},
+  {"dev": "चमसः", "iast": "camasaḥ", "meaning": "spoon (m)"},
+  {"dev": "सह", "iast": "saha", "meaning": "together with (+ 3rd case)"}
+ ],
+ "quiz": [
+  {"q": "What is the 3rd case singular of बालकः?", "options": ["बालकम्", "बालकेन", "बालकस्य"], "answer": "b", "why": "-a nouns take -एन in the 3rd case singular. बालकम् is the 2nd case; बालकस्य is the 6th."},
+  {"q": "Which sentence means 'Rama goes with (his) friends'?", "options": ["रामः मित्राणि सह गच्छति।", "रामः मित्रैः सह गच्छति।", "रामः मित्रः सह गच्छति।"], "answer": "b", "why": "सह needs the 3rd case; the plural 3rd case of मित्र is मित्रैः."},
+  {"q": "Fill in the blank with हस्त: सः ___ लिखति। (He writes with his hand.)", "answer": "हस्तेन", "accept": ["hastena", "हस्तेन।"], "why": "The tool you write with goes in the 3rd case: हस्तेन."},
+  {"q": "Why is it मित्रेण but हस्तेन?", "options": ["Because र comes earlier in मित्र, so न becomes ण", "Because मित्र is neuter", "Because of the word सह"], "answer": "a", "why": "र, ऋ or ष earlier in the word usually turns a later न into ण (रामेण, मित्रेण)."},
+  {"q": "Translate into Sanskrit: I eat with a spoon.", "answer": "अहं चमसेन खादामि।", "accept": ["अहं चमसेन खादामि", "अहम् चमसेन खादामि", "अहम् चमसेन खादामि।", "चमसेन खादामि", "चमसेन खादामि।", "ahaṃ camasena khādāmi", "aham camasena khadami", "ahaṃ camasena khādāmi."], "why": "अहम् (I) + चमसेन (with a spoon, 3rd case) + खादामि (I eat)."}
+ ],
+ "audio": "audio/day-021.mp3"}
