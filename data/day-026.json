@@ -1,0 +1,51 @@
+{"day": 26, "date": "2026-11-23", "title": "The full राम table: all 24 forms", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "राम शब्द रूप सातों विभक्ति में हिंदी अर्थ के साथ", "url": "https://www.youtube.com/watch?v=dbiYoT0X5pw", "channel": "Pragya Mohan Vlog", "language": "Hindi", "minutes": 9, "focus": "Chant along with each row (singular, dual, plural) and notice which forms repeat in different rows."},
+ "recap": "Your Day 25 quiz answers didn't come in, so here's a warm-up first. W1: Say 'in the house' (गृह). W2: What is the plural of वृक्षे ('on the tree')? W3: How do you call out to Rama? (Lessons 22-25 aren't on the site yet; if you missed them, reply 'repeat Day 22'.)",
+ "idea": [
+  "A **noun table (शब्दरूप, śabdarūpa)** lists every form of one noun: 7 cases + the vocative (calling form, सम्बोधन), each in singular, dual and plural = **24 forms**. राम is the model for every masculine noun ending in -a (बालक, देव, वृक्ष ...). Learn this one table and you know hundreds of nouns.",
+  "## The table (singular · dual · plural)",
+  "- 1st (subject): रामः · रामौ · रामाः",
+  "- 2nd (object): रामम् · रामौ · रामान्",
+  "- 3rd (with, by): रामेण · रामाभ्याम् · रामैः",
+  "- 4th (to, for): रामाय · रामाभ्याम् · रामेभ्यः",
+  "- 5th (from): रामात् · रामाभ्याम् · रामेभ्यः",
+  "- 6th (of): रामस्य · रामयोः · रामाणाम्",
+  "- 7th (in, on): रामे · रामयोः · रामेषु",
+  "- Vocative (O ...!): हे राम · हे रामौ · हे रामाः",
+  "## Shortcuts: forms that repeat",
+  "- रामौ = 1st and 2nd dual (and vocative)",
+  "- रामाभ्याम् = 3rd, 4th and 5th dual",
+  "- रामेभ्यः = 4th and 5th plural",
+  "- रामयोः = 6th and 7th dual",
+  "So the context tells you which case is meant, just as Hindi को can mean 'to' or mark the object.",
+  "**Sound note:** ण in रामेण and रामाणाम् comes from the र earlier in the word (Day 21 rule). बालक has no र, so बालकेन, बालकानाम्.",
+  "**Video note:** Hindi meanings like 'राम ने' for the 1st case are a Hindi habit; in Sanskrit the 1st case is simply the subject (रामः गच्छति = राम जाता है), and ने has no Sanskrit equivalent."
+ ],
+ "examples": [
+  {"dev": "रामः वनं गच्छति।", "iast": "rāmaḥ vanaṃ gacchati.", "meaning": "Rama goes to the forest. (1st, 2nd)"},
+  {"dev": "सीता रामेण सह वनं गच्छति।", "iast": "sītā rāmeṇa saha vanaṃ gacchati.", "meaning": "Sita goes to the forest with Rama. (3rd)"},
+  {"dev": "रामाय नमः।", "iast": "rāmāya namaḥ.", "meaning": "Salutation to Rama. (4th)"},
+  {"dev": "अहं ग्रामात् नगरं गच्छामि।", "iast": "ahaṃ grāmāt nagaraṃ gacchāmi.", "meaning": "I go from the village to the city. (5th)"},
+  {"dev": "रामस्य मित्राणि ग्रामे वसन्ति।", "iast": "rāmasya mitrāṇi grāme vasanti.", "meaning": "Rama's friends live in the village. (6th, 7th)"},
+  {"dev": "हे राम, त्वं कुत्र असि?", "iast": "he rāma, tvaṃ kutra asi?", "meaning": "O Rama, where are you? (vocative)"}
+ ],
+ "sayAloud": [
+  {"dev": "रामः रामौ रामाः", "iast": "rāmaḥ rāmau rāmāḥ", "meaning": "Row 1: chant the whole table like this, row by row."},
+  {"dev": "रामस्य रामयोः रामाणाम्", "iast": "rāmasya rāmayoḥ rāmāṇām", "meaning": "Row 6: the trickiest row."},
+  {"dev": "अद्य अहं गृहे संस्कृतं पठामि।", "iast": "adya ahaṃ gṛhe saṃskṛtaṃ paṭhāmi.", "meaning": "Today I study Sanskrit at home. (Your day: swap गृहे for where you studied.)"}
+ ],
+ "words": [
+  {"dev": "ग्रामः", "iast": "grāmaḥ", "meaning": "village (m)"},
+  {"dev": "वनम्", "iast": "vanam", "meaning": "forest (n)"},
+  {"dev": "जनः", "iast": "janaḥ", "meaning": "person; जनाः = people (m)"},
+  {"dev": "बाणः", "iast": "bāṇaḥ", "meaning": "arrow (m)"},
+  {"dev": "वसति", "iast": "vasati", "meaning": "lives, stays (वस्)"}
+ ],
+ "quiz": [
+  {"q": "What is the 6th case plural of राम ('of the Ramas')?", "options": ["रामाणाम्", "रामेषु", "रामेभ्यः"], "answer": "a", "why": "6th plural ends in -आनाम्; र earlier in the word turns न into ण: रामाणाम्. रामेषु is 7th plural; रामेभ्यः is 4th/5th plural."},
+  {"q": "रामेभ्यः can be which two cases?", "options": ["3rd and 4th plural", "4th and 5th plural", "5th and 6th plural"], "answer": "b", "why": "-एभ्यः is shared by the 4th and 5th plural. 3rd plural is रामैः; 6th plural is रामाणाम्."},
+  {"q": "Fill in the blank: सीता ___ सह वनं गच्छति। (Sita goes to the forest with Rama.)", "answer": "रामेण", "accept": ["rāmeṇa", "ramena", "रामेण।"], "why": "सह takes the 3rd case: रामेण."},
+  {"q": "रामयोः is the dual of which cases?", "options": ["1st and 2nd", "3rd and 4th", "6th and 7th"], "answer": "c", "why": "-अयोः is shared by the 6th and 7th dual. 1st/2nd dual is रामौ; 3rd/4th/5th dual is रामाभ्याम्."},
+  {"q": "Translate into Sanskrit: I go from the village to the city.", "answer": "अहं ग्रामात् नगरं गच्छामि।", "accept": ["अहं ग्रामात् नगरं गच्छामि", "अहम् ग्रामात् नगरम् गच्छामि", "अहम् ग्रामात् नगरम् गच्छामि।", "ग्रामात् नगरं गच्छामि", "ग्रामात् नगरं गच्छामि।", "अहं ग्रामात् नगरम् गच्छामि।", "ahaṃ grāmāt nagaraṃ gacchāmi", "aham gramat nagaram gacchami"], "why": "ग्रामात् = from the village (5th), नगरम् = to the city (2nd, the goal), गच्छामि = I go."}
+ ],
+ "audio": "audio/day-026.mp3"}
