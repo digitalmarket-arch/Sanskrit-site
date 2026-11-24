@@ -1,0 +1,54 @@
+{"day": 27, "date": "2026-11-24", "title": "Review: the 7 cases", "stage": "Stage 1 - Foundations", "review": true,
+ "video": {"title": "सप्तविभक्तयः: विभक्तियों के अर्थ, उदाहरण", "url": "https://www.youtube.com/watch?v=NJJ-yfRAMVI", "channel": "Shibus Sanskrit", "language": "Hindi", "minutes": 12, "focus": "For each case, note its job and one example sentence; pause and say the example aloud."},
+ "recap": "Your Day 26 quiz answers didn't come in, so here's a warm-up first. W1: What is the 3rd case plural of राम? W2: रामाभ्याम् can be which three cases? W3: Say 'Rama's friends live in the village.'",
+ "idea": [
+  "Today is a **review day**: no new grammar. A **case (विभक्ति, vibhakti)** is the ending that shows a noun's job in the sentence. Here are all of them on one screen, with the Hindi word that usually matches.",
+  "## The cases at a glance (singular of बालक)",
+  "- 1st प्रथमा, subject: **बालकः** पठति (बालक पढ़ता है)",
+  "- 2nd द्वितीया, object or 'to' a place: बालकः **पुस्तकम्** पठति; **ग्रामम्** गच्छति (को / -)",
+  "- 3rd तृतीया, 'with, by means of'; also with सह: **हस्तेन**, **मित्रेण** सह (से, के साथ)",
+  "- 4th चतुर्थी, 'to, for': **बालकाय** फलं ददाति; **देवाय** नमः (को, के लिए)",
+  "- 5th पञ्चमी, 'from' (moving away): **वृक्षात्** पत्रं पतति (से)",
+  "- 6th षष्ठी, 'of': **बालकस्य** पुस्तकम् (का, की, के)",
+  "- 7th सप्तमी, 'in, on, at': **ग्रामे**, **वृक्षे** (में, पर)",
+  "- Vocative सम्बोधन, calling: **हे बालक** (हे)",
+  "## Two Hindi traps",
+  "- Hindi **से** splits into two Sanskrit cases: 'with/by' = 3rd (हस्तेन), 'from' = 5th (वृक्षात्).",
+  "- Hindi **को** also splits: the object = 2nd (बालकं पश्यति), 'to/for' a person you give to = 4th (बालकाय ददाति).",
+  "**Video note:** if the video gives 'ने' for the 1st case, that's a Hindi habit; Sanskrit has no ने. The 1st case is simply the subject.",
+  "## Translation task: 5 sentences",
+  "Translate into Sanskrit and send them with your quiz answers as T1-T5:",
+  "- T1: The farmer goes to the field.",
+  "- T2: A flower falls from the tree.",
+  "- T3: The father gives fruit to the boy.",
+  "- T4: The boy eats fruit with a spoon.",
+  "- T5: O Rama, the people live in the village."
+ ],
+ "examples": [
+  {"dev": "बालकः पुस्तकं पठति।", "iast": "bālakaḥ pustakaṃ paṭhati.", "meaning": "The boy reads a book. (1st, 2nd)"},
+  {"dev": "छात्रः हस्तेन लिखति।", "iast": "chātraḥ hastena likhati.", "meaning": "The student writes by hand. (3rd)"},
+  {"dev": "देवाय नमः।", "iast": "devāya namaḥ.", "meaning": "Salutation to God. (4th)"},
+  {"dev": "वृक्षात् पत्रं पतति।", "iast": "vṛkṣāt patraṃ patati.", "meaning": "A leaf falls from the tree. (5th)"},
+  {"dev": "कृषकस्य क्षेत्रं ग्रामे अस्ति।", "iast": "kṛṣakasya kṣetraṃ grāme asti.", "meaning": "The farmer's field is in the village. (6th, 7th)"},
+  {"dev": "हे मित्र, अद्य आकाशे सूर्यः नास्ति।", "iast": "he mitra, adya ākāśe sūryaḥ nāsti.", "meaning": "O friend, there is no sun in the sky today. (vocative, 7th)"}
+ ],
+ "sayAloud": [
+  {"dev": "बालकः बालकम् बालकेन बालकाय बालकात् बालकस्य बालके हे बालक", "iast": "bālakaḥ bālakam bālakena bālakāya bālakāt bālakasya bālake he bālaka", "meaning": "All the singular cases of बालक in order. Chant it three times."},
+  {"dev": "अद्य अहं मित्रेण सह ग्रामं गच्छामि।", "iast": "adya ahaṃ mitreṇa saha grāmaṃ gacchāmi.", "meaning": "Today I go to the village with a friend. (Your day: swap in your own place and person.)"}
+ ],
+ "words": [
+  {"dev": "कृषकः", "iast": "kṛṣakaḥ", "meaning": "farmer (m)"},
+  {"dev": "क्षेत्रम्", "iast": "kṣetram", "meaning": "field (n); also in Gita 1.1 धर्मक्षेत्रे"},
+  {"dev": "पुष्पम्", "iast": "puṣpam", "meaning": "flower (n)"},
+  {"dev": "सूर्यः", "iast": "sūryaḥ", "meaning": "sun (m)"},
+  {"dev": "आकाशः", "iast": "ākāśaḥ", "meaning": "sky (m)"}
+ ],
+ "quiz": [
+  {"q": "Hindi से can match which two Sanskrit cases?", "options": ["2nd and 4th", "3rd and 5th", "6th and 7th"], "answer": "b", "why": "'with/by' = 3rd (हस्तेन); 'from' = 5th (वृक्षात्)."},
+  {"q": "In रामाय नमः, which case is रामाय?", "options": ["4th", "6th", "7th"], "answer": "a", "why": "-आय is the 4th case singular ('to, for'); नमः takes the 4th case."},
+  {"q": "Choose the right word: बालकः ___ लिखति। (The boy writes with his hand.)", "options": ["हस्तेन", "हस्तम्", "हस्तस्य"], "answer": "a", "why": "The tool you use takes the 3rd case: हस्तेन."},
+  {"q": "Which form means 'the boys' as the object (2nd case plural)?", "options": ["बालकाः", "बालकानाम्", "बालकान्"], "answer": "c", "why": "2nd plural ends in -आन्: बालकान्. बालकाः is 1st plural; बालकानाम् is 6th plural."},
+  {"q": "Fill in the 6th case of मित्र: ___ पुस्तकम् (the friend's book)", "answer": "मित्रस्य", "accept": ["mitrasya", "मित्रस्य।"], "why": "6th case singular ends in -अस्य: मित्रस्य."}
+ ],
+ "extra": "The audio is a computer voice, so also copy a human reciter (Sanskrit Sangam, NCERT audio).",
+ "audio": "audio/day-027.mp3"}
