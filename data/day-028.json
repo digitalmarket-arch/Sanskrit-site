@@ -1,0 +1,49 @@
+{"day": 28, "date": "2026-11-25", "title": "Feminine -ā nouns (लता, बालिका), singular", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "लता शब्द (आकारान्त स्त्रीलिङ्ग) अर्थ सहित", "url": "https://www.youtube.com/watch?v=Z-cajt-PVks", "channel": "Hansraj Mahawar", "language": "Hindi", "minutes": 4, "focus": "Watch only the singular (एकवचन) column today, and notice that the 5th and 6th forms are the same: लतायाः."},
+ "recap": "Day 27's quiz answers didn't come. Warm-up: (W1) Which case is हस्तेन? (W2) Say 'from the tree'. (W3) Say 'in the house'.",
+ "idea": [
+  "Sanskrit nouns have three genders: masculine (पुंलिङ्ग), feminine (स्त्रीलिङ्ग) and neuter (नपुंसकलिङ्ग). So far you learned masculine -a nouns (रामः) and neuter -a nouns (फलम्).",
+  "Today: **feminine nouns ending in long ā** (आकारान्त स्त्रीलिङ्ग), like लता (creeper) and बालिका (girl). Unlike रामः, the 1st case has no visarga: just लता.",
+  "## लता - singular",
+  "- 1st (subject): लता",
+  "- 2nd (object): लताम्",
+  "- 3rd (with/by): लतया",
+  "- 4th (to/for): लतायै",
+  "- 5th (from): लतायाः",
+  "- 6th (of): लतायाः",
+  "- 7th (in/on): लतायाम्",
+  "- Address: हे लते",
+  "Note the 5th and 6th are the same form; the sentence tells you which is meant. The address form ends in -e: हे लते, हे बालिके. Some Hindi charts print हे लता; the correct Sanskrit is हे लते.",
+  "## Agreement (matching)",
+  "A pronoun must match its noun's gender: सः बालकः but **सा बालिका**; एषः → **एषा**; कः → **का**.",
+  "Hindi comparison: in Hindi the verb changes for a girl (लड़की पढ़ती है vs लड़का पढ़ता है). In the Sanskrit present tense the verb does **not** change: सः पठति, सा पठति.",
+  "Sound reminder: म् before a consonant is usually written as anusvara: मालाम् + पश्यति → मालां पश्यति."
+ ],
+ "examples": [
+  {"dev": "सा बालिका पठति।", "iast": "sā bālikā paṭhati", "meaning": "That girl reads. (1st)"},
+  {"dev": "छात्रा मालां पश्यति।", "iast": "chātrā mālāṃ paśyati", "meaning": "The (female) student sees the garland. (2nd)"},
+  {"dev": "छात्रा शिक्षिकया सह गच्छति।", "iast": "chātrā śikṣikayā saha gacchati", "meaning": "The student goes with the (female) teacher. (3rd)"},
+  {"dev": "रमा बालिकायै फलं ददाति।", "iast": "ramā bālikāyai phalaṃ dadāti", "meaning": "Ramā gives a fruit to the girl. (4th)"},
+  {"dev": "बालिकायाः पुस्तकम्", "iast": "bālikāyāḥ pustakam", "meaning": "the girl's book (6th)"},
+  {"dev": "बालिका शालायां पठति।", "iast": "bālikā śālāyāṃ paṭhati", "meaning": "The girl studies in the school. (7th)"}
+ ],
+ "sayAloud": [
+  {"dev": "हे बालिके, त्वं कुत्र गच्छसि?", "iast": "he bālike, tvaṃ kutra gacchasi?", "meaning": "O girl, where are you going?"},
+  {"dev": "सा छात्रा शालायां पठति।", "iast": "sā chātrā śālāyāṃ paṭhati", "meaning": "That student studies in the school."},
+  {"dev": "अहं गृहे पुस्तकं पठामि।", "iast": "ahaṃ gṛhe pustakaṃ paṭhāmi", "meaning": "I read a book at home. (about your day)"}
+ ],
+ "words": [
+  {"dev": "लता", "iast": "latā", "meaning": "creeper, vine (f)"},
+  {"dev": "बालिका", "iast": "bālikā", "meaning": "girl (f)"},
+  {"dev": "माला", "iast": "mālā", "meaning": "garland (f)"},
+  {"dev": "शाला", "iast": "śālā", "meaning": "hall, school (f); पाठशाला = school"},
+  {"dev": "छात्रा", "iast": "chātrā", "meaning": "female student (f)"}
+ ],
+ "quiz": [
+  {"q": "Which is the 7th case (in/on) singular of लता?", "options": ["लतया", "लतायाम्", "लतायै"], "answer": "b", "why": "7th singular of -ā feminine ends in -आयाम्: लतायाम्. लतया is 3rd, लतायै is 4th."},
+  {"q": "Choose the right pronoun: ___ बालिका लिखति।", "options": ["सः", "सा", "तत्"], "answer": "b", "why": "बालिका is feminine, so the pronoun is सा. सः is masculine, तत् is neuter."},
+  {"q": "बालिकायाः can stand for which two cases?", "options": ["3rd and 4th", "5th and 6th", "1st and 2nd"], "answer": "b", "why": "For -ā feminine nouns, 5th (from) and 6th (of) singular are both -आयाः."},
+  {"q": "Fill in 'to the girl': रमा ___ फलं ददाति।", "answer": "बालिकायै", "accept": ["bālikāyai", "balikayai", "bālikāyai."], "why": "4th case singular of -ā feminine ends in -आयै: बालिकायै."},
+  {"q": "How do you call out 'O girl!' in Sanskrit? (Type the noun form)", "answer": "बालिके", "accept": ["हे बालिके", "bālike", "he bālike", "balike", "he balike"], "why": "The address form of -ā feminine nouns ends in -e: हे बालिके."}
+ ],
+ "audio": "audio/day-028.mp3"}
