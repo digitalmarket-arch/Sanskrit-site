@@ -1,0 +1,50 @@
+{"day": 29, "date": "2026-11-26", "title": "Feminine -ā nouns: dual and plural", "stage": "Stage 1 - Foundations", "review": false,
+ "video": {"title": "आकारान्त स्त्रीलिंग शब्दरूप: बालिका, लता, रमा", "url": "https://www.youtube.com/watch?v=YkCCZvMqQ2M", "channel": "अमृतं संस्कृतम्", "language": "Hindi", "minutes": 11, "focus": "Now watch the dual (द्विवचन) and plural (बहुवचन) columns, and notice which forms repeat: लते, लताः and लताभ्याम्."},
+ "recap": "Day 28's quiz answers didn't come. Warm-up: (W1) 2nd case singular of लता? (W2) Say 'O girl!' (W3) Say 'the girl's book'.",
+ "idea": [
+  "Sanskrit has three numbers: singular (एकवचन, one), dual (द्विवचन, exactly two) and plural (बहुवचन, three or more). Hindi has no dual; Sanskrit always uses it for two.",
+  "## लता - singular, dual, plural",
+  "- 1st (subject): लता, लते, लताः",
+  "- 2nd (object): लताम्, लते, लताः",
+  "- 3rd (with/by): लतया, लताभ्याम्, लताभिः",
+  "- 4th (to/for): लतायै, लताभ्याम्, लताभ्यः",
+  "- 5th (from): लतायाः, लताभ्याम्, लताभ्यः",
+  "- 6th (of): लतायाः, लतयोः, लतानाम्",
+  "- 7th (in/on): लतायाम्, लतयोः, लतासु",
+  "- Address: हे लते, हे लते, हे लताः",
+  "**Shortcuts:** 1st and 2nd dual are both लते; 1st and 2nd plural are both लताः; लताभ्याम् covers 3rd, 4th and 5th dual; लतयोः covers 6th and 7th dual. Every -ā feminine noun (बालिका, माला, छात्रा) follows this same pattern.",
+  "## Agreement in two and many",
+  "- The pronoun सा becomes **ते** for two and **ताः** for many: ते बालिके, ताः बालिकाः.",
+  "- The verb follows the number: पठति (one), **पठतः** (two), **पठन्ति** (many).",
+  "- Two subjects joined by च take a dual verb: रामः सीता च गच्छतः.",
+  "Careful: ते is also the masculine plural (ते बालकाः). The noun tells you which is meant. In fully joined texts ताः बालिकाः is written ता बालिकाः (sound-joining); for now we write the words separately.",
+  "If the video calls the address form हे लता, the correct singular is हे लते."
+ ],
+ "examples": [
+  {"dev": "ते बालिके पठतः।", "iast": "te bālike paṭhataḥ", "meaning": "Those two girls read. (1st dual)"},
+  {"dev": "ताः बालिकाः गायन्ति।", "iast": "tāḥ bālikāḥ gāyanti", "meaning": "Those girls sing. (1st plural)"},
+  {"dev": "छात्राः मालाः पश्यन्ति।", "iast": "chātrāḥ mālāḥ paśyanti", "meaning": "The (female) students see the garlands. (2nd plural)"},
+  {"dev": "बालकाः बालिकाभिः सह क्रीडन्ति।", "iast": "bālakāḥ bālikābhiḥ saha krīḍanti", "meaning": "The boys play with the girls. (3rd plural)"},
+  {"dev": "लतानां पुष्पाणि सुन्दराणि।", "iast": "latānāṃ puṣpāṇi sundarāṇi", "meaning": "The flowers of the creepers are beautiful. (6th plural)"},
+  {"dev": "रामः सीता च वनं गच्छतः।", "iast": "rāmaḥ sītā ca vanaṃ gacchataḥ", "meaning": "Rāma and Sītā go to the forest. (dual verb)"}
+ ],
+ "sayAloud": [
+  {"dev": "ते छात्रे पठतः। ताः छात्राः लिखन्ति।", "iast": "te chātre paṭhataḥ. tāḥ chātrāḥ likhanti.", "meaning": "Those two students read. Those students write."},
+  {"dev": "बालिकाः लताः पश्यन्ति।", "iast": "bālikāḥ latāḥ paśyanti", "meaning": "The girls see the creepers."},
+  {"dev": "अद्य अहं गृहे संस्कृतं पठामि।", "iast": "adya ahaṃ gṛhe saṃskṛtaṃ paṭhāmi", "meaning": "Today I study Sanskrit at home. (about your day)"}
+ ],
+ "words": [
+  {"dev": "कथा", "iast": "kathā", "meaning": "story (f)"},
+  {"dev": "विद्या", "iast": "vidyā", "meaning": "knowledge, learning (f)"},
+  {"dev": "नौका", "iast": "naukā", "meaning": "boat (f)"},
+  {"dev": "कन्या", "iast": "kanyā", "meaning": "girl, daughter (f)"},
+  {"dev": "शिक्षिका", "iast": "śikṣikā", "meaning": "female teacher (f)"}
+ ],
+ "quiz": [
+  {"q": "What is the 1st case plural of बालिका ('girls')?", "options": ["बालिके", "बालिकाः", "बालिकाभिः"], "answer": "b", "why": "1st plural of -ā feminine nouns ends in -आः: बालिकाः. बालिके is dual, बालिकाभिः is 3rd plural."},
+  {"q": "'Those two girls read': ते बालिके ___", "options": ["पठति", "पठतः", "पठन्ति"], "answer": "b", "why": "Two subjects take the dual verb पठतः. पठति is for one, पठन्ति for three or more."},
+  {"q": "Which case and number is लतासु?", "options": ["3rd plural", "7th plural", "6th plural"], "answer": "b", "why": "-आसु is the 7th case plural: लतासु = on/among the creepers. 3rd plural is लताभिः, 6th plural is लतानाम्."},
+  {"q": "Fill in 'with the girls': बालकाः ___ सह क्रीडन्ति।", "answer": "बालिकाभिः", "accept": ["bālikābhiḥ", "balikabhih", "बालिकाभि:"], "why": "सह takes the 3rd case; 3rd plural of बालिका is बालिकाभिः."},
+  {"q": "Translate: 'The (female) students read stories.'", "answer": "छात्राः कथाः पठन्ति।", "accept": ["छात्राः कथाः पठन्ति", "छात्राः कथाः पठन्ति ।", "chātrāḥ kathāḥ paṭhanti", "chatrah kathah pathanti", "छात्रा कथाः पठन्ति।", "छात्रा कथाः पठन्ति", "ताः छात्राः कथाः पठन्ति।", "ताः छात्राः कथाः पठन्ति"], "why": "Subject छात्राः (1st plural), object कथाः (2nd plural, same form), verb पठन्ति (plural)."}
+ ],
+ "audio": "audio/day-029.mp3"}
